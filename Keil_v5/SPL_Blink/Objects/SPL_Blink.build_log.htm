@@ -1,0 +1,1465 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.38.0.0
+Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Artem Sparrow, NULL, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain Path:  C:\Keil_v5\ARM\ARMCC\Bin
+C Compiler:      Armcc.exe V5.06 update 7 (build 960)
+Assembler:       Armasm.exe V5.06 update 7 (build 960)
+Linker/Locator:  ArmLink.exe V5.06 update 7 (build 960)
+Library Manager: ArmAr.exe V5.06 update 7 (build 960)
+Hex Converter:   FromElf.exe V5.06 update 7 (build 960)
+CPU DLL:         SARMCM3.DLL V5.38.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
+Dialog DLL:      TCM.DLL V1.56.4.0
+ 
+<h2>Project:</h2>
+C:\GIT\Keil_v5\SPL_Blink\SPL_Blink.uvprojx
+Project File Date:  03/10/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V5.06 update 7 (build 960)', folder: 'C:\Keil_v5\ARM\ARMCC\Bin'
+Build target 'STM32F411RET6'
+compiling stm32f4xx_hash_sha1.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c(114): error:  #20: identifier "HASH_CR_DATATYPE_1" is undefined
+    SHA1_HASH_InitStructure.HASH_DataType = HASH_DataType_8b;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c(133): error:  #20: identifier "HASH_SR_BUSY" is undefined
+      busystatus = HASH_GetFlagStatus(HASH_FLAG_BUSY);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c(195): error:  #20: identifier "HASH_CR_MODE" is undefined
+    SHA1_HASH_InitStructure.HASH_AlgoMode = HASH_AlgoMode_HMAC;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c(196): error:  #20: identifier "HASH_CR_DATATYPE_1" is undefined
+    SHA1_HASH_InitStructure.HASH_DataType = HASH_DataType_8b;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c(200): error:  #20: identifier "HASH_CR_LKEY" is undefined
+      SHA1_HASH_InitStructure.HASH_HMACKeyType = HASH_HMACKeyType_LongKey;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c(225): error:  #20: identifier "HASH_SR_BUSY" is undefined
+      busystatus = HASH_GetFlagStatus(HASH_FLAG_BUSY);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c(253): error:  #20: identifier "HASH_SR_BUSY" is undefined
+        busystatus = HASH_GetFlagStatus(HASH_FLAG_BUSY);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c(281): error:  #20: identifier "HASH_SR_BUSY" is undefined
+          busystatus = HASH_GetFlagStatus(HASH_FLAG_BUSY);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_sha1.c: 0 warnings, 8 errors
+compiling stm32f4xx_hash_md5.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c(113): error:  #20: identifier "HASH_CR_ALGO_0" is undefined
+    MD5_HASH_InitStructure.HASH_AlgoSelection = HASH_AlgoSelection_MD5;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c(115): error:  #20: identifier "HASH_CR_DATATYPE_1" is undefined
+    MD5_HASH_InitStructure.HASH_DataType = HASH_DataType_8b;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c(134): error:  #20: identifier "HASH_SR_BUSY" is undefined
+      busystatus = HASH_GetFlagStatus(HASH_FLAG_BUSY);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c(193): error:  #20: identifier "HASH_CR_ALGO_0" is undefined
+    MD5_HASH_InitStructure.HASH_AlgoSelection = HASH_AlgoSelection_MD5;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c(194): error:  #20: identifier "HASH_CR_MODE" is undefined
+    MD5_HASH_InitStructure.HASH_AlgoMode = HASH_AlgoMode_HMAC;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c(195): error:  #20: identifier "HASH_CR_DATATYPE_1" is undefined
+    MD5_HASH_InitStructure.HASH_DataType = HASH_DataType_8b;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c(199): error:  #20: identifier "HASH_CR_LKEY" is undefined
+      MD5_HASH_InitStructure.HASH_HMACKeyType = HASH_HMACKeyType_LongKey;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c(224): error:  #20: identifier "HASH_SR_BUSY" is undefined
+      busystatus = HASH_GetFlagStatus(HASH_FLAG_BUSY);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c(251): error:  #20: identifier "HASH_SR_BUSY" is undefined
+         busystatus = HASH_GetFlagStatus(HASH_FLAG_BUSY);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c(279): error:  #20: identifier "HASH_SR_BUSY" is undefined
+            busystatus = HASH_GetFlagStatus(HASH_FLAG_BUSY);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash_md5.c: 0 warnings, 10 errors
+compiling stm32f4xx_flash.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(280): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FLASH_LATENCY(FLASH_Latency));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(295): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(317): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(338): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(478): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FLASH_SECTOR(FLASH_Sector));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(547): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_VOLTAGERANGE(VoltageRange));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(628): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_VOLTAGERANGE(VoltageRange));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(651): error:  #20: identifier "FLASH_CR_MER1" is undefined
+       FLASH->CR |= FLASH_CR_MER1;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(695): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_VOLTAGERANGE(VoltageRange));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(718): error:  #20: identifier "FLASH_CR_MER2" is undefined
+       FLASH->CR |= FLASH_CR_MER2;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(750): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FLASH_ADDRESS(Address));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(793): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FLASH_ADDRESS(Address));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(835): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FLASH_ADDRESS(Address));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(877): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FLASH_ADDRESS(Address));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1014): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_OB_WRP(OB_WRP));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1056): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_OB_WRP(OB_WRP));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1106): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_OB_PCROP_SELECT(OB_PcROP));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1136): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_OB_PCROP(OB_PCROP));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1173): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_OB_PCROP(OB_PCROP));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1209): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_OB_RDP(OB_RDP));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1242): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_OB_IWDG_SOURCE(OB_IWDG));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1280): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_OB_BOOT(OB_BOOT));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1283): error:  #20: identifier "FLASH_OPTCR_BFB2" is undefined
+    *(__IO uint8_t *)OPTCR_BYTE0_ADDRESS &= (~FLASH_OPTCR_BFB2);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1301): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_OB_BOR(OB_BOR));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1456): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FLASH_IT(FLASH_IT));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1489): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FLASH_GET_FLAG(FLASH_FLAG));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c(1519): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FLASH_CLEAR_FLAG(FLASH_FLAG));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_flash.c: 24 warnings, 3 errors
+compiling stm32f4xx_dma2d.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(137): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DMA2D_MODE(DMA2D_InitStruct->DMA2D_Mode));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(148): error:  #20: identifier "DMA2D" is undefined
+    DMA2D->CR &= (uint32_t)CR_MASK;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(152): error:  #20: identifier "DMA2D_OPFCCR_CM" is undefined
+    DMA2D->OPFCCR &= ~(uint32_t)DMA2D_OPFCCR_CM;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(202): error:  #20: identifier "DMA2D_OOR_LO" is undefined
+    DMA2D->OOR &= ~(uint32_t)DMA2D_OOR_LO;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(207): error:  #20: identifier "DMA2D_NLR_NL" is undefined
+    DMA2D->NLR &= ~(DMA2D_NLR_NL | DMA2D_NLR_PL);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(207): error:  #20: identifier "DMA2D_NLR_PL" is undefined
+    DMA2D->NLR &= ~(DMA2D_NLR_NL | DMA2D_NLR_PL);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(251): error:  #20: identifier "DMA2D" is undefined
+      DMA2D->CR |= (uint32_t)DMA2D_CR_START;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(251): error:  #20: identifier "DMA2D_CR_START" is undefined
+      DMA2D->CR |= (uint32_t)DMA2D_CR_START;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(263): error:  #20: identifier "DMA2D" is undefined
+      DMA2D->CR |= (uint32_t)DMA2D_CR_ABORT;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(263): error:  #20: identifier "DMA2D_CR_ABORT" is undefined
+      DMA2D->CR |= (uint32_t)DMA2D_CR_ABORT;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(276): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(281): error:  #20: identifier "DMA2D" is undefined
+      DMA2D->CR |= (uint32_t)DMA2D_CR_SUSP;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(281): error:  #20: identifier "DMA2D_CR_SUSP" is undefined
+      DMA2D->CR |= (uint32_t)DMA2D_CR_SUSP;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(286): error:  #20: identifier "DMA2D" is undefined
+      DMA2D->CR &= ~(uint32_t)DMA2D_CR_SUSP;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(286): error:  #20: identifier "DMA2D_CR_SUSP" is undefined
+      DMA2D->CR &= ~(uint32_t)DMA2D_CR_SUSP;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(308): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DMA2D_FGO(DMA2D_FG_InitStruct->DMA2D_FGO));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(319): error:  #20: identifier "DMA2D" is undefined
+    DMA2D->FGMAR = (DMA2D_FG_InitStruct->DMA2D_FGMA);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(322): error:  #20: identifier "DMA2D_FGOR_LO" is undefined
+    DMA2D->FGOR &= ~(uint32_t)DMA2D_FGOR_LO;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(335): error:  #20: identifier "DMA2D_FGCOLR_BLUE" is undefined
+    DMA2D->FGCOLR &= ~(DMA2D_FGCOLR_BLUE | DMA2D_FGCOLR_GREEN | DMA2D_FGCOLR_RED);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(335): error:  #20: identifier "DMA2D_FGCOLR_GREEN" is undefined
+    DMA2D->FGCOLR &= ~(DMA2D_FGCOLR_BLUE | DMA2D_FGCOLR_GREEN | DMA2D_FGCOLR_RED);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(335): error:  #20: identifier "DMA2D_FGCOLR_RED" is undefined
+    DMA2D->FGCOLR &= ~(DMA2D_FGCOLR_BLUE | DMA2D_FGCOLR_GREEN | DMA2D_FGCOLR_RED);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(405): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DMA2D_BGO(DMA2D_BG_InitStruct->DMA2D_BGO));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(416): error:  #20: identifier "DMA2D" is undefined
+    DMA2D->BGMAR = (DMA2D_BG_InitStruct->DMA2D_BGMA);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(419): error:  #20: identifier "DMA2D_BGOR_LO" is undefined
+    DMA2D->BGOR &= ~(uint32_t)DMA2D_BGOR_LO;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(432): error:  #20: identifier "DMA2D_BGCOLR_BLUE" is undefined
+    DMA2D->BGCOLR &= ~(DMA2D_BGCOLR_BLUE | DMA2D_BGCOLR_GREEN | DMA2D_BGCOLR_RED);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(432): error:  #20: identifier "DMA2D_BGCOLR_GREEN" is undefined
+    DMA2D->BGCOLR &= ~(DMA2D_BGCOLR_BLUE | DMA2D_BGCOLR_GREEN | DMA2D_BGCOLR_RED);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(432): error:  #20: identifier "DMA2D_BGCOLR_RED" is undefined
+    DMA2D->BGCOLR &= ~(DMA2D_BGCOLR_BLUE | DMA2D_BGCOLR_GREEN | DMA2D_BGCOLR_RED);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(494): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(499): error:  #20: identifier "DMA2D" is undefined
+      DMA2D->FGPFCCR |= DMA2D_FGPFCCR_START;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(499): error:  #20: identifier "DMA2D_FGPFCCR_START" is undefined
+      DMA2D->FGPFCCR |= DMA2D_FGPFCCR_START;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(504): error:  #20: identifier "DMA2D" is undefined
+      DMA2D->FGPFCCR &= (uint32_t)~DMA2D_FGPFCCR_START;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(504): error:  #20: identifier "DMA2D_FGPFCCR_START" is undefined
+      DMA2D->FGPFCCR &= (uint32_t)~DMA2D_FGPFCCR_START;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(518): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(523): error:  #20: identifier "DMA2D" is undefined
+      DMA2D->BGPFCCR |= DMA2D_BGPFCCR_START;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(523): error:  #20: identifier "DMA2D_BGPFCCR_START" is undefined
+      DMA2D->BGPFCCR |= DMA2D_BGPFCCR_START;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c(528): error:  #20: identifier "DMA2D" is undefined
+      DMA2D->BGPFCCR &= (uint32_t)~DMA2D_BGPFCCR_START;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dma2d.c: 6 warnings, 30 errors
+compiling stm32f4xx_cryp.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(238): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_CRYP_ALGOMODE(CRYP_InitStruct->CRYP_AlgoMode));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(243): error:  #20: identifier "CRYP" is undefined
+    CRYP->CR &= ~CRYP_CR_ALGOMODE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(243): error:  #20: identifier "CRYP_CR_ALGOMODE" is undefined
+    CRYP->CR &= ~CRYP_CR_ALGOMODE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(247): error:  #20: identifier "CRYP_CR_DATATYPE" is undefined
+    CRYP->CR &= ~CRYP_CR_DATATYPE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(257): error:  #20: identifier "CRYP_CR_KEYSIZE" is undefined
+      CRYP->CR &= ~CRYP_CR_KEYSIZE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(264): error:  #20: identifier "CRYP_CR_ALGODIR" is undefined
+    CRYP->CR &= ~CRYP_CR_ALGODIR;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(299): error:  #20: identifier "CRYP" is undefined
+    CRYP->K0LR = CRYP_KeyInitStruct->CRYP_Key0Left;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(335): error:  #20: identifier "CRYP" is undefined
+    CRYP->IV0LR = CRYP_IVInitStruct->CRYP_IV0Left;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(370): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_CRYP_PHASE(CRYP_Phase));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(370): error:  #20: identifier "CRYP_CR_GCM_CCMPH_0" is undefined
+    assert_param(IS_CRYP_PHASE(CRYP_Phase));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(370): error:  #20: identifier "CRYP_CR_GCM_CCMPH_1" is undefined
+    assert_param(IS_CRYP_PHASE(CRYP_Phase));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(370): error:  #20: identifier "CRYP_CR_GCM_CCMPH" is undefined
+    assert_param(IS_CRYP_PHASE(CRYP_Phase));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(373): error:  #20: identifier "CRYP" is undefined
+    tempcr = CRYP->CR;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(394): error:  #20: identifier "CRYP" is undefined
+    CRYP->CR |= CRYP_CR_FFLUSH;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(394): error:  #20: identifier "CRYP_CR_FFLUSH" is undefined
+    CRYP->CR |= CRYP_CR_FFLUSH;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(406): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(411): error:  #20: identifier "CRYP" is undefined
+      CRYP->CR |= CRYP_CR_CRYPEN;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(411): error:  #20: identifier "CRYP_CR_CRYPEN" is undefined
+      CRYP->CR |= CRYP_CR_CRYPEN;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(416): error:  #20: identifier "CRYP" is undefined
+      CRYP->CR &= ~CRYP_CR_CRYPEN;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(416): error:  #20: identifier "CRYP_CR_CRYPEN" is undefined
+      CRYP->CR &= ~CRYP_CR_CRYPEN;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(448): error:  #20: identifier "CRYP" is undefined
+    CRYP->DR = Data;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(458): error:  #20: identifier "CRYP" is undefined
+    return CRYP->DOUT;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(505): error:  #20: identifier "CRYP" is undefined
+    CRYP->DMACR &= ~(uint32_t)CRYP_DMACR_DIEN;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(505): error:  #20: identifier "CRYP_DMACR_DIEN" is undefined
+    CRYP->DMACR &= ~(uint32_t)CRYP_DMACR_DIEN;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(511): error:  #20: identifier "CRYP_CR_ALGOMODE_TDES_ECB" is undefined
+    if ((CRYP->CR & (uint32_t)(CRYP_CR_ALGOMODE_TDES_ECB | CRYP_CR_ALGOMODE_TDES_CBC)) != (uint32_t)0 )/* TDES */
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(511): error:  #20: identifier "CRYP_CR_ALGOMODE_TDES_CBC" is undefined
+    if ((CRYP->CR & (uint32_t)(CRYP_CR_ALGOMODE_TDES_ECB | CRYP_CR_ALGOMODE_TDES_CBC)) != (uint32_t)0 )/* TDES */
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(513): error:  #20: identifier "CRYP_SR_IFEM" is undefined
+      ckeckmask =  CRYP_SR_IFEM | CRYP_SR_BUSY ;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(513): error:  #20: identifier "CRYP_SR_BUSY" is undefined
+      ckeckmask =  CRYP_SR_IFEM | CRYP_SR_BUSY ;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(517): error:  #20: identifier "CRYP_SR_IFEM" is undefined
+      ckeckmask =  CRYP_SR_IFEM | CRYP_SR_BUSY | CRYP_SR_OFNE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(517): error:  #20: identifier "CRYP_SR_BUSY" is undefined
+      ckeckmask =  CRYP_SR_IFEM | CRYP_SR_BUSY | CRYP_SR_OFNE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(517): error:  #20: identifier "CRYP_SR_OFNE" is undefined
+      ckeckmask =  CRYP_SR_IFEM | CRYP_SR_BUSY | CRYP_SR_OFNE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(525): error:  #20: identifier "CRYP_SR_IFEM" is undefined
+    while ((timeout != MAX_TIMEOUT) && (bitstatus != CRYP_SR_IFEM));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c(527): error:  #20: identifier "CRYP_SR_IFEM" is undefined
+    if ((CRYP->SR & ckeckmask) != CRYP_SR_IFEM)
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp.c: 3 warnings, 30 errors
+compiling stm32f4xx_dcmi.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(128): error:  #20: identifier "DCMI" is undefined
+    DCMI->CR = 0x0;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(148): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DCMI_CAPTURE_MODE(DCMI_InitStruct->DCMI_CaptureMode));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(158): error:  #20: identifier "DCMI" is undefined
+    DCMI->CR &= ~(DCMI_CR_ENABLE | DCMI_CR_CAPTURE);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(158): error:  #20: identifier "DCMI_CR_ENABLE" is undefined
+    DCMI->CR &= ~(DCMI_CR_ENABLE | DCMI_CR_CAPTURE);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(158): error:  #20: identifier "DCMI_CR_CAPTURE" is undefined
+    DCMI->CR &= ~(DCMI_CR_ENABLE | DCMI_CR_CAPTURE);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(163): error:  #20: identifier "DCMI_CR_CM" is undefined
+    temp &= ~((uint32_t)DCMI_CR_CM     | DCMI_CR_ESS   | DCMI_CR_PCKPOL |
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(163): error:  #20: identifier "DCMI_CR_ESS" is undefined
+    temp &= ~((uint32_t)DCMI_CR_CM     | DCMI_CR_ESS   | DCMI_CR_PCKPOL |
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(163): error:  #20: identifier "DCMI_CR_PCKPOL" is undefined
+    temp &= ~((uint32_t)DCMI_CR_CM     | DCMI_CR_ESS   | DCMI_CR_PCKPOL |
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(164): error:  #20: identifier "DCMI_CR_HSPOL" is undefined
+                        DCMI_CR_HSPOL  | DCMI_CR_VSPOL | DCMI_CR_FCRC_0 |
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(164): error:  #20: identifier "DCMI_CR_VSPOL" is undefined
+                        DCMI_CR_HSPOL  | DCMI_CR_VSPOL | DCMI_CR_FCRC_0 |
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(164): error:  #20: identifier "DCMI_CR_FCRC_0" is undefined
+                        DCMI_CR_HSPOL  | DCMI_CR_VSPOL | DCMI_CR_FCRC_0 |
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(165): error:  #20: identifier "DCMI_CR_FCRC_1" is undefined
+                        DCMI_CR_FCRC_1 | DCMI_CR_EDM_0 | DCMI_CR_EDM_1);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(165): error:  #20: identifier "DCMI_CR_EDM_0" is undefined
+                        DCMI_CR_FCRC_1 | DCMI_CR_EDM_0 | DCMI_CR_EDM_1);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(165): error:  #20: identifier "DCMI_CR_EDM_1" is undefined
+                        DCMI_CR_FCRC_1 | DCMI_CR_EDM_0 | DCMI_CR_EDM_1);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(208): error:  #20: identifier "DCMI" is undefined
+    DCMI->CWSTRTR = (uint32_t)((uint32_t)DCMI_CROPInitStruct->DCMI_HorizontalOffsetCount |
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(226): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(231): error:  #20: identifier "DCMI" is undefined
+      DCMI->CR |= (uint32_t)DCMI_CR_CROP;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(231): error:  #20: identifier "DCMI_CR_CROP" is undefined
+      DCMI->CR |= (uint32_t)DCMI_CR_CROP;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(236): error:  #20: identifier "DCMI" is undefined
+      DCMI->CR &= ~(uint32_t)DCMI_CR_CROP;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(236): error:  #20: identifier "DCMI_CR_CROP" is undefined
+      DCMI->CR &= ~(uint32_t)DCMI_CR_CROP;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(248): error:  #20: identifier "DCMI" is undefined
+    DCMI->ESCR = (uint32_t)(DCMI_CodesInitStruct->DCMI_FrameStartCode |
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(264): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(269): error:  #20: identifier "DCMI" is undefined
+      DCMI->CR |= (uint32_t)DCMI_CR_JPEG;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(269): error:  #20: identifier "DCMI_CR_JPEG" is undefined
+      DCMI->CR |= (uint32_t)DCMI_CR_JPEG;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(274): error:  #20: identifier "DCMI" is undefined
+      DCMI->CR &= ~(uint32_t)DCMI_CR_JPEG;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(274): error:  #20: identifier "DCMI_CR_JPEG" is undefined
+      DCMI->CR &= ~(uint32_t)DCMI_CR_JPEG;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(302): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(307): error:  #20: identifier "DCMI" is undefined
+      DCMI->CR |= (uint32_t)DCMI_CR_ENABLE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(307): error:  #20: identifier "DCMI_CR_ENABLE" is undefined
+      DCMI->CR |= (uint32_t)DCMI_CR_ENABLE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(312): error:  #20: identifier "DCMI" is undefined
+      DCMI->CR &= ~(uint32_t)DCMI_CR_ENABLE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(312): error:  #20: identifier "DCMI_CR_ENABLE" is undefined
+      DCMI->CR &= ~(uint32_t)DCMI_CR_ENABLE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(325): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(330): error:  #20: identifier "DCMI" is undefined
+      DCMI->CR |= (uint32_t)DCMI_CR_CAPTURE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(330): error:  #20: identifier "DCMI_CR_CAPTURE" is undefined
+      DCMI->CR |= (uint32_t)DCMI_CR_CAPTURE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c(335): error:  #20: identifier "DCMI" is undefined
+      DCMI->CR &= ~(uint32_t)DCMI_CR_CAPTURE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dcmi.c: 5 warnings, 30 errors
+compiling stm32f4xx_gpio.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(130): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(130): error:  #20: identifier "GPIOF" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(130): error:  #20: identifier "GPIOG" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(130): error:  #20: identifier "GPIOI" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(130): error:  #20: identifier "GPIOJ" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(130): error:  #20: identifier "GPIOK" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(207): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(207): error:  #20: identifier "GPIOF" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(207): error:  #20: identifier "GPIOG" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(207): error:  #20: identifier "GPIOI" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(207): error:  #20: identifier "GPIOJ" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(207): error:  #20: identifier "GPIOK" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(282): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(282): error:  #20: identifier "GPIOF" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(282): error:  #20: identifier "GPIOG" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(282): error:  #20: identifier "GPIOI" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(282): error:  #20: identifier "GPIOJ" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(282): error:  #20: identifier "GPIOK" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(328): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(328): error:  #20: identifier "GPIOF" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(328): error:  #20: identifier "GPIOG" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(328): error:  #20: identifier "GPIOI" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(328): error:  #20: identifier "GPIOJ" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(328): error:  #20: identifier "GPIOK" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(352): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(352): error:  #20: identifier "GPIOF" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(352): error:  #20: identifier "GPIOG" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(352): error:  #20: identifier "GPIOI" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(352): error:  #20: identifier "GPIOJ" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(352): error:  #20: identifier "GPIOK" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(371): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(371): error:  #20: identifier "GPIOF" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(371): error:  #20: identifier "GPIOG" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(371): error:  #20: identifier "GPIOI" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(371): error:  #20: identifier "GPIOJ" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c(371): error:  #20: identifier "GPIOK" is undefined
+    assert_param(IS_GPIO_ALL_PERIPH(GPIOx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_gpio.c: 6 warnings, 30 errors
+compiling stm32f4xx_adc.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(240): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(240): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(240): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(345): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_MODE(ADC_CommonInitStruct->ADC_Mode));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(402): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(402): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(402): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(459): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(459): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(459): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(488): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(488): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(488): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(529): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(529): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(529): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(592): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(618): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(719): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(719): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(719): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(838): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(838): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(838): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(853): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(853): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(853): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(882): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(882): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(882): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(907): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(907): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(907): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(936): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(936): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(936): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(965): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(965): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(965): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(988): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(988): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(988): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(1055): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(1055): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(1055): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(1079): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(1079): error:  #20: identifier "ADC2" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c(1079): error:  #20: identifier "ADC3" is undefined
+    assert_param(IS_ADC_ALL_PERIPH(ADCx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_adc.c: 18 warnings, 30 errors
+compiling stm32f4xx_cryp_aes.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(786): error:  #20: identifier "CRYP_CR_GCM_CCMPH_0" is undefined
+        CRYP_PhaseConfig(CRYP_Phase_Header);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(834): error:  #20: identifier "CRYP_CR_GCM_CCMPH_1" is undefined
+        CRYP_PhaseConfig(CRYP_Phase_Payload);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(896): error:  #20: identifier "CRYP_CR_GCM_CCMPH" is undefined
+      CRYP_PhaseConfig(CRYP_Phase_Final);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(963): error:  #20: identifier "CRYP_CR_GCM_CCMPH_0" is undefined
+        CRYP_PhaseConfig(CRYP_Phase_Header);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(1011): error:  #20: identifier "CRYP_CR_GCM_CCMPH_1" is undefined
+        CRYP_PhaseConfig(CRYP_Phase_Payload);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(1073): error:  #20: identifier "CRYP_CR_GCM_CCMPH" is undefined
+      CRYP_PhaseConfig(CRYP_Phase_Final);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(1342): error:  #20: identifier "CRYP_CR_GCM_CCMPH_0" is undefined
+        CRYP_PhaseConfig(CRYP_Phase_Header);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(1390): error:  #20: identifier "CRYP_CR_GCM_CCMPH_1" is undefined
+        CRYP_PhaseConfig(CRYP_Phase_Payload);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(1453): error:  #20: identifier "CRYP_CR_GCM_CCMPH" is undefined
+      CRYP_PhaseConfig(CRYP_Phase_Final);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(1531): error:  #20: identifier "CRYP_CR_GCM_CCMPH_0" is undefined
+        CRYP_PhaseConfig(CRYP_Phase_Header);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(1579): error:  #20: identifier "CRYP_CR_GCM_CCMPH_1" is undefined
+        CRYP_PhaseConfig(CRYP_Phase_Payload);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c(1642): error:  #20: identifier "CRYP_CR_GCM_CCMPH" is undefined
+      CRYP_PhaseConfig(CRYP_Phase_Final);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_cryp_aes.c: 0 warnings, 12 errors
+compiling stm32f4xx_can.c...
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(593): error:  #20: identifier "CAN_TypeDef" is undefined
+  void CAN_DeInit(CAN_TypeDef* CANx);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(596): error:  #20: identifier "CAN_TypeDef" is undefined
+  uint8_t CAN_Init(CAN_TypeDef* CANx, CAN_InitTypeDef* CAN_InitStruct);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(600): error:  #20: identifier "CAN_TypeDef" is undefined
+  void CAN_DBGFreeze(CAN_TypeDef* CANx, FunctionalState NewState);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(601): error:  #20: identifier "CAN_TypeDef" is undefined
+  void CAN_TTComModeCmd(CAN_TypeDef* CANx, FunctionalState NewState);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(604): error:  #20: identifier "CAN_TypeDef" is undefined
+  uint8_t CAN_Transmit(CAN_TypeDef* CANx, CanTxMsg* TxMessage);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(605): error:  #20: identifier "CAN_TypeDef" is undefined
+  uint8_t CAN_TransmitStatus(CAN_TypeDef* CANx, uint8_t TransmitMailbox);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(606): error:  #20: identifier "CAN_TypeDef" is undefined
+  void CAN_CancelTransmit(CAN_TypeDef* CANx, uint8_t Mailbox);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(609): error:  #20: identifier "CAN_TypeDef" is undefined
+  void CAN_Receive(CAN_TypeDef* CANx, uint8_t FIFONumber, CanRxMsg* RxMessage);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(610): error:  #20: identifier "CAN_TypeDef" is undefined
+  void CAN_FIFORelease(CAN_TypeDef* CANx, uint8_t FIFONumber);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(611): error:  #20: identifier "CAN_TypeDef" is undefined
+  uint8_t CAN_MessagePending(CAN_TypeDef* CANx, uint8_t FIFONumber);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(614): error:  #20: identifier "CAN_TypeDef" is undefined
+  uint8_t CAN_OperatingModeRequest(CAN_TypeDef* CANx, uint8_t CAN_OperatingMode);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(615): error:  #20: identifier "CAN_TypeDef" is undefined
+  uint8_t CAN_Sleep(CAN_TypeDef* CANx);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(616): error:  #20: identifier "CAN_TypeDef" is undefined
+  uint8_t CAN_WakeUp(CAN_TypeDef* CANx);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(619): error:  #20: identifier "CAN_TypeDef" is undefined
+  uint8_t CAN_GetLastErrorCode(CAN_TypeDef* CANx);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(620): error:  #20: identifier "CAN_TypeDef" is undefined
+  uint8_t CAN_GetReceiveErrorCounter(CAN_TypeDef* CANx);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(621): error:  #20: identifier "CAN_TypeDef" is undefined
+  uint8_t CAN_GetLSBTransmitErrorCounter(CAN_TypeDef* CANx);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(624): error:  #20: identifier "CAN_TypeDef" is undefined
+  void CAN_ITConfig(CAN_TypeDef* CANx, uint32_t CAN_IT, FunctionalState NewState);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(625): error:  #20: identifier "CAN_TypeDef" is undefined
+  FlagStatus CAN_GetFlagStatus(CAN_TypeDef* CANx, uint32_t CAN_FLAG);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(626): error:  #20: identifier "CAN_TypeDef" is undefined
+  void CAN_ClearFlag(CAN_TypeDef* CANx, uint32_t CAN_FLAG);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(627): error:  #20: identifier "CAN_TypeDef" is undefined
+  ITStatus CAN_GetITStatus(CAN_TypeDef* CANx, uint32_t CAN_IT);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_can.h(628): error:  #20: identifier "CAN_TypeDef" is undefined
+  void CAN_ClearITPendingBit(CAN_TypeDef* CANx, uint32_t CAN_IT);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c(166): error:  #20: identifier "CAN_TypeDef" is undefined
+  void CAN_DeInit(CAN_TypeDef* CANx)
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c(169): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_CAN_ALL_PERIPH(CANx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c(169): error:  #20: identifier "CAN1" is undefined
+    assert_param(IS_CAN_ALL_PERIPH(CANx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c(169): error:  #20: identifier "CAN2" is undefined
+    assert_param(IS_CAN_ALL_PERIPH(CANx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c(196): error:  #20: identifier "CAN_TypeDef" is undefined
+  uint8_t CAN_Init(CAN_TypeDef* CANx, CAN_InitTypeDef* CAN_InitStruct)
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c(201): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_CAN_ALL_PERIPH(CANx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c(201): error:  #20: identifier "CAN1" is undefined
+    assert_param(IS_CAN_ALL_PERIPH(CANx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c(201): error:  #20: identifier "CAN2" is undefined
+    assert_param(IS_CAN_ALL_PERIPH(CANx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c(215): error:  #20: identifier "CAN_MCR_SLEEP" is undefined
+    CANx->MCR &= (~(uint32_t)CAN_MCR_SLEEP);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c(218): error:  #20: identifier "CAN_MCR_INRQ" is undefined
+    CANx->MCR |= CAN_MCR_INRQ ;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c(221): error:  #20: identifier "CAN_MSR_INAK" is undefined
+    while (((CANx->MSR & CAN_MSR_INAK) != CAN_MSR_INAK) && (wait_ack != INAK_TIMEOUT))
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_can.c: 2 warnings, 30 errors
+compiling stm32f4xx_fsmc.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(132): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FSMC_NORSRAM_BANK(FSMC_Bank));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(137): error:  #20: identifier "FSMC_Bank1" is undefined
+      FSMC_Bank1->BTCR[FSMC_Bank] = 0x000030DB;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(142): error:  #20: identifier "FSMC_Bank1" is undefined
+      FSMC_Bank1->BTCR[FSMC_Bank] = 0x000030D2;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(144): error:  #20: identifier "FSMC_Bank1" is undefined
+    FSMC_Bank1->BTCR[FSMC_Bank + 1] = 0x0FFFFFFF;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(145): error:  #20: identifier "FSMC_Bank1E" is undefined
+    FSMC_Bank1E->BWTR[FSMC_Bank] = 0x0FFFFFFF;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(161): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FSMC_NORSRAM_BANK(FSMC_NORSRAMInitStruct->FSMC_Bank));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(183): error:  #20: identifier "FSMC_Bank1" is undefined
+    tmpbcr = FSMC_Bank1->BTCR[FSMC_NORSRAMInitStruct->FSMC_Bank];
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(187): error:  #20: identifier "FSMC_BCR1_MBKEN" is undefined
+    tmpbcr &= ((uint32_t)~(FSMC_BCR1_MBKEN    | FSMC_BCR1_MUXEN    | FSMC_BCR1_MTYP     | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(187): error:  #20: identifier "FSMC_BCR1_MUXEN" is undefined
+    tmpbcr &= ((uint32_t)~(FSMC_BCR1_MBKEN    | FSMC_BCR1_MUXEN    | FSMC_BCR1_MTYP     | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(187): error:  #20: identifier "FSMC_BCR1_MTYP" is undefined
+    tmpbcr &= ((uint32_t)~(FSMC_BCR1_MBKEN    | FSMC_BCR1_MUXEN    | FSMC_BCR1_MTYP     | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(188): error:  #20: identifier "FSMC_BCR1_MWID" is undefined
+                           FSMC_BCR1_MWID      | FSMC_BCR1_FACCEN   | FSMC_BCR1_BURSTEN  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(188): error:  #20: identifier "FSMC_BCR1_FACCEN" is undefined
+                           FSMC_BCR1_MWID      | FSMC_BCR1_FACCEN   | FSMC_BCR1_BURSTEN  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(188): error:  #20: identifier "FSMC_BCR1_BURSTEN" is undefined
+                           FSMC_BCR1_MWID      | FSMC_BCR1_FACCEN   | FSMC_BCR1_BURSTEN  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(189): error:  #20: identifier "FSMC_BCR1_WAITPOL" is undefined
+                           FSMC_BCR1_WAITPOL   | FSMC_BCR1_WRAPMOD  | FSMC_BCR1_WAITCFG  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(189): error:  #20: identifier "FSMC_BCR1_WRAPMOD" is undefined
+                           FSMC_BCR1_WAITPOL   | FSMC_BCR1_WRAPMOD  | FSMC_BCR1_WAITCFG  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(189): error:  #20: identifier "FSMC_BCR1_WAITCFG" is undefined
+                           FSMC_BCR1_WAITPOL   | FSMC_BCR1_WRAPMOD  | FSMC_BCR1_WAITCFG  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(190): error:  #20: identifier "FSMC_BCR1_WREN" is undefined
+                           FSMC_BCR1_WREN      | FSMC_BCR1_WAITEN   | FSMC_BCR1_EXTMOD   | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(190): error:  #20: identifier "FSMC_BCR1_WAITEN" is undefined
+                           FSMC_BCR1_WREN      | FSMC_BCR1_WAITEN   | FSMC_BCR1_EXTMOD   | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(190): error:  #20: identifier "FSMC_BCR1_EXTMOD" is undefined
+                           FSMC_BCR1_WREN      | FSMC_BCR1_WAITEN   | FSMC_BCR1_EXTMOD   | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(191): error:  #20: identifier "FSMC_BCR1_ASYNCWAIT" is undefined
+                           FSMC_BCR1_ASYNCWAIT | FSMC_BCR1_CBURSTRW));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(191): error:  #20: identifier "FSMC_BCR1_CBURSTRW" is undefined
+                           FSMC_BCR1_ASYNCWAIT | FSMC_BCR1_CBURSTRW));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(218): error:  #20: identifier "FSMC_BTR1_ADDSET" is undefined
+    tmpbtr &= ((uint32_t)~(FSMC_BTR1_ADDSET | FSMC_BTR1_ADDHLD | FSMC_BTR1_DATAST | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(218): error:  #20: identifier "FSMC_BTR1_ADDHLD" is undefined
+    tmpbtr &= ((uint32_t)~(FSMC_BTR1_ADDSET | FSMC_BTR1_ADDHLD | FSMC_BTR1_DATAST | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(218): error:  #20: identifier "FSMC_BTR1_DATAST" is undefined
+    tmpbtr &= ((uint32_t)~(FSMC_BTR1_ADDSET | FSMC_BTR1_ADDHLD | FSMC_BTR1_DATAST | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(219): error:  #20: identifier "FSMC_BTR1_BUSTURN" is undefined
+                         FSMC_BTR1_BUSTURN | FSMC_BTR1_CLKDIV | FSMC_BTR1_DATLAT | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(219): error:  #20: identifier "FSMC_BTR1_CLKDIV" is undefined
+                         FSMC_BTR1_BUSTURN | FSMC_BTR1_CLKDIV | FSMC_BTR1_DATLAT | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(219): error:  #20: identifier "FSMC_BTR1_DATLAT" is undefined
+                         FSMC_BTR1_BUSTURN | FSMC_BTR1_CLKDIV | FSMC_BTR1_DATLAT | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(220): error:  #20: identifier "FSMC_BTR1_ACCMOD" is undefined
+                         FSMC_BTR1_ACCMOD));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(244): error:  #20: identifier "FSMC_Bank1E" is undefined
+      tmpbwr = FSMC_Bank1E->BWTR[FSMC_NORSRAMInitStruct->FSMC_Bank];
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(247): error:  #20: identifier "FSMC_BWTR1_ADDSET" is undefined
+      tmpbwr &= ((uint32_t)~(FSMC_BWTR1_ADDSET | FSMC_BWTR1_ADDHLD | FSMC_BWTR1_DATAST | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(247): error:  #20: identifier "FSMC_BWTR1_ADDHLD" is undefined
+      tmpbwr &= ((uint32_t)~(FSMC_BWTR1_ADDSET | FSMC_BWTR1_ADDHLD | FSMC_BWTR1_DATAST | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c(247): error:  #20: identifier "FSMC_BWTR1_DATAST" is undefined
+      tmpbwr &= ((uint32_t)~(FSMC_BWTR1_ADDSET | FSMC_BWTR1_ADDHLD | FSMC_BWTR1_DATAST | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fsmc.c: 2 warnings, 30 errors
+compiling stm32f4xx_hash.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(194): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_HASH_ALGOSELECTION(HASH_InitStruct->HASH_AlgoSelection));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(194): error:  #20: identifier "HASH_CR_ALGO_1" is undefined
+    assert_param(IS_HASH_ALGOSELECTION(HASH_InitStruct->HASH_AlgoSelection));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(194): error:  #20: identifier "HASH_CR_ALGO" is undefined
+    assert_param(IS_HASH_ALGOSELECTION(HASH_InitStruct->HASH_AlgoSelection));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(194): error:  #20: identifier "HASH_CR_ALGO_0" is undefined
+    assert_param(IS_HASH_ALGOSELECTION(HASH_InitStruct->HASH_AlgoSelection));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(195): error:  #20: identifier "HASH_CR_DATATYPE_0" is undefined
+    assert_param(IS_HASH_DATATYPE(HASH_InitStruct->HASH_DataType));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(195): error:  #20: identifier "HASH_CR_DATATYPE_1" is undefined
+    assert_param(IS_HASH_DATATYPE(HASH_InitStruct->HASH_DataType));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(195): error:  #20: identifier "HASH_CR_DATATYPE" is undefined
+    assert_param(IS_HASH_DATATYPE(HASH_InitStruct->HASH_DataType));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(196): error:  #20: identifier "HASH_CR_MODE" is undefined
+    assert_param(IS_HASH_ALGOMODE(HASH_InitStruct->HASH_AlgoMode));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(199): error:  #20: identifier "HASH" is undefined
+    HASH->CR &= ~ (HASH_CR_ALGO | HASH_CR_DATATYPE | HASH_CR_MODE);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(207): error:  #20: identifier "HASH_CR_LKEY" is undefined
+      assert_param(IS_HASH_HMAC_KEYTYPE(HASH_InitStruct->HASH_HMACKeyType));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(214): error:  #20: identifier "HASH_CR_INIT" is undefined
+    HASH->CR |= HASH_CR_INIT;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(252): error:  #20: identifier "HASH" is undefined
+    HASH->CR |= HASH_CR_INIT;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(252): error:  #20: identifier "HASH_CR_INIT" is undefined
+    HASH->CR |= HASH_CR_INIT;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(294): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_HASH_VALIDBITSNUMBER(ValidNumber));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(297): error:  #20: identifier "HASH" is undefined
+    HASH->STR &= ~(HASH_STR_NBW);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(297): error:  #20: identifier "HASH_STR_NBW" is undefined
+    HASH->STR &= ~(HASH_STR_NBW);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(309): error:  #20: identifier "HASH" is undefined
+    HASH->DIN = Data;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(320): error:  #20: identifier "HASH" is undefined
+    return ((HASH->CR & HASH_CR_NBW) >> 8);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(320): error:  #20: identifier "HASH_CR_NBW" is undefined
+    return ((HASH->CR & HASH_CR_NBW) >> 8);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(338): error:  #20: identifier "HASH" is undefined
+    HASH_MessageDigest->Data[0] = HASH->HR[0];
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(343): error:  #20: identifier "HASH_DIGEST" is undefined
+    HASH_MessageDigest->Data[5] = HASH_DIGEST->HR[5];
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(356): error:  #20: identifier "HASH" is undefined
+    HASH->STR |= HASH_STR_DCAL;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(356): error:  #20: identifier "HASH_STR_DCAL" is undefined
+    HASH->STR |= HASH_STR_DCAL;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(401): error:  #20: identifier "HASH" is undefined
+    HASH_ContextSave->HASH_IMR = HASH->IMR;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(423): error:  #20: identifier "HASH" is undefined
+    HASH->IMR = HASH_ContextRestore->HASH_IMR;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(428): error:  #20: identifier "HASH_CR_INIT" is undefined
+    HASH->CR |= HASH_CR_INIT;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(468): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(473): error:  #20: identifier "HASH" is undefined
+      HASH->CR &= ~HASH_CR_MDMAT;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(473): error:  #20: identifier "HASH_CR_MDMAT" is undefined
+      HASH->CR &= ~HASH_CR_MDMAT;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(478): error:  #20: identifier "HASH" is undefined
+      HASH->CR |= HASH_CR_MDMAT;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(478): error:  #20: identifier "HASH_CR_MDMAT" is undefined
+      HASH->CR |= HASH_CR_MDMAT;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(492): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(497): error:  #20: identifier "HASH" is undefined
+      HASH->CR |= HASH_CR_DMAE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c(497): error:  #20: identifier "HASH_CR_DMAE" is undefined
+      HASH->CR |= HASH_CR_DMAE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_hash.c: 4 warnings, 30 errors
+compiling stm32f4xx_dac.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(211): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_TRIGGER(DAC_InitStruct->DAC_Trigger));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(218): error:  #20: identifier "DAC" is undefined
+    tmpreg1 = DAC->CR;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(269): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_CHANNEL(DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(275): error:  #20: identifier "DAC" is undefined
+      DAC->CR |= (DAC_CR_EN1 << DAC_Channel);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(275): error:  #20: identifier "DAC_CR_EN1" is undefined
+      DAC->CR |= (DAC_CR_EN1 << DAC_Channel);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(280): error:  #20: identifier "DAC" is undefined
+      DAC->CR &= (~(DAC_CR_EN1 << DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(280): error:  #20: identifier "DAC_CR_EN1" is undefined
+      DAC->CR &= (~(DAC_CR_EN1 << DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(297): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_CHANNEL(DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(303): error:  #20: identifier "DAC" is undefined
+      DAC->SWTRIGR |= (uint32_t)DAC_SWTRIGR_SWTRIG1 << (DAC_Channel >> 4);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(303): error:  #20: identifier "DAC_SWTRIGR_SWTRIG1" is undefined
+      DAC->SWTRIGR |= (uint32_t)DAC_SWTRIGR_SWTRIG1 << (DAC_Channel >> 4);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(308): error:  #20: identifier "DAC" is undefined
+      DAC->SWTRIGR &= ~((uint32_t)DAC_SWTRIGR_SWTRIG1 << (DAC_Channel >> 4));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(308): error:  #20: identifier "DAC_SWTRIGR_SWTRIG1" is undefined
+      DAC->SWTRIGR &= ~((uint32_t)DAC_SWTRIGR_SWTRIG1 << (DAC_Channel >> 4));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(321): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(326): error:  #20: identifier "DAC" is undefined
+      DAC->SWTRIGR |= DUAL_SWTRIG_SET;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(331): error:  #20: identifier "DAC" is undefined
+      DAC->SWTRIGR &= DUAL_SWTRIG_RESET;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(352): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_CHANNEL(DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(359): error:  #20: identifier "DAC" is undefined
+      DAC->CR |= DAC_Wave << DAC_Channel;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(364): error:  #20: identifier "DAC" is undefined
+      DAC->CR &= ~(DAC_Wave << DAC_Channel);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(383): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_ALIGN(DAC_Align));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(386): error:  #20: identifier "DAC_BASE" is undefined
+    tmp = (uint32_t)DAC_BASE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(408): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_ALIGN(DAC_Align));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(411): error:  #20: identifier "DAC_BASE" is undefined
+    tmp = (uint32_t)DAC_BASE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(436): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_ALIGN(DAC_Align));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(450): error:  #20: identifier "DAC_BASE" is undefined
+    tmp = (uint32_t)DAC_BASE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(470): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_CHANNEL(DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(472): error:  #20: identifier "DAC_BASE" is undefined
+    tmp = (uint32_t) DAC_BASE ;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(513): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_CHANNEL(DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(519): error:  #20: identifier "DAC" is undefined
+      DAC->CR |= (DAC_CR_DMAEN1 << DAC_Channel);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(519): error:  #20: identifier "DAC_CR_DMAEN1" is undefined
+      DAC->CR |= (DAC_CR_DMAEN1 << DAC_Channel);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(524): error:  #20: identifier "DAC" is undefined
+      DAC->CR &= (~(DAC_CR_DMAEN1 << DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(524): error:  #20: identifier "DAC_CR_DMAEN1" is undefined
+      DAC->CR &= (~(DAC_CR_DMAEN1 << DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(561): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_CHANNEL(DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(568): error:  #20: identifier "DAC" is undefined
+      DAC->CR |=  (DAC_IT << DAC_Channel);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(573): error:  #20: identifier "DAC" is undefined
+      DAC->CR &= (~(uint32_t)(DAC_IT << DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(594): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_CHANNEL(DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(598): error:  #20: identifier "DAC" is undefined
+    if ((DAC->SR & (DAC_FLAG << DAC_Channel)) != (uint8_t)RESET)
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(628): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_CHANNEL(DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(632): error:  #20: identifier "DAC" is undefined
+    DAC->SR = (DAC_FLAG << DAC_Channel);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(654): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_CHANNEL(DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(658): error:  #20: identifier "DAC" is undefined
+    enablestatus = (DAC->CR & (DAC_IT << DAC_Channel)) ;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(691): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_DAC_CHANNEL(DAC_Channel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c(695): error:  #20: identifier "DAC" is undefined
+    DAC->SR = (DAC_IT << DAC_Channel);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_dac.c: 15 warnings, 27 errors
+compiling stm32f4xx_fmc.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(139): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FMC_NORSRAM_BANK(FMC_Bank));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(144): error:  #20: identifier "FMC_Bank1" is undefined
+      FMC_Bank1->BTCR[FMC_Bank] = 0x000030DB;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(149): error:  #20: identifier "FMC_Bank1" is undefined
+      FMC_Bank1->BTCR[FMC_Bank] = 0x000030D2;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(151): error:  #20: identifier "FMC_Bank1" is undefined
+    FMC_Bank1->BTCR[FMC_Bank + 1] = 0x0FFFFFFF;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(152): error:  #20: identifier "FMC_Bank1E" is undefined
+    FMC_Bank1E->BWTR[FMC_Bank] = 0x0FFFFFFF;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(168): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FMC_NORSRAM_BANK(FMC_NORSRAMInitStruct->FMC_Bank));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(191): error:  #20: identifier "FMC_Bank1" is undefined
+    tmpbcr = FMC_Bank1->BTCR[FMC_NORSRAMInitStruct->FMC_Bank];
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(195): error:  #20: identifier "FMC_BCR1_MBKEN" is undefined
+    tmpbcr &= ((uint32_t)~(FMC_BCR1_MBKEN   | FMC_BCR1_MUXEN    | FMC_BCR1_MTYP     | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(195): error:  #20: identifier "FMC_BCR1_MUXEN" is undefined
+    tmpbcr &= ((uint32_t)~(FMC_BCR1_MBKEN   | FMC_BCR1_MUXEN    | FMC_BCR1_MTYP     | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(195): error:  #20: identifier "FMC_BCR1_MTYP" is undefined
+    tmpbcr &= ((uint32_t)~(FMC_BCR1_MBKEN   | FMC_BCR1_MUXEN    | FMC_BCR1_MTYP     | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(196): error:  #20: identifier "FMC_BCR1_MWID" is undefined
+                           FMC_BCR1_MWID     | FMC_BCR1_FACCEN   | FMC_BCR1_BURSTEN  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(196): error:  #20: identifier "FMC_BCR1_FACCEN" is undefined
+                           FMC_BCR1_MWID     | FMC_BCR1_FACCEN   | FMC_BCR1_BURSTEN  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(196): error:  #20: identifier "FMC_BCR1_BURSTEN" is undefined
+                           FMC_BCR1_MWID     | FMC_BCR1_FACCEN   | FMC_BCR1_BURSTEN  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(197): error:  #20: identifier "FMC_BCR1_WAITPOL" is undefined
+                           FMC_BCR1_WAITPOL  | FMC_BCR1_WRAPMOD  | FMC_BCR1_WAITCFG  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(197): error:  #20: identifier "FMC_BCR1_WRAPMOD" is undefined
+                           FMC_BCR1_WAITPOL  | FMC_BCR1_WRAPMOD  | FMC_BCR1_WAITCFG  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(197): error:  #20: identifier "FMC_BCR1_WAITCFG" is undefined
+                           FMC_BCR1_WAITPOL  | FMC_BCR1_WRAPMOD  | FMC_BCR1_WAITCFG  | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(198): error:  #20: identifier "FMC_BCR1_WREN" is undefined
+                           FMC_BCR1_WREN     | FMC_BCR1_WAITEN   | FMC_BCR1_EXTMOD   | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(198): error:  #20: identifier "FMC_BCR1_WAITEN" is undefined
+                           FMC_BCR1_WREN     | FMC_BCR1_WAITEN   | FMC_BCR1_EXTMOD   | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(198): error:  #20: identifier "FMC_BCR1_EXTMOD" is undefined
+                           FMC_BCR1_WREN     | FMC_BCR1_WAITEN   | FMC_BCR1_EXTMOD   | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(199): error:  #20: identifier "FMC_BCR1_ASYNCWAIT" is undefined
+                           FMC_BCR1_ASYNCWAIT| FMC_BCR1_CBURSTRW | FMC_BCR1_CCLKEN));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(199): error:  #20: identifier "FMC_BCR1_CBURSTRW" is undefined
+                           FMC_BCR1_ASYNCWAIT| FMC_BCR1_CBURSTRW | FMC_BCR1_CCLKEN));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(199): error:  #20: identifier "FMC_BCR1_CCLKEN" is undefined
+                           FMC_BCR1_ASYNCWAIT| FMC_BCR1_CBURSTRW | FMC_BCR1_CCLKEN));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(253): error:  #20: identifier "FMC_Bank1E" is undefined
+      FMC_Bank1E->BWTR[FMC_NORSRAMInitStruct->FMC_Bank] =
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(263): error:  #20: identifier "FMC_Bank1E" is undefined
+      FMC_Bank1E->BWTR[FMC_NORSRAMInitStruct->FMC_Bank] = 0x0FFFFFFF;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(309): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FMC_NORSRAM_BANK(FMC_Bank));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(315): error:  #20: identifier "FMC_Bank1" is undefined
+      FMC_Bank1->BTCR[FMC_Bank] |= BCR_MBKEN_SET;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(320): error:  #20: identifier "FMC_Bank1" is undefined
+      FMC_Bank1->BTCR[FMC_Bank] &= BCR_MBKEN_RESET;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(383): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FMC_NAND_BANK(FMC_Bank));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(388): error:  #20: identifier "FMC_Bank2" is undefined
+      FMC_Bank2->PCR2 = 0x00000018;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(397): error:  #20: identifier "FMC_Bank3" is undefined
+      FMC_Bank3->PCR3 = 0x00000018;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(416): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FMC_NAND_BANK(FMC_NANDInitStruct->FMC_Bank));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(435): error:  #20: identifier "FMC_Bank2" is undefined
+      tmppcr = FMC_Bank2->PCR2;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(440): error:  #20: identifier "FMC_Bank3" is undefined
+      tmppcr = FMC_Bank3->PCR3;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(444): error:  #20: identifier "FMC_PCR2_PWAITEN" is undefined
+    tmppcr &= ((uint32_t)~(FMC_PCR2_PWAITEN  | FMC_PCR2_PBKEN | FMC_PCR2_PTYP | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c(444): error:  #20: identifier "FMC_PCR2_PBKEN" is undefined
+    tmppcr &= ((uint32_t)~(FMC_PCR2_PWAITEN  | FMC_PCR2_PBKEN | FMC_PCR2_PTYP | \
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_fmc.c: 5 warnings, 30 errors
+compiling main.c...
+main.c(8): warning:  #1-D: last line of file ends without a newline
+  }
+main.c: 1 warning, 0 errors
+compiling stm32f4xx_ltdc.c...
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h(493): error:  #20: identifier "LTDC_Layer_TypeDef" is undefined
+  void LTDC_LayerInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_Layer_InitTypeDef* LTDC_Layer_InitStruct);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h(495): error:  #20: identifier "LTDC_Layer_TypeDef" is undefined
+  void LTDC_LayerCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h(499): error:  #20: identifier "LTDC_Layer_TypeDef" is undefined
+  void LTDC_ColorKeyingConfig(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_ColorKeying_InitTypeDef* LTDC_colorkeying_InitStruct, FunctionalState NewState);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h(501): error:  #20: identifier "LTDC_Layer_TypeDef" is undefined
+  void LTDC_CLUTCmd(LTDC_Layer_TypeDef* LTDC_Layerx, FunctionalState NewState);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h(502): error:  #20: identifier "LTDC_Layer_TypeDef" is undefined
+  void LTDC_CLUTInit(LTDC_Layer_TypeDef* LTDC_Layerx, LTDC_CLUT_InitTypeDef* LTDC_CLUT_InitStruct);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h(504): error:  #20: identifier "LTDC_Layer_TypeDef" is undefined
+  void LTDC_LayerPosition(LTDC_Layer_TypeDef* LTDC_Layerx, uint16_t OffsetX, uint16_t OffsetY);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h(505): error:  #20: identifier "LTDC_Layer_TypeDef" is undefined
+  void LTDC_LayerAlpha(LTDC_Layer_TypeDef* LTDC_Layerx, uint8_t ConstantAlpha);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h(506): error:  #20: identifier "LTDC_Layer_TypeDef" is undefined
+  void LTDC_LayerAddress(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Address);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h(507): error:  #20: identifier "LTDC_Layer_TypeDef" is undefined
+  void LTDC_LayerSize(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t Width, uint32_t Height);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_ltdc.h(508): error:  #20: identifier "LTDC_Layer_TypeDef" is undefined
+  void LTDC_LayerPixelFormat(LTDC_Layer_TypeDef* LTDC_Layerx, uint32_t PixelFormat);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(156): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_LTDC_HSYNC(LTDC_InitStruct->LTDC_HorizontalSync));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(164): error:  #20: identifier "LTDC_GCR_HSPOL" is undefined
+    assert_param(IS_LTDC_HSPOL(LTDC_InitStruct->LTDC_HSPolarity));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(165): error:  #20: identifier "LTDC_GCR_VSPOL" is undefined
+    assert_param(IS_LTDC_VSPOL(LTDC_InitStruct->LTDC_VSPolarity));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(166): error:  #20: identifier "LTDC_GCR_DEPOL" is undefined
+    assert_param(IS_LTDC_DEPOL(LTDC_InitStruct->LTDC_DEPolarity));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(167): error:  #20: identifier "LTDC_GCR_PCPOL" is undefined
+    assert_param(IS_LTDC_PCPOL(LTDC_InitStruct->LTDC_PCPolarity));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(173): error:  #20: identifier "LTDC" is undefined
+    LTDC->SSCR &= ~(LTDC_SSCR_VSH | LTDC_SSCR_HSW);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(173): error:  #20: identifier "LTDC_SSCR_VSH" is undefined
+    LTDC->SSCR &= ~(LTDC_SSCR_VSH | LTDC_SSCR_HSW);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(173): error:  #20: identifier "LTDC_SSCR_HSW" is undefined
+    LTDC->SSCR &= ~(LTDC_SSCR_VSH | LTDC_SSCR_HSW);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(178): error:  #20: identifier "LTDC_BPCR_AVBP" is undefined
+    LTDC->BPCR &= ~(LTDC_BPCR_AVBP | LTDC_BPCR_AHBP);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(178): error:  #20: identifier "LTDC_BPCR_AHBP" is undefined
+    LTDC->BPCR &= ~(LTDC_BPCR_AVBP | LTDC_BPCR_AHBP);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(183): error:  #20: identifier "LTDC_AWCR_AAH" is undefined
+    LTDC->AWCR &= ~(LTDC_AWCR_AAH | LTDC_AWCR_AAW);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(183): error:  #20: identifier "LTDC_AWCR_AAW" is undefined
+    LTDC->AWCR &= ~(LTDC_AWCR_AAH | LTDC_AWCR_AAW);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(188): error:  #20: identifier "LTDC_TWCR_TOTALH" is undefined
+    LTDC->TWCR &= ~(LTDC_TWCR_TOTALH | LTDC_TWCR_TOTALW);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(188): error:  #20: identifier "LTDC_TWCR_TOTALW" is undefined
+    LTDC->TWCR &= ~(LTDC_TWCR_TOTALH | LTDC_TWCR_TOTALW);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(200): error:  #20: identifier "LTDC_BCCR_BCBLUE" is undefined
+    LTDC->BCCR &= ~(LTDC_BCCR_BCBLUE | LTDC_BCCR_BCGREEN | LTDC_BCCR_BCRED);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(200): error:  #20: identifier "LTDC_BCCR_BCGREEN" is undefined
+    LTDC->BCCR &= ~(LTDC_BCCR_BCBLUE | LTDC_BCCR_BCGREEN | LTDC_BCCR_BCRED);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(200): error:  #20: identifier "LTDC_BCCR_BCRED" is undefined
+    LTDC->BCCR &= ~(LTDC_BCCR_BCBLUE | LTDC_BCCR_BCGREEN | LTDC_BCCR_BCRED);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(241): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(246): error:  #20: identifier "LTDC" is undefined
+      LTDC->GCR |= (uint32_t)LTDC_GCR_LTDCEN;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(246): error:  #20: identifier "LTDC_GCR_LTDCEN" is undefined
+      LTDC->GCR |= (uint32_t)LTDC_GCR_LTDCEN;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(251): error:  #20: identifier "LTDC" is undefined
+      LTDC->GCR &= ~(uint32_t)LTDC_GCR_LTDCEN;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c(251): error:  #20: identifier "LTDC_GCR_LTDCEN" is undefined
+      LTDC->GCR &= ~(uint32_t)LTDC_GCR_LTDCEN;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_ltdc.c: 2 warnings, 30 errors
+compiling stm32f4xx_pwr.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(186): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(236): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_PWR_PVD_LEVEL(PWR_PVDLevel));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(259): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(294): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(426): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(450): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_PWR_REGULATOR_VOLTAGE(PWR_Regulator_Voltage));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(483): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(501): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(528): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(533): error:  #20: identifier "PWR_CR_UDEN" is undefined
+      PWR->CR |= (uint32_t)PWR_CR_UDEN;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(538): error:  #20: identifier "PWR_CR_UDEN" is undefined
+      PWR->CR &= (uint32_t)(~PWR_CR_UDEN);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(605): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(629): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(672): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(820): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_PWR_REGULATOR(PWR_Regulator));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(884): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_PWR_REGULATOR_UNDERDRIVE(PWR_Regulator));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(884): error:  #20: identifier "PWR_CR_MRUDS" is undefined
+    assert_param(IS_PWR_REGULATOR_UNDERDRIVE(PWR_Regulator));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(884): error:  #20: identifier "PWR_CR_LPUDS" is undefined
+    assert_param(IS_PWR_REGULATOR_UNDERDRIVE(PWR_Regulator));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(993): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_PWR_GET_FLAG(PWR_FLAG));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(993): error:  #20: identifier "PWR_CSR_ODRDY" is undefined
+    assert_param(IS_PWR_GET_FLAG(PWR_FLAG));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(993): error:  #20: identifier "PWR_CSR_ODSWRDY" is undefined
+    assert_param(IS_PWR_GET_FLAG(PWR_FLAG));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(993): error:  #20: identifier "PWR_CSR_UDSWRDY" is undefined
+    assert_param(IS_PWR_GET_FLAG(PWR_FLAG));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(1019): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_PWR_CLEAR_FLAG(PWR_FLAG));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c(1019): error:  #20: identifier "PWR_CSR_UDSWRDY" is undefined
+    assert_param(IS_PWR_CLEAR_FLAG(PWR_FLAG));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_pwr.c: 16 warnings, 8 errors
+compiling stm32f4xx_rcc.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(287): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_HSE(RCC_HSE));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(318): error:  #20: identifier "HSE_STARTUP_TIMEOUT" is undefined
+    } while((startupcounter != HSE_STARTUP_TIMEOUT) && (hsestatus == RESET));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(343): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_CALIBRATION_VALUE(HSICalibrationValue));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(378): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(403): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_LSE(RCC_LSE));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(443): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(542): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_PLL_SOURCE(RCC_PLLSource));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(566): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(634): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_PLLI2SN_VALUE(PLLI2SN));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(735): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(844): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_PLLSAIN_VALUE(PLLSAIN));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(848): error:  #136: struct "<unnamed>"  has no field "PLLSAICFGR"
+    RCC->PLLSAICFGR = (PLLSAIN << 6) | (PLLSAIQ << 24) | (PLLSAIR << 28);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(864): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(882): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(909): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_MCO1SOURCE(RCC_MCO1Source));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(954): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_MCO2SOURCE(RCC_MCO2Source));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1154): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_SYSCLK_SOURCE(RCC_SYSCLKSource));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1208): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_HCLK(RCC_SYSCLK));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1239): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_PCLK(RCC_HCLK));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1270): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_PCLK(RCC_HCLK));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1330): error:  #20: identifier "HSI_VALUE" is undefined
+      RCC_Clocks->SYSCLK_Frequency = HSI_VALUE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1333): error:  #20: identifier "HSE_VALUE" is undefined
+      RCC_Clocks->SYSCLK_Frequency = HSE_VALUE;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1475): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_RTCCLK_SOURCE(RCC_RTCCLKSource));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1505): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1522): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_FUNCTIONAL_STATE(NewState));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1645): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_I2SCLK_SOURCE(RCC_I2SCLKSource));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1743): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_PLLI2S_DIVQ_VALUE(RCC_PLLI2SDivQ));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1748): error:  #20: identifier "RCC_DCKCFGR_PLLI2SDIVQ" is undefined
+    tmpreg &= ~(RCC_DCKCFGR_PLLI2SDIVQ);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1775): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_PLLSAI_DIVQ_VALUE(RCC_PLLSAIDivQ));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1780): error:  #20: identifier "RCC_DCKCFGR_PLLSAIDIVQ" is undefined
+    tmpreg &= ~(RCC_DCKCFGR_PLLSAIDIVQ);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1811): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_PLLSAI_DIVR_VALUE(RCC_PLLSAIDivR));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1816): error:  #20: identifier "RCC_DCKCFGR_PLLSAIDIVR" is undefined
+    tmpreg &= ~RCC_DCKCFGR_PLLSAIDIVR;
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1846): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_TIMCLK_PRESCALER(RCC_TIMCLKPrescaler));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1888): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_AHB1_CLOCK_PERIPH(RCC_AHB1Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(1920): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_AHB2_PERIPH(RCC_AHB2Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2007): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_APB1_PERIPH(RCC_APB1Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2054): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_APB2_PERIPH(RCC_APB2Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2097): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_AHB1_RESET_PERIPH(RCC_AHB1Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2126): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_AHB2_PERIPH(RCC_AHB2Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2207): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_APB1_PERIPH(RCC_APB1Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2250): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_APB2_RESET_PERIPH(RCC_APB2Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2299): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_AHB1_LPMODE_PERIPH(RCC_AHB1Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2331): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_AHB2_PERIPH(RCC_AHB2Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2418): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_APB1_PERIPH(RCC_APB1Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2465): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_APB2_PERIPH(RCC_APB2Periph));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2489): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_LSE_MODE(RCC_Mode));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2791): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_IT(RCC_IT));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2832): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_FLAG(RCC_FLAG));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2895): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_GET_IT(RCC_IT));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c(2927): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_RCC_CLEAR_IT(RCC_IT));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_rcc.c: 43 warnings, 7 errors
+compiling stm32f4xx_sai.c...
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(573): error:  #20: identifier "SAI_TypeDef" is undefined
+  void SAI_DeInit(SAI_TypeDef* SAIx);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(576): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(577): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_FrameInit(SAI_Block_TypeDef* SAI_Block_x, SAI_FrameInitTypeDef* SAI_FrameInitStruct);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(578): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_SlotInit(SAI_Block_TypeDef* SAI_Block_x, SAI_SlotInitTypeDef* SAI_SlotInitStruct);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(583): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_Cmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(584): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_MonoModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_Mono_StreoMode);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(585): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_TRIStateConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_TRIState);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(586): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_CompandingModeConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_CompandingMode);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(587): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_MuteModeCmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(588): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_MuteValueConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_MuteValue);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(589): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_MuteFrameCounterConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_MuteCounter);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(590): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_FlushFIFO(SAI_Block_TypeDef* SAI_Block_x);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(593): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_SendData(SAI_Block_TypeDef* SAI_Block_x, uint32_t Data);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(594): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  uint32_t SAI_ReceiveData(SAI_Block_TypeDef* SAI_Block_x);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(597): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_DMACmd(SAI_Block_TypeDef* SAI_Block_x, FunctionalState NewState);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(600): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_ITConfig(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT, FunctionalState NewState);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(601): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  FlagStatus SAI_GetFlagStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(602): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_ClearFlag(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_FLAG);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(603): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  ITStatus SAI_GetITStatus(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(604): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_ClearITPendingBit(SAI_Block_TypeDef* SAI_Block_x, uint32_t SAI_IT);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(605): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  FunctionalState SAI_GetCmdStatus(SAI_Block_TypeDef* SAI_Block_x);
+.\STM32F4xx_StdPeriph_Driver\inc\stm32f4xx_sai.h(606): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  uint32_t SAI_GetFIFOStatus(SAI_Block_TypeDef* SAI_Block_x);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c(184): error:  #20: identifier "SAI_TypeDef" is undefined
+  void SAI_DeInit(SAI_TypeDef* SAIx)
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c(187): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SAI_PERIPH(SAIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c(187): error:  #20: identifier "SAI1" is undefined
+    assert_param(IS_SAI_PERIPH(SAIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c(222): error:  #20: identifier "SAI_Block_TypeDef" is undefined
+  void SAI_Init(SAI_Block_TypeDef* SAI_Block_x, SAI_InitTypeDef* SAI_InitStruct)
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c(227): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c(227): error:  #20: identifier "SAI1_Block_A" is undefined
+    assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c(227): error:  #20: identifier "SAI1_Block_B" is undefined
+    assert_param(IS_SAI_BLOCK_PERIPH(SAI_Block_x));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c(231): error:  #20: identifier "SAI_xCR1_PRTCFG_0" is undefined
+    assert_param(IS_SAI_BLOCK_PROTOCOL(SAI_InitStruct->SAI_Protocol));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c(231): error:  #20: identifier "SAI_xCR1_PRTCFG_1" is undefined
+    assert_param(IS_SAI_BLOCK_PROTOCOL(SAI_InitStruct->SAI_Protocol));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c(233): error:  #20: identifier "SAI_xCR1_LSBFIRST" is undefined
+    assert_param(IS_SAI_BLOCK_FIRST_BIT(SAI_InitStruct->SAI_FirstBit));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_sai.c: 2 warnings, 30 errors
+compiling stm32f4xx_spi.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(182): warning:  #47-D: incompatible redefinition of macro "SPI_CR2_FRF"  (declared at line 5721 of "C:\Users\ARTEM\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f411xe.h")
+  #define SPI_CR2_FRF               ((uint16_t)0x0010)
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(227): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(227): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(289): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(289): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(357): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_23_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(429): error:  #20: identifier "HSE_VALUE" is undefined
+        i2sclk = (uint32_t)(((HSE_VALUE / pllm) * plln) / pllr);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(433): error:  #20: identifier "HSI_VALUE" is undefined
+        i2sclk = (uint32_t)(((HSI_VALUE / pllm) * plln) / pllr);
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(547): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(547): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(572): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_23_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(599): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(599): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(619): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(619): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(645): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(645): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(669): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(669): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(700): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(700): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(739): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_I2S_EXT_PERIPH(I2Sxext));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(811): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(811): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(827): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(827): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(917): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(917): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(939): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(939): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(958): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(958): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(982): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(982): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1019): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1019): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1129): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1129): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1172): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1172): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1212): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1212): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1240): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1240): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1293): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c(1293): error:  #20: identifier "SPI6" is undefined
+    assert_param(IS_SPI_ALL_PERIPH_EXT(SPIx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_spi.c: 24 warnings, 22 errors
+compiling stm32f4xx_tim.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(203): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(203): error:  #20: identifier "TIM6" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(203): error:  #20: identifier "TIM7" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(203): error:  #20: identifier "TIM8" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(203): error:  #20: identifier "TIM12" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(203): error:  #20: identifier "TIM13" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(203): error:  #20: identifier "TIM14" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(293): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(293): error:  #20: identifier "TIM6" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(293): error:  #20: identifier "TIM7" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(293): error:  #20: identifier "TIM8" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(293): error:  #20: identifier "TIM12" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(293): error:  #20: identifier "TIM13" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(293): error:  #20: identifier "TIM14" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(363): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(363): error:  #20: identifier "TIM6" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(363): error:  #20: identifier "TIM7" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(363): error:  #20: identifier "TIM8" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(363): error:  #20: identifier "TIM12" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(363): error:  #20: identifier "TIM13" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(363): error:  #20: identifier "TIM14" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(388): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_TIM_LIST3_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(388): error:  #20: identifier "TIM8" is undefined
+    assert_param(IS_TIM_LIST3_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(412): warning:  #223-D: function "assert_param" declared implicitly
+     assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(412): error:  #20: identifier "TIM6" is undefined
+     assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(412): error:  #20: identifier "TIM7" is undefined
+     assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(412): error:  #20: identifier "TIM8" is undefined
+     assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(412): error:  #20: identifier "TIM12" is undefined
+     assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(412): error:  #20: identifier "TIM13" is undefined
+     assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(412): error:  #20: identifier "TIM14" is undefined
+     assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(427): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(427): error:  #20: identifier "TIM6" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(427): error:  #20: identifier "TIM7" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(427): error:  #20: identifier "TIM8" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(427): error:  #20: identifier "TIM12" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c(427): error:  #20: identifier "TIM13" is undefined
+    assert_param(IS_TIM_ALL_PERIPH(TIMx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_tim.c: 6 warnings, 30 errors
+compiling stm32f4xx_usart.c...
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(190): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(190): error:  #20: identifier "USART3" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(190): error:  #20: identifier "UART4" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(190): error:  #20: identifier "UART5" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(190): error:  #20: identifier "UART7" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(190): error:  #20: identifier "UART8" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(254): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(254): error:  #20: identifier "USART3" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(254): error:  #20: identifier "UART4" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(254): error:  #20: identifier "UART5" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(254): error:  #20: identifier "UART7" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(254): error:  #20: identifier "UART8" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(383): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_USART_1236_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(383): error:  #20: identifier "USART3" is undefined
+    assert_param(IS_USART_1236_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(430): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(430): error:  #20: identifier "USART3" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(430): error:  #20: identifier "UART4" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(430): error:  #20: identifier "UART5" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(430): error:  #20: identifier "UART7" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(430): error:  #20: identifier "UART8" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(456): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(456): error:  #20: identifier "USART3" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(456): error:  #20: identifier "UART4" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(456): error:  #20: identifier "UART5" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(456): error:  #20: identifier "UART7" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(456): error:  #20: identifier "UART8" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(477): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(477): error:  #20: identifier "USART3" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(477): error:  #20: identifier "UART4" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(477): error:  #20: identifier "UART5" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(477): error:  #20: identifier "UART7" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(477): error:  #20: identifier "UART8" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(503): warning:  #223-D: function "assert_param" declared implicitly
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(503): error:  #20: identifier "USART3" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(503): error:  #20: identifier "UART4" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(503): error:  #20: identifier "UART5" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c(503): error:  #20: identifier "UART7" is undefined
+    assert_param(IS_USART_ALL_PERIPH(USARTx));
+STM32F4xx_StdPeriph_Driver\src\stm32f4xx_usart.c: 7 warnings, 30 errors
+".\Objects\SPL_Blink.axf" - 487 Error(s), 191 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.5.9.0.pack
+                ARM.CMSIS.5.9.0
+                CMSIS (Common Microcontroller Software Interface Standard)
+   * Component: CORE Version: 5.6.0
+
+Package Vendor: Keil
+                https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
+                Keil.STM32F4xx_DFP.2.17.1
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 2.6.3
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_STM32F411RET6
+  C:/Users/ARTEM/AppData/Local/Arm/Packs/ARM/CMSIS/5.9.0/CMSIS/Core/Include
+  C:/Users/ARTEM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS:CORE:5.6.0
+
+   * Component: Keil::Device:Startup:2.6.3
+      Source file:   MDK/Device/Source/ARM/STM32F411xx_OPT.s
+      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f411xe.s
+      Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
+      Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
+      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
+Target not created.
+Build Time Elapsed:  00:00:03
+</pre>
+</body>
+</html>

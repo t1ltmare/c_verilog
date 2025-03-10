@@ -1,0 +1,13 @@
+../FATFS/Target/user_diskio_spi.c:79:13:set_sd_interface_speed	0	static
+../FATFS/Target/user_diskio_spi.c:88:13:spi_rw	0	static
+../FATFS/Target/user_diskio_spi.c:168:13:wait_ready	8	static
+../FATFS/Target/user_diskio_spi.c:178:13:send_cmd	16	static
+../FATFS/Target/user_diskio_spi.c:116:13:SPI_DMA_TransmitReceive	24	static,ignoring_inline_asm
+../FATFS/Target/user_diskio_spi.c:369:16:xmit_datablock	16	static
+../FATFS/Target/user_diskio_spi.c:300:16:rcvr_datablock	16	static
+../FATFS/Target/user_diskio_spi.c:102:6:HAL_SPI_TxRxCpltCallback	0	static
+../FATFS/Target/user_diskio_spi.c:217:9:USER_SPI_initialize	32	static
+../FATFS/Target/user_diskio_spi.c:294:9:USER_SPI_status	0	static
+../FATFS/Target/user_diskio_spi.c:336:9:USER_SPI_read	16	static
+../FATFS/Target/user_diskio_spi.c:405:9:USER_SPI_write	16	static
+../FATFS/Target/user_diskio_spi.c:438:9:USER_SPI_ioctl	32	static
