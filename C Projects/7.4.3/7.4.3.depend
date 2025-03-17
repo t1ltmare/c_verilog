@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1740318852 source:c:\users\artem\documents\c projects\7.4.3\main.c
+	<stdio.h>
+	<float.h>
+	<locale.h>
+
