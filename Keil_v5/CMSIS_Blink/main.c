@@ -17,16 +17,16 @@ int main(void)
     while (1)
    {
         // Установить PA5 в высокий уровень
-        GPIOA->BSRR = (1 << 5);  // Установить бит 5 в ODR (GPIOA->ODR = GPIO_ODR_OD5;)
+        GPIOA->BSRR = (1 << 5);  
        
         // Задержка
-        for (volatile uint32_t i = 0; i < 1000000; i++);
+        for (volatile uint32_t i = 0; i < 5000000; i++);
 
         // Сбросить PA5 в низкий уровень
-        GPIOA->BSRR = (1 << (5 + 16)); // Сбросить бит 5 в ODR  (GPIOA->ODR &= ~GPIO_ODR_OD5;)
+        GPIOA->BSRR = (1 << (5 + 16)); 
 
         // Задержка
-        for (volatile uint32_t i = 0; i < 1000000; i++);
+        for (volatile uint32_t i = 0; i < 5000000; i++);
    }   
    
 }
