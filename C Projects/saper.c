@@ -13,15 +13,15 @@ int main()
     
     for (int i = 0; i < 5; i++) {
         for (int j = 0; j < 5; j++) {
-            arr1[i][j] = rand() % 128;
+            arr1[i][j] = rand() % 10;
             arr2[i][j] = 0;
-            printf("%d ", arr1[i][j]);
+            //printf("%d ", arr1[i][j]);
         }
-        printf("\n");
+        //printf("\n");
     }
 
     while(ind < 25) {
-        printf("Enter your num from 0 to 127\n");
+        printf("Enter your num from 0 to 9\n");
         scanf("%d", &x);
     
         for (int i = 0; i < 5; i++) {
@@ -40,5 +40,5 @@ int main()
         }
     }
     printf("YOU WIN!");
-    return 0;
+    scanf("%d", &x);
 }
