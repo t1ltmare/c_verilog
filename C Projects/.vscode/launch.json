@@ -9,7 +9,7 @@
       "stopAtEntry": false,
       "externalConsole": true,
       "cwd": "c:/GIT/c_verilog/C Projects",
-      "program": "c:/GIT/c_verilog/C Projects/build/Debug/outDebug",
+      "program": "c:/GIT/c_verilog/C Projects/build/Release/outRelease",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

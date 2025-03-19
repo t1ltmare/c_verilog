@@ -39,9 +39,6 @@ int main()
             printf("\n");
         }
     }
-
     printf("YOU WIN!");
-
-    //printf("You entered %d", x);
     return 0;
 }

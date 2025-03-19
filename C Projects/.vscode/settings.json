@@ -57,5 +57,8 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "code-runner.clearPreviousOutput": true,
-  "debug.terminal.clearBeforeReusing": true
+  "debug.terminal.clearBeforeReusing": true,
+  "files.associations": {
+    "stdio.h": "c"
+  }
 }
