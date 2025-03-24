@@ -1,7 +1,23 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-int main() {
+void main() 
+{
+    int *p1 = malloc(4);
+    *p1 = 5;
+    printf("malloc %d\n", *p1);
+    free(p1);
+    printf("free %d\n\n", *p1);
+
+    char *p2 = calloc(5, 1);
+    char *str = "Hello";
+    strcpy(p2, str);
+    printf("%s\n", p2);
+    free(p2);
+    printf("%s\n", p2);
+    
+    /*
     short arr[3] = {1, 2, 3};
 
     printf("MemVolume char %d\n", sizeof(char));
@@ -12,4 +28,5 @@ int main() {
 
     printf("MemVolume short arr %d\n", (sizeof(arr)));
     return 0;
+    */
 }
