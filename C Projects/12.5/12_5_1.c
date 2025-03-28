@@ -15,7 +15,29 @@ int main() {
     scanf("%d", &size);
 
     // 2. Allocate memory for array
-    
-  
+    int *ptr = malloc(size * sizeof(int));
+
+    // 3. Fill an array
+    for (int i = 0; i < size; i++)
+    {
+      printf("Enter the %d element of array ", i+1);
+      scanf("%d", &ptr[i]);
+    }
+
+    // 4. Print an array
+    for (int i = 0; i < size; i++)
+    {
+      printf("\nThe %d element of array is %d", i+1, ptr[i]);
+    }
+
+    // 5. Free the memory
+    free(ptr);
+
+    // 6. Print an array
+    for (int i = 0; i < size; i++)
+    {
+      printf("\nThe %d element of array is %d", i+1, ptr[i]);
+    }
+
     return 0;
   }
