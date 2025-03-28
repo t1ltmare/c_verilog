@@ -31,6 +31,7 @@ int main() {
     }
 
     // 5. Free the memory
+    printf("\n\nMemory is freed");
     free(ptr);
 
     // 6. Print an array
