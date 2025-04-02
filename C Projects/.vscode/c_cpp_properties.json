@@ -3,7 +3,8 @@
     {
       "name": "windows-gcc-x86",
       "includePath": [
-        "${workspaceFolder}/**"
+        "${workspaceFolder}/**",          
+        "${workspaceFolder}/graph/SDL2-2.32.4/include" 
       ],
       "compilerPath": "C:\\MinGW\\bin\\gcc.exe",
       "cStandard": "${default}",
@@ -11,6 +12,11 @@
       "intelliSenseMode": "windows-gcc-x86",
       "compilerArgs": [
         ""
+      ],
+      "defines": [
+        "_DEBUG",
+        "UNICODE",
+        "_UNICODE"
       ]
     }
   ],
