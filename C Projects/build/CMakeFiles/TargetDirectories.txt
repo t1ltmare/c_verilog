@@ -1,0 +1,3 @@
+C:/GIT/c_verilog/C Projects/build/CMakeFiles/PROJ.dir
+C:/GIT/c_verilog/C Projects/build/CMakeFiles/edit_cache.dir
+C:/GIT/c_verilog/C Projects/build/CMakeFiles/rebuild_cache.dir

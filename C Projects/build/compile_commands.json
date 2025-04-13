@@ -1,0 +1,8 @@
+[
+{
+  "directory": "C:/GIT/c_verilog/C Projects/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -o CMakeFiles\\PROJ.dir\\test.cpp.obj -c \"C:\\GIT\\c_verilog\\C Projects\\test.cpp\"",
+  "file": "C:/GIT/c_verilog/C Projects/test.cpp",
+  "output": "CMakeFiles/PROJ.dir/test.cpp.obj"
+}
+]
