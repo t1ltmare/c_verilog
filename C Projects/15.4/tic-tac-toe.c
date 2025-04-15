@@ -85,7 +85,10 @@ int main()
             
             if (turn % 2 && arr[row - 1][col - 1] == '*') arr[row - 1][col - 1] = 'O';
             else if (arr[row - 1][col - 1] == '*') arr[row - 1][col - 1] = 'X';
-            else printf("\nError: Cell already occupied!\n");
+            else {
+                printf("\nError: Cell already occupied!\n");
+                turn++;
+            }
             
             print(arr);
 
@@ -117,7 +120,10 @@ int main()
                 
                 if (turn % 2 && arr[row - 1][col - 1] == '*') arr[row - 1][col - 1] = 'O';
                 else if (arr[row - 1][col - 1] == '*') arr[row - 1][col - 1] = 'X';
-                else printf("\nError: Cell already occupied!\n");
+                else {
+                    printf("\nError: Cell already occupied!\n");
+                    turn++;
+                }
 
                 print(arr);
 
