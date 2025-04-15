@@ -47,6 +47,19 @@ int winCheck(char arr[3][3])
     return win;
 }
 
+int AIturn(char arr[3][3])
+{
+    int row, col;
+    do
+    {
+        row = rand() % 3;
+        col = rand() % 3;
+    } while (arr[row][col] != '*');
+    
+    arr[row][col] = 'O';
+    return 0;
+}
+
 int main()
 {
     int row, col, turn = 0, win = 0;
@@ -85,8 +98,39 @@ int main()
     }
     else
     {
-        turn = rand() % 2;
-       
+        print(arr);
+        printf("\n");
+
+        while (!win)
+        {
+            if (turn % 2) {
+                printf("AI's turn\n\n");
+                AIturn(arr);
+                print(arr);
+            }
+            else {
+                printf("1'st player's turn\n\n");
+                printf("Enter the row ");
+                scanf("%d", &row);
+                printf("Enter the column ");
+                scanf("%d", &col);
+                
+                if (turn % 2 && arr[row - 1][col - 1] == '*') arr[row - 1][col - 1] = 'O';
+                else if (arr[row - 1][col - 1] == '*') arr[row - 1][col - 1] = 'X';
+                else printf("\nError: Cell already occupied!\n");
+
+                print(arr);
+
+                win = winCheck(arr);
+                if (win == 1) {
+                    if (turn % 2) printf("AI wins!\n");
+                    else printf("Player wins!\n");
+                }
+                else if (win == 2) printf("Draw!\n");
+            }
+
+            turn++;
+        }
     }
     
     return 0;
