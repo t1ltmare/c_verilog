@@ -1,0 +1,105 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Tool Versions:</h2>
+IDE-Version: µVision V5.42.0.0
+Copyright (C) 2025 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Artem Sparrow, OKB, LIC=----
+ 
+Tool Versions:
+Toolchain:       MDK-Lite  Version: 5.42.0.0
+Toolchain Path:  C:\Users\vorobyevay\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin
+C Compiler:      ArmClang.exe V6.23
+Assembler:       Armasm.exe V6.23
+Linker/Locator:  ArmLink.exe V6.23
+Library Manager: ArmAr.exe V6.23
+Hex Converter:   FromElf.exe V6.23
+CPU DLL:         SARMCM3.DLL V5.42.0.0
+Dialog DLL:      DCM.DLL V1.17.5.0
+Target DLL:      UL2CM3.DLL V1.164.14.0
+Dialog DLL:      TCM.DLL V1.56.6.0
+ 
+<h2>Project:</h2>
+C:\GIT\Keil\Blink_SPL.uvprojx
+Project File Date:  04/16/2025
+
+<h2>Output:</h2>
+*** Using Compiler 'V6.23', folder: 'C:\Users\vorobyevay\AppData\Local\Keil_v5\ARM\ARMCLANG\Bin'
+Build target 'STM32F411RET6'
+assembling startup_stm32f411xe.s...
+RTE/Device/STM32F411RETx/system_stm32f4xx.c(67): warning: In file included from...
+C:/Users/vorobyevay/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.4.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f4xx.h(154): warning: In file included from...
+C:/Users/vorobyevay/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.4.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f411xe.h(160): warning: In file included from...
+C:/Users/vorobyevay/AppData/Local/Arm/Packs/ARM/CMSIS/4.3.0/CMSIS/Include\core_cm4.h(189): warning: In file included from...
+C:/Users/vorobyevay/AppData/Local/Arm/Packs/ARM/CMSIS/4.3.0/CMSIS/Include\core_cmFunc.h(629): error: unknown register name 'vfpcc' in asm
+  629 |   __ASM volatile ("VMSR fpscr, %0" : : "r" (fpscr) : "vfpcc");
+      |                                                      ^
+1 error generated.
+compiling system_stm32f4xx.c...
+main.c(1): warning: In file included from...
+C:/Users/vorobyevay/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.4.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include\stm32f411xe.h(160): warning: In file included from...
+C:/Users/vorobyevay/AppData/Local/Arm/Packs/ARM/CMSIS/4.3.0/CMSIS/Include\core_cm4.h(189): warning: In file included from...
+C:/Users/vorobyevay/AppData/Local/Arm/Packs/ARM/CMSIS/4.3.0/CMSIS/Include\core_cmFunc.h(629): error: unknown register name 'vfpcc' in asm
+  629 |   __ASM volatile ("VMSR fpscr, %0" : : "r" (fpscr) : "vfpcc");
+      |                                                      ^
+main.c(11): error: extraneous ')' before ';'
+   11 | RCC_AHB1ENR_GPIOAEN);
+      |                    ^
+main.c(17): error: no member named 'BSRR' in 'GPIO_TypeDef'
+   17 | GPIOA->BSRR = (1 << 5);
+      | ~~~~~  ^
+main.c(21): error: no member named 'BSRR' in 'GPIO_TypeDef'
+   21 | GPIOA->BSRR = (1 << (5 + 16));
+      | ~~~~~  ^
+main.c(19): warning: for loop has empty body [-Wempty-body]
+   19 | for (volatile uint32_t i = 0; i < 5000000; i++);
+      |                                                ^
+main.c(19): note: put the semicolon on a separate line to silence this warning
+1 warning and 4 errors generated.
+compiling main.c...
+compiling retarget_io.c...
+".\Objects\Blink_SPL.axf" - 5 Error(s), 1 Warning(s).
+
+<h2>Software Packages used:</h2>
+
+Package Vendor: ARM
+                http://www.keil.com/pack/ARM.CMSIS.4.3.0.pack
+                ARM::CMSIS@4.3.0
+                CMSIS (Cortex Microcontroller Software Interface Standard)
+   * Component: CORE Version: 4.1.0
+
+Package Vendor: ARM
+                https://www.keil.com/pack/ARM.CMSIS-Compiler.2.1.0.pack
+                ARM::CMSIS-Compiler@2.1.0
+                CMSIS Compiler extensions for Arm Compiler, GCC, Clang, and IAR Compiler
+   * Component: CORE Version: 1.1.0
+
+Package Vendor: Keil
+                http://www.keil.com/pack/Keil.STM32F4xx_DFP.2.4.0.pack
+                Keil::STM32F4xx_DFP@2.4.0
+                STMicroelectronics STM32F4 Series Device Support, Drivers and Examples
+   * Component: Startup Version: 2.1.0
+
+<h2>Collection of Component include folders:</h2>
+  ./RTE/_STM32F411RET6
+  C:/Users/vorobyevay/AppData/Local/Arm/Packs/ARM/CMSIS/4.3.0/CMSIS/Include
+  C:/Users/vorobyevay/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.4.0/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+
+<h2>Collection of Component Files used:</h2>
+
+   * Component: ARM::CMSIS-Compiler:CORE@1.1.0
+      Source file:   source/armcc/retarget_io.c
+
+   * Component: ARM::CMSIS:CORE@4.1.0
+
+   * Component: Keil::Device:Startup@2.1.0
+      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f411xe.s
+      Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
+      Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
+      Source file:   MDK/Device/Source/ARM/system_stm32f4xx.c
+Target not created.
+Build Time Elapsed:  00:00:00
+</pre>
+</body>
+</html>
