@@ -1,0 +1,4 @@
+STM32 CAN conformance test authentication sheet
+1.0
+Certification Document
+1 Aug 2015

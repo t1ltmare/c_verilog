@@ -1,0 +1,5 @@
+ES0287
+STM32F411xC/xE device errata
+3.0
+Errata Sheet
+7 Jun 2023
