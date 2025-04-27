@@ -3,7 +3,7 @@
  * Auto generated Run-Time-Environment Configuration File
  *      *** Do not modify ! ***
  *
- * Project: 'CMSIS_BUTTON_EXTI' 
+ * Project: 'CMSIS_PWM_LED' 
  * Target:  'STM32F411CEU6' 
  */
 
