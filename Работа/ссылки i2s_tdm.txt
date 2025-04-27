@@ -1,0 +1,9 @@
+https://github.com/aselectroworks/HDL/blob/master/rtl/verilog/i2s_to_tdm_converter.v
+
+https://habr.com/ru/companies/sberdevices/articles/520120/
+
+https://stackoverflow.com/questions/40734168/i2s-transmitter-verilog-implementation-not-working
+
+https://infineon.github.io/mtb-pdl-cat1/pdl_api_reference_manual/html/group__group__tdm.html
+
+https://www.edaplayground.com/x/4bPv
