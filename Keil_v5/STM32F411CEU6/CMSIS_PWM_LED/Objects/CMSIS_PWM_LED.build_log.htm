@@ -3,212 +3,42 @@
 <pre>
 <h1>µVision Build Log</h1>
 <h2>Tool Versions:</h2>
-IDE-Version: µVision V5.38.0.0
-Copyright (C) 2022 ARM Ltd and ARM Germany GmbH. All rights reserved.
-License Information: Artem Sparrow, NULL, LIC=----
+IDE-Version: µVision V5.36.0.0
+Copyright (C) 2021 ARM Ltd and ARM Germany GmbH. All rights reserved.
+License Information: Artem Sparrow, OKB, LIC=----
  
 Tool Versions:
-Toolchain:       MDK-Lite  Version: 5.38.0.0
+Toolchain:       MDK-Lite  Version: 5.36.0.0
 Toolchain Path:  C:\Keil_v5\ARM\ARMCLANG\Bin
-C Compiler:      ArmClang.exe V6.19
-Assembler:       Armasm.exe V6.19
-Linker/Locator:  ArmLink.exe V6.19
-Library Manager: ArmAr.exe V6.19
-Hex Converter:   FromElf.exe V6.19
-CPU DLL:         SARMCM3.DLL V5.38.0.0
-Dialog DLL:      DCM.DLL V1.17.5.0
-Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.1.0.0
-Dialog DLL:      TCM.DLL V1.56.4.0
+C Compiler:      ArmClang.exe V6.16
+Assembler:       Armasm.exe V6.16
+Linker/Locator:  ArmLink.exe V6.16
+Library Manager: ArmAr.exe V6.16
+Hex Converter:   FromElf.exe V6.16
+CPU DLL:         SARMCM3.DLL V5.36.0.0
+Dialog DLL:      DCM.DLL V1.17.3.0
+Target DLL:      STLink\ST-LINKIII-KEIL_SWO.dll V3.0.9.0
+Dialog DLL:      TCM.DLL V1.53.0.0
  
 <h2>Project:</h2>
-C:\GIT\c_verilog\Keil_v5\STM32F411CEU6\CMSIS_PWM_LED\CMSIS_PWM_LED.uvprojx
-Project File Date:  04/27/2025
+D:\GIT\c_verilog\Keil_v5\STM32F411CEU6\CMSIS_PWM_LED\CMSIS_PWM_LED.uvprojx
+Project File Date:  05/04/2025
 
 <h2>Output:</h2>
-*** Using Compiler 'V6.19', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
+*** Using Compiler 'V6.16', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Build target 'STM32F411CEU6'
-main.c(7): warning: no previous extern declaration for non-static variable 'duty_cycle_index' [-Wmissing-variable-declarations]
-volatile uint32_t duty_cycle_index = 0;
-                  ^
-main.c(7): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-volatile uint32_t duty_cycle_index = 0;
-         ^
-main.c(8): warning: no previous extern declaration for non-static variable 'duty_cycles' [-Wmissing-variable-declarations]
-const uint32_t duty_cycles[] = {0, 20, 40, 60, 80, 100};
-               ^
-main.c(8): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-const uint32_t duty_cycles[] = {0, 20, 40, 60, 80, 100};
-      ^
-main.c(9): warning: no previous extern declaration for non-static variable 'num_duty_cycles' [-Wmissing-variable-declarations]
-const uint32_t num_duty_cycles = sizeof(duty_cycles) / sizeof(duty_cycles[0]);
-               ^
-main.c(9): note: declare 'static' if the variable is not intended to be used outside of this translation unit
-const uint32_t num_duty_cycles = sizeof(duty_cycles) / sizeof(duty_cycles[0]);
-      ^
-main.c(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOC->AFR[0] &= ~(0xF << (LEDPIN * 4));  // <D1><E1><F0><EE><F1><E8><F2><FC> <E1><E8><F2><FB> AFR <E4><EB><FF> <EF><E8><ED><E0>
-                                                 ^
-main.c(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOC->AFR[0] &= ~(0xF << (LEDPIN * 4));  // <D1><E1><F0><EE><F1><E8><F2><FC> <E1><E8><F2><FB> AFR <E4><EB><FF> <EF><E8><ED><E0>
-                                                                                  ^
-main.c(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOC->AFR[0] &= ~(0xF << (LEDPIN * 4));  // <D1><E1><F0><EE><F1><E8><F2><FC> <E1><E8><F2><FB> AFR <E4><EB><FF> <EF><E8><ED><E0>
-                                                                                                       ^
-main.c(18): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOC->AFR[0] &= ~(0xF << (LEDPIN * 4));  // <D1><E1><F0><EE><F1><E8><F2><FC> <E1><E8><F2><FB> AFR <E4><EB><FF> <EF><E8><ED><E0>
-                                                                                                                    ^
-main.c(19): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOC->AFR[0] |= (0x1 << (LEDPIN * 4));  // <C2><FB><E1><F0><E0><F2><FC> AF1 (TIM2_CH1)
-                                                ^
-main.c(19): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-    GPIOC->AFR[0] |= (0x1 << (LEDPIN * 4));  // <C2><FB><E1><F0><E0><F2><FC> AF1 (TIM2_CH1)
-                  ~~  ~~~~^~~~~~~~~~~~~~~
-main.c(11): warning: no previous prototype for function 'led_init' [-Wmissing-prototypes]
-void led_init(void) 
-     ^
-main.c(11): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void led_init(void) 
-^
-static 
-main.c(18): warning: shift count >= width of type [-Wshift-count-overflow]
-    GPIOC->AFR[0] &= ~(0xF << (LEDPIN * 4));  // <D1><E1><F0><EE><F1><E8><F2><FC> <E1><E8><F2><FB> AFR <E4><EB><FF> <EF><E8><ED><E0>
-                           ^  ~~~~~~~~~~~~
-main.c(19): warning: shift count >= width of type [-Wshift-count-overflow]
-    GPIOC->AFR[0] |= (0x1 << (LEDPIN * 4));  // <C2><FB><E1><F0><E0><F2><FC> AF1 (TIM2_CH1)
-                          ^  ~~~~~~~~~~~~
-main.c(24): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    RCC -> AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // <D2><E0><EA><F2><E8><F0><EE><E2><E0><ED><E8><E5> <EF><EE><F0><F2><E0> <EA><ED><EE><EF><EA><E8>
-                                              ^
-main.c(24): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    RCC -> AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // <D2><E0><EA><F2><E8><F0><EE><E2><E0><ED><E8><E5> <EF><EE><F0><F2><E0> <EA><ED><EE><EF><EA><E8>
-                                                                                               ^
-main.c(24): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    RCC -> AHB1ENR |= RCC_AHB1ENR_GPIOAEN; // <D2><E0><EA><F2><E8><F0><EE><E2><E0><ED><E8><E5> <EF><EE><F0><F2><E0> <EA><ED><EE><EF><EA><E8>
-                                                                                                                    ^
-main.c(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOA -> MODER &= ~(0x03UL << (0 * 2)); // <D1><E1><F0><EE><F1> <E1><E8><F2><EE><E2> <F0><E5><E6><E8><EC><E0> <E4><EB><FF> <EF><E8><ED><E0>
-                                               ^
-main.c(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOA -> MODER &= ~(0x03UL << (0 * 2)); // <D1><E1><F0><EE><F1> <E1><E8><F2><EE><E2> <F0><E5><E6><E8><EC><E0> <E4><EB><FF> <EF><E8><ED><E0>
-                                                                    ^
-main.c(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOA -> MODER &= ~(0x03UL << (0 * 2)); // <D1><E1><F0><EE><F1> <E1><E8><F2><EE><E2> <F0><E5><E6><E8><EC><E0> <E4><EB><FF> <EF><E8><ED><E0>
-                                                                                         ^
-main.c(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOA -> MODER &= ~(0x03UL << (0 * 2)); // <D1><E1><F0><EE><F1> <E1><E8><F2><EE><E2> <F0><E5><E6><E8><EC><E0> <E4><EB><FF> <EF><E8><ED><E0>
-                                                                                                                  ^
-main.c(26): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOA -> MODER &= ~(0x03UL << (0 * 2)); // <D1><E1><F0><EE><F1> <E1><E8><F2><EE><E2> <F0><E5><E6><E8><EC><E0> <E4><EB><FF> <EF><E8><ED><E0>
-                                                                                                                               ^
-main.c(27): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOA -> MODER |= (0x00UL << (0 * 2)); // <D3><F1><F2><E0><ED><EE><E2><EA><E0> <EF><E8><ED><E0> <ED><E0> <E2><F5><EE><E4>
-                                              ^
-main.c(27): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOA -> MODER |= (0x00UL << (0 * 2)); // <D3><F1><F2><E0><ED><EE><E2><EA><E0> <EF><E8><ED><E0> <ED><E0> <E2><F5><EE><E4>
-                                                                                   ^
-main.c(27): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOA -> MODER |= (0x00UL << (0 * 2)); // <D3><F1><F2><E0><ED><EE><E2><EA><E0> <EF><E8><ED><E0> <ED><E0> <E2><F5><EE><E4>
-                                                                                                    ^
-main.c(27): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOA -> MODER |= (0x00UL << (0 * 2)); // <D3><F1><F2><E0><ED><EE><E2><EA><E0> <EF><E8><ED><E0> <ED><E0> <E2><F5><EE><E4>
-                                                                                                             ^
-main.c(29): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOA -> PUPDR &= ~(0x03UL << (0 * 2)); // <D1><E1><F0><EE><F1> PU PD
-                                               ^
-main.c(30): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    GPIOA -> PUPDR |= (0x01UL << (0 * 2)); // <C2><EA><EB><FE><F7><E8><F2><FC> pull-up
-                                              ^
-main.c(32): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    RCC -> APB2ENR |= RCC_APB2ENR_SYSCFGEN; // <C2><EA><EB><FE><F7><E8><F2><FC> <F2><E0><EA><F2><E8><F0><EE><E2><E0><ED><E8><E5> SYSCFG
-                                               ^
-main.c(32): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    RCC -> APB2ENR |= RCC_APB2ENR_SYSCFGEN; // <C2><EA><EB><FE><F7><E8><F2><FC> <F2><E0><EA><F2><E8><F0><EE><E2><E0><ED><E8><E5> SYSCFG
-                                                                                ^
-main.c(34): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    SYSCFG -> EXTICR[BUTPIN / 4] &= ~(0x0FUL << ((BUTPIN % 4) * 4)); // <D1><E1><F0><EE><F1> SYSCFG
-                                                                        ^
-main.c(35): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    SYSCFG -> EXTICR[BUTPIN / 4] |= (0x00UL << ((BUTPIN % 4) * 4)); // <C2><FB><E1><EE><F0> <EF><EE><F0><F2><E0> GPIOA
-                                                                       ^
-main.c(35): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    SYSCFG -> EXTICR[BUTPIN / 4] |= (0x00UL << ((BUTPIN % 4) * 4)); // <C2><FB><E1><EE><F0> <EF><EE><F0><F2><E0> GPIOA
-                                                                                            ^
-main.c(37): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    EXTI -> IMR |= (0x01UL << BUTPIN); // <D0><E0><E7><F0><E5><F8><E0><E5><EC> <E3><E5><ED><E5><F0><E0><F6><E8><FE> <EF><F0><E5><F0><FB><E2><E0><ED><E8><FF> EXTI0
-                                          ^
-main.c(37): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    EXTI -> IMR |= (0x01UL << BUTPIN); // <D0><E0><E7><F0><E5><F8><E0><E5><EC> <E3><E5><ED><E5><F0><E0><F6><E8><FE> <EF><F0><E5><F0><FB><E2><E0><ED><E8><FF> EXTI0
-                                                                               ^
-main.c(37): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    EXTI -> IMR |= (0x01UL << BUTPIN); // <D0><E0><E7><F0><E5><F8><E0><E5><EC> <E3><E5><ED><E5><F0><E0><F6><E8><FE> <EF><F0><E5><F0><FB><E2><E0><ED><E8><FF> EXTI0
-                                                                                                                    ^
-main.c(38): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    EXTI -> FTSR |= (0x01UL << BUTPIN); // <CF><F0><E5><F0><FB><E2><E0><ED><E8><E5> <EF><EE> <F1><EF><E0><E4><F3>
-                                           ^
-main.c(38): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    EXTI -> FTSR |= (0x01UL << BUTPIN); // <CF><F0><E5><F0><FB><E2><E0><ED><E8><E5> <EF><EE> <F1><EF><E0><E4><F3>
-                                                                                    ^
-main.c(38): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    EXTI -> FTSR |= (0x01UL << BUTPIN); // <CF><F0><E5><F0><FB><E2><E0><ED><E8><E5> <EF><EE> <F1><EF><E0><E4><F3>
-                                                                                             ^
-main.c(40): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    NVIC_EnableIRQ(EXTI0_IRQn); // <D0><E0><E7><F0><E5><F8><E0><E5><EC> <EF><F0><E5><F0><FB><E2><E0><ED><E8><E5> <E2> NVIC
-                                   ^
-main.c(40): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    NVIC_EnableIRQ(EXTI0_IRQn); // <D0><E0><E7><F0><E5><F8><E0><E5><EC> <EF><F0><E5><F0><FB><E2><E0><ED><E8><E5> <E2> NVIC
-                                                                        ^
-main.c(40): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    NVIC_EnableIRQ(EXTI0_IRQn); // <D0><E0><E7><F0><E5><F8><E0><E5><EC> <EF><F0><E5><F0><FB><E2><E0><ED><E8><E5> <E2> NVIC
-                                                                                                                 ^
-main.c(41): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    NVIC_SetPriority(EXTI0_IRQn, 0); // <D3><F1><F2><E0><ED><E0><E2><EB><E8><E2><E0><E5><EC> <E2><FB><F1><EE><EA><E8><E9> <EF><F0><E8><EE><F0><E8><F2><E5><F2> <EF><F0><E5><F0><FB><E2><E0><ED><E8><FF>
-                                        ^
-main.c(41): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    NVIC_SetPriority(EXTI0_IRQn, 0); // <D3><F1><F2><E0><ED><E0><E2><EB><E8><E2><E0><E5><EC> <E2><FB><F1><EE><EA><E8><E9> <EF><F0><E8><EE><F0><E8><F2><E5><F2> <EF><F0><E5><F0><FB><E2><E0><ED><E8><FF>
-                                                                                             ^
-main.c(41): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    NVIC_SetPriority(EXTI0_IRQn, 0); // <D3><F1><F2><E0><ED><E0><E2><EB><E8><E2><E0><E5><EC> <E2><FB><F1><EE><EA><E8><E9> <EF><F0><E8><EE><F0><E8><F2><E5><F2> <EF><F0><E5><F0><FB><E2><E0><ED><E8><FF>
-                                                                                                                          ^
-main.c(41): warning: invalid UTF-8 in comment [-Winvalid-utf8]
-    NVIC_SetPriority(EXTI0_IRQn, 0); // <D3><F1><F2><E0><ED><E0><E2><EB><E8><E2><E0><E5><EC> <E2><FB><F1><EE><EA><E8><E9> <EF><F0><E8><EE><F0><E8><F2><E5><F2> <EF><F0><E5><F0><FB><E2><E0><ED><E8><FF>
-                                                                                                                                                               ^
-main.c(22): warning: no previous prototype for function 'button_init' [-Wmissing-prototypes]
-void button_init(void)
-     ^
-main.c(22): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void button_init(void)
-^
-static 
-main.c(44): warning: no previous prototype for function 'pwm_init' [-Wmissing-prototypes]
-void pwm_init(void) 
-     ^
-main.c(44): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void pwm_init(void) 
-^
-static 
-main.c(62): warning: no previous prototype for function 'EXTI0_IRQHandler' [-Wmissing-prototypes]
-void EXTI0_IRQHandler(void) 
-     ^
-main.c(62): note: declare 'static' if the function is not intended to be used outside of this translation unit
-void EXTI0_IRQHandler(void) 
-^
-static 
-main.c(80): warning: no newline at end of file [-Wnewline-eof]
-}
- ^
-48 warnings generated.
 compiling main.c...
 linking...
-Program Size: Code=960 RO-data=448 RW-data=0 ZI-data=1640  
-".\Objects\CMSIS_PWM_LED.axf" - 0 Error(s), 48 Warning(s).
+Program Size: Code=968 RO-data=464 RW-data=4 ZI-data=1648  
+".\Objects\CMSIS_PWM_LED.axf" - 0 Error(s), 0 Warning(s).
 
 <h2>Software Packages used:</h2>
 
 Package Vendor: ARM
-                https://www.keil.com/pack/ARM.CMSIS.6.1.0.pack
-                ARM.CMSIS.6.1.0
+                http://www.keil.com/pack/ARM.CMSIS.5.8.0.pack
+                ARM.CMSIS.5.8.0
                 CMSIS (Common Microcontroller Software Interface Standard)
-   * Component: CORE Version: 6.1.0
+   * Component: CORE Version: 5.5.0
 
 Package Vendor: Keil
                 https://www.keil.com/pack/Keil.STM32F4xx_DFP.2.17.1.pack
@@ -217,21 +47,21 @@ Package Vendor: Keil
    * Component: Startup Version: 2.6.3
 
 <h2>Collection of Component include folders:</h2>
-  ./RTE/_STM32F411CEU6
-  C:/Users/ARTEM/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include
-  C:/Users/ARTEM/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+  .\RTE\_STM32F411CEU6
+  C:\Users\justd\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include
+  C:\Users\justd\AppData\Local\Arm\Packs\Keil\STM32F4xx_DFP\2.17.1\Drivers\CMSIS\Device\ST\STM32F4xx\Include
 
 <h2>Collection of Component Files used:</h2>
 
-   * Component: ARM::CMSIS:CORE:6.1.0
+   * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:2.6.3
-      Source file:   MDK/Device/Source/ARM/STM32F411xx_OPT.s
-      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/arm/startup_stm32f411xe.s
-      Include file:  Drivers/CMSIS/Device/ST/STM32F4xx/Include/stm32f4xx.h
-      Source file:   MDK/Device/Source/ARM/STM32F4xx_OTP.s
-      Source file:   Drivers/CMSIS/Device/ST/STM32F4xx/Source/Templates/system_stm32f4xx.c
-Build Time Elapsed:  00:00:00
+      Source file:   MDK\Device\Source\ARM\STM32F4xx_OTP.s
+      Include file:  Drivers\CMSIS\Device\ST\STM32F4xx\Include\stm32f4xx.h
+      Source file:   MDK\Device\Source\ARM\STM32F411xx_OPT.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\arm\startup_stm32f411xe.s
+      Source file:   Drivers\CMSIS\Device\ST\STM32F4xx\Source\Templates\system_stm32f4xx.c
+Build Time Elapsed:  00:00:01
 </pre>
 </body>
 </html>
