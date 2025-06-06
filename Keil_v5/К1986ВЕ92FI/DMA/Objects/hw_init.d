@@ -1,0 +1,14 @@
+.\objects\hw_init.o: hw_init\hw_init.c
+.\objects\hw_init.o: hw_init\hw_init.h
+.\objects\hw_init.o: C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_port.h
+.\objects\hw_init.o: .\RTE\Device\K1986VE92xI\MDR32FxQI_config.h
+.\objects\hw_init.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\hw_init.o: .\RTE\_K1986BE92FI\RTE_Components.h
+.\objects\hw_init.o: C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc\K1986VE9xI.h
+.\objects\hw_init.o: .\RTE\Device\K1986VE92xI\MDR32FxQI_config.h
+.\objects\hw_init.o: C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cm3.h
+.\objects\hw_init.o: C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cmInstr.h
+.\objects\hw_init.o: C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cmFunc.h
+.\objects\hw_init.o: .\RTE\Device\K1986VE92xI\system_K1986VE9xI.h
+.\objects\hw_init.o: C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_rst_clk.h
+.\objects\hw_init.o: C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_uart.h

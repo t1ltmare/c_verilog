@@ -1,0 +1,46 @@
+Dependencies for Project 'Blink', Target 'K1986BE92FI': (DO NOT MODIFY !)
+CompilerVersion: 5060960::V5.06 update 7 (build 960)::.\ARMCC
+F (.\main.c)(0x683C1CC0)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O1 --apcs=interwork --split_sections-I.\RTE\Device\K1986VE92xI-I.\RTE\_K1986BE92FI-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\main.o --omf_browse .\objects\main.crf --depend .\objects\main.d)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_port.h)(0x67E63F1E)
+I (.\RTE\Device\K1986VE92xI\MDR32FxQI_config.h)(0x67E63F1E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E8312)
+I (.\RTE\_K1986BE92FI\RTE_Components.h)(0x683C0813)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc\K1986VE9xI.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cm3.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cmInstr.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cmFunc.h)(0x67E63F1E)
+I (.\RTE\Device\K1986VE92xI\system_K1986VE9xI.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_rst_clk.h)(0x67E63F1E)
+F (RTE/Device/K1986VE92xI/K1986VE9xI.sct)(0x67E63F1E)()
+F (RTE/Device/K1986VE92xI/MDR32FxQI_config.h)(0x67E63F1E)()
+F (RTE/Device/K1986VE92xI/startup_K1986VE9xI.S)(0x67E63F1E)(--cpu Cortex-M3 --pd "__EVAL SETA 1" -g --apcs=interwork -I.\RTE\Device\K1986VE92xI-I.\RTE\_K1986BE92FI-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc--cpreproc --pd "__UVISION_VERSION SETA 538" --pd "_RTE_ SETA 1" --pd "_RTE_ SETA 1"--list .\listings\startup_k1986ve9xi.lst --xref -o .\objects\startup_k1986ve9xi.o --depend .\objects\startup_k1986ve9xi.d)
+F (RTE/Device/K1986VE92xI/system_K1986VE9xI.c)(0x67E63F1E)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O1 --apcs=interwork --split_sections-I.\RTE\Device\K1986VE92xI-I.\RTE\_K1986BE92FI-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\system_k1986ve9xi.o --omf_browse .\objects\system_k1986ve9xi.crf --depend .\objects\system_k1986ve9xi.d)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc\K1986VE9xI.h)(0x67E63F1E)
+I (.\RTE\Device\K1986VE92xI\MDR32FxQI_config.h)(0x67E63F1E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E8312)
+I (.\RTE\_K1986BE92FI\RTE_Components.h)(0x683C0813)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cm3.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cmInstr.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cmFunc.h)(0x67E63F1E)
+I (.\RTE\Device\K1986VE92xI\system_K1986VE9xI.h)(0x67E63F1E)
+F (RTE/Device/K1986VE92xI/system_K1986VE9xI.h)(0x67E63F1E)()
+F (C:/Users/ARTEM/AppData/Local/Arm/Packs/Milandr/MDR32FxQI/1.3.2/Libraries/SPL/MDR32FxQI/src/MDR32FxQI_port.c)(0x67E63F20)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O1 --apcs=interwork --split_sections-I.\RTE\Device\K1986VE92xI-I.\RTE\_K1986BE92FI-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\mdr32fxqi_port.o --omf_browse .\objects\mdr32fxqi_port.crf --depend .\objects\mdr32fxqi_port.d)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_port.h)(0x67E63F1E)
+I (.\RTE\Device\K1986VE92xI\MDR32FxQI_config.h)(0x67E63F1E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E8312)
+I (.\RTE\_K1986BE92FI\RTE_Components.h)(0x683C0813)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc\K1986VE9xI.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cm3.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cmInstr.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cmFunc.h)(0x67E63F1E)
+I (.\RTE\Device\K1986VE92xI\system_K1986VE9xI.h)(0x67E63F1E)
+F (C:/Users/ARTEM/AppData/Local/Arm/Packs/Milandr/MDR32FxQI/1.3.2/Libraries/SPL/MDR32FxQI/src/MDR32FxQI_rst_clk.c)(0x67E63F20)(--c99 --gnu -c --cpu Cortex-M3 -D__EVAL -g -O1 --apcs=interwork --split_sections-I.\RTE\Device\K1986VE92xI-I.\RTE\_K1986BE92FI-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc-IC:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc-D__UVISION_VERSION="538" -D_RTE_ -D_RTE_-o .\objects\mdr32fxqi_rst_clk.o --omf_browse .\objects\mdr32fxqi_rst_clk.crf --depend .\objects\mdr32fxqi_rst_clk.d)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\SPL\MDR32FxQI\inc\MDR32FxQI_rst_clk.h)(0x67E63F1E)
+I (.\RTE\Device\K1986VE92xI\MDR32FxQI_config.h)(0x67E63F1E)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x5E8E8312)
+I (.\RTE\_K1986BE92FI\RTE_Components.h)(0x683C0813)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc\K1986VE9xI.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cm3.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cmInstr.h)(0x67E63F1E)
+I (C:\Users\ARTEM\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\CoreSupport\CM3\core_cmFunc.h)(0x67E63F1E)
+I (.\RTE\Device\K1986VE92xI\system_K1986VE9xI.h)(0x67E63F1E)
