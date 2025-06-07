@@ -1,14 +1,14 @@
 #include "hw_init.h"              // Device config
 
-volatile uint32_t delay_dec = 0;
-uint16_t dataReceive = 0;
+volatile uint32_t delay_dec = 0;										// Переменная счетчика delay_dec
+uint16_t dataReceive = 0;														// Переменная с полученными данными
 
-void SysTick_Handler(void)
+void SysTick_Handler(void)													// Функция обратного отсчета
 {
     if (delay_dec != 0) delay_dec--;
 }
 
-void delay_ms(uint32_t delay_ms)
+void delay_ms(uint32_t delay_ms)										// Функция задержки
 {
     delay_dec = delay_ms;
     while(delay_dec){};
@@ -16,27 +16,27 @@ void delay_ms(uint32_t delay_ms)
 
 void UART1_IRQHandler(void)
 {
-    if (UART_GetITStatus(MDR_UART1, UART_IT_RX) != RESET)
+    if (UART_GetITStatus(MDR_UART1, UART_IT_RX) != RESET)				// Если не ресет, тогда...
     {
-        UART_ClearITPendingBit(MDR_UART1, UART_IT_RX);
-        dataReceive = UART_ReceiveData(MDR_UART1);
-        while(UART_GetFlagStatus(MDR_UART1, UART_FLAG_BUSY));
-        PORT_SetBits(MDR_PORTC, PORT_Pin_0);
-        UART_SendData(MDR_UART1, dataReceive);
-        while(UART_GetFlagStatus(MDR_UART1, UART_FLAG_BUSY));
-        PORT_ResetBits(MDR_PORTC, PORT_Pin_0);
+        UART_ClearITPendingBit(MDR_UART1, UART_IT_RX);					// ??? Очистить полученные биты ???
+        dataReceive = UART_ReceiveData(MDR_UART1);							// dataReceive присваиваем полученные с UART данные
+        while(UART_GetFlagStatus(MDR_UART1, UART_FLAG_BUSY));		// Ждем флага конца операции
+        PORT_SetBits(MDR_PORTC, PORT_Pin_0);										// ??? Зачем 1 в C0 ???
+        UART_SendData(MDR_UART1, dataReceive);									// Отправляем полученные данные обратно
+        while(UART_GetFlagStatus(MDR_UART1, UART_FLAG_BUSY));		// Ждем флаг
+        PORT_ResetBits(MDR_PORTC, PORT_Pin_0);									// ??? Зачем ресетим C0 ???
     }
 }
 
 int main()
 {
-    RST_CLK_HSIcmd(ENABLE);
-    while(!RST_CLK_HSIstatus());
-    SysTickInit();
-    PORTC_Init();
-    UART_InitFunction();
-    UART_ClearITPendingBit(MDR_UART1, UART_IT_RX);
-    PORT_ResetBits(MDR_PORTC, PORT_Pin_0);
+    RST_CLK_HSIcmd(ENABLE);													// Включаем клок и ресет?
+    while(!RST_CLK_HSIstatus());										// Если статус не успешный, тогда ждем успешного статуса
+    SysTickInit();																	// Включает систик для задержек
+    PORTC_Init();																		// ??? Зачем инициализация порта C ???
+    UART_InitFunction();														// Инициализация UART
+    UART_ClearITPendingBit(MDR_UART1, UART_IT_RX);	// ??? Что это ???
+    PORT_ResetBits(MDR_PORTC, PORT_Pin_0);					// Ресет бита C0
     while(1)
     {
       /*  while(UART_GetFlagStatus(MDR_UART1, UART_FLAG_TXFE) == RESET);
