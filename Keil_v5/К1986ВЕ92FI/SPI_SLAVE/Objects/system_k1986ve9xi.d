@@ -1,0 +1,12 @@
+.\objects\system_k1986ve9xi.o: RTE\Device\K1986VE92xI\system_K1986VE9xI.c
+.\objects\system_k1986ve9xi.o: C:\Users\justd\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc\K1986VE9xI.h
+.\objects\system_k1986ve9xi.o: .\RTE\Device\K1986VE92xI\MDR32FxQI_config.h
+.\objects\system_k1986ve9xi.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\system_k1986ve9xi.o: .\RTE\_K1986BE92FI\RTE_Components.h
+.\objects\system_k1986ve9xi.o: C:\Users\justd\AppData\Local\Arm\Packs\Milandr\MDR32FxQI\1.3.2\Libraries\CMSIS\MDR32FxQI\DeviceSupport\K1986VE9xI\inc\K1986VE9xI.h
+.\objects\system_k1986ve9xi.o: C:\Users\justd\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\core_cm3.h
+.\objects\system_k1986ve9xi.o: C:\Users\justd\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_version.h
+.\objects\system_k1986ve9xi.o: C:\Users\justd\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_compiler.h
+.\objects\system_k1986ve9xi.o: C:\Users\justd\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\cmsis_armcc.h
+.\objects\system_k1986ve9xi.o: C:\Users\justd\AppData\Local\Arm\Packs\ARM\CMSIS\5.8.0\CMSIS\Core\Include\mpu_armv7.h
+.\objects\system_k1986ve9xi.o: .\RTE\Device\K1986VE92xI\system_K1986VE9xI.h
