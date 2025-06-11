@@ -3,6 +3,7 @@
 ".\objects\hw_init.o"
 ".\objects\startup_k1986ve9xi.o"
 ".\objects\system_k1986ve9xi.o"
+".\objects\mdr32fxqi_dma.o"
 ".\objects\mdr32fxqi_port.o"
 ".\objects\mdr32fxqi_rst_clk.o"
 ".\objects\mdr32fxqi_uart.o"

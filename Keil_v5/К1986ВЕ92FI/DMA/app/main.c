@@ -14,16 +14,36 @@ void delay_ms(uint32_t delay_ms)
     while(delay_dec){};
 }
 
-void UART1_IRQHandler(void)
+void UART2_IRQHandler(void) 
 {
-    if (UART_GetITStatus(MDR_UART1, UART_IT_RX) != RESET)
+    if (UART_GetITStatus(MDR_UART2, UART_IT_RX) != RESET) 
     {
-        UART_ClearITPendingBit(MDR_UART1, UART_IT_RX);
-        dataReceive = UART_ReceiveData(MDR_UART1);
-        while(UART_GetFlagStatus(MDR_UART1, UART_FLAG_BUSY));
+        UART_ClearITPendingBit(MDR_UART2, UART_IT_RX); 
+        dataReceive = UART_ReceiveData(MDR_UART2); 
+        while(UART_GetFlagStatus(MDR_UART2, UART_FLAG_BUSY)); 
+
         PORT_SetBits(MDR_PORTC, PORT_Pin_0);
-        UART_SendData(MDR_UART1, dataReceive);
-        while(UART_GetFlagStatus(MDR_UART1, UART_FLAG_BUSY));
+
+        // Проверка команды и передача данных
+        if (dataReceive == '1') {
+            char greeting[] = "Hello from Milandr!\r\n";
+            for (int i = 0; greeting[i] != '\0'; i++) {
+                UART_SendData(MDR_UART2, greeting[i]);
+                while(UART_GetFlagStatus(MDR_UART2, UART_FLAG_BUSY)); 
+            }
+        } else if (dataReceive == '0') {
+            char farewell[] = "Goodbye from Milandr!\r\n";
+            for (int i = 0; farewell[i] != '\0'; i++) {
+                UART_SendData(MDR_UART2, farewell[i]); 
+                while(UART_GetFlagStatus(MDR_UART2, UART_FLAG_BUSY)); 
+            }
+        } else {
+            char invalid[] = "Invalid command!\r\n";
+            for (int i = 0; invalid[i] != '\0'; i++) {
+                UART_SendData(MDR_UART2, invalid[i]); 
+                 while(UART_GetFlagStatus(MDR_UART2, UART_FLAG_BUSY)); 
+            }
+        }
         PORT_ResetBits(MDR_PORTC, PORT_Pin_0);
     }
 }
@@ -35,13 +55,12 @@ int main()
     SysTickInit();
     PORTC_Init();
     UART_InitFunction();
-    UART_ClearITPendingBit(MDR_UART1, UART_IT_RX);
     PORT_ResetBits(MDR_PORTC, PORT_Pin_0);
     while(1)
     {
       /*  while(UART_GetFlagStatus(MDR_UART1, UART_FLAG_TXFE) == RESET);
         {
-            
+
         }
         UART_SendData(MDR_UART1, 00);*/
     }
