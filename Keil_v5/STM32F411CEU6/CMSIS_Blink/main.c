@@ -1,24 +1,31 @@
-#include "stm32f4xx.h"                  // Device header
-//#include "stm32f411xe.h"                // Device header
+#include "stm32f4xx.h"
 
-// PORTC_13 LED
+volatile uint32_t systick_count = 0;
 
-int main(void)
-{
-	
-	RCC -> AHB1ENR |= RCC_AHB1ENR_GPIOCEN;
-	
-	GPIOC->MODER &= ~((0x03UL) << (13 * 2));
-	GPIOC->MODER |= ((0x01UL) << (13 * 2));
-	
-	while(1)
-	{
-		GPIOC->BSRR = (1 << 13);
-		
-		for (volatile uint32_t i = 0; i < 500000; i++);
-		
-		GPIOC->BSRR = (1 << (13 + 16));
+void SysTick_Handler(void) {
+  systick_count++;
+}
 
-		for (volatile uint32_t i = 0; i < 500000; i++);
-	}
+void Delay_ms(uint32_t ms) {
+  uint32_t start_tick = systick_count;
+  while ((systick_count - start_tick) < ms);
+}
+
+int main(void) {
+  // Настройка SysTick для генерации прерывания каждые 1 мс
+  SystemCoreClockUpdate();
+  SysTick_Config(SystemCoreClock / 1000);
+
+  RCC->AHB1ENR |= RCC_AHB1ENR_GPIOCEN;
+
+  GPIOC->MODER &= ~((0x03UL) << (13 * 2));
+  GPIOC->MODER |= ((0x01UL) << (13 * 2));
+
+  while (1) {
+    GPIOC->BSRR = (1 << 13); // Включить LED
+    Delay_ms(1000);           
+
+    GPIOC->BSRR = (1 << (13 + 16)); // Выключить LED
+    Delay_ms(1000);            
+  }
 }
