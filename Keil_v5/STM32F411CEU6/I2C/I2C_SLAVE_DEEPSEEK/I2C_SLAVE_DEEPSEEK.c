@@ -79,14 +79,14 @@ typedef struct {
 #define I2C_CR1_SWRST         15
 #define I2C_CR1_START         8
 #define I2C_CR1_STOP          9
-#define I2C_CR1_ACK	         	10
-#define I2C_CR1_NO_ACK	     11   // New define for disabling ACK
+#define I2C_CR1_ACK           10
 
 #define I2C_SR1_SB            0
 #define I2C_SR1_ADDR          1
 #define I2C_SR1_TXE           7
 #define I2C_SR1_BTF           2
-#define I2C_SR1_RXNE          6  // New define for RXNE
+#define I2C_SR1_RXNE          6
+#define I2C_SR2_TRA           2   // Transmission mode flag
 
 #define I2C1_GPIOB6_SCL       6
 #define I2C1_GPIOB7_SDA       7
@@ -94,47 +94,23 @@ typedef struct {
 /* ========================== Function Prototypes =========================== */
 void GPIO_SetMode(GPIO_TypeDef* GPIOx, uint8_t pin, uint8_t speed, uint8_t type, uint8_t mode);
 void I2C1_USE_GPIOB6_7(void);
-void I2C_Init(I2C_TypeDef* I2Cx, void(*remap_func)(void), uint8_t mode, uint8_t slave_addr); // Added slave_addr
-uint8_t I2C_ReadByte(I2C_TypeDef* I2Cx);
-void I2C_Slave_Listen(I2C_TypeDef* I2Cx);
-
-/* ============================ Main Application ============================ */
-#define SLAVE_ADDR 0x50
-
-volatile uint8_t received_data;  // volatile is important here!
-
-int main(void) {
-    I2C_Init(I2C1, I2C1_USE_GPIOB6_7, I2C_STANDARD_MODE, SLAVE_ADDR); // Initialize as slave
-    I2C_Slave_Listen(I2C1);
-
-    while(1) {
-        // Check if addressed as a slave
-        if (I2C1->SR1 & (1 << I2C_SR1_ADDR)) {
-            volatile uint32_t _dummy = I2C1->SR1 | I2C1->SR2; // Clear ADDR flag
-            (void)_dummy;
-
-            received_data = I2C_ReadByte(I2C1); // Read received data
-
-            I2C_Slave_Listen(I2C1); // Listen again for the next transmission
-        }
-        // You can add other tasks here that don't block I2C operation
-    }
-}
+void I2C_Init_Slave(I2C_TypeDef* I2Cx, void(*remap_func)(void), uint8_t slave_addr);
+uint8_t I2C_Slave_Listen(I2C_TypeDef* I2Cx);
 
 /* ======================= GPIO Configuration Functions ====================== */
 void GPIO_SetMode(GPIO_TypeDef* GPIOx, uint8_t pin, uint8_t speed, uint8_t type, uint8_t mode) {
     GPIOx->MODER   &= ~(3 << (pin * 2));
     GPIOx->OSPEEDR &= ~(3 << (pin * 2));
     GPIOx->OTYPER  &= ~(1 << pin);
-
+    
     if(mode > GPIO_MODE_INPUT) {
         GPIOx->MODER |= (mode << (pin * 2));
     }
-
+    
     if(speed > GPIO_LOW_SPEED) {
         GPIOx->OSPEEDR |= (speed << (pin * 2));
     }
-
+    
     if(type > GPIO_MODE_PUSH_PULL) {
         GPIOx->OTYPER  |= (1 << pin);
     }
@@ -153,38 +129,55 @@ void I2C1_USE_GPIOB6_7(void) {
     GPIO_SetMode(GPIOB, I2C1_GPIOB7_SDA, GPIO_HIGH_SPEED, GPIO_MODE_OPEN_DRAIN, GPIO_MODE_AFIO);
 }
 
-/* ======================== I2C Core Functions ============================= */
-void I2C_Init(I2C_TypeDef* I2Cx, void(*remap_func)(void), uint8_t mode, uint8_t slave_addr) { // Added slave_addr
+/* ======================== I2C Slave Functions ============================ */
+void I2C_Init_Slave(I2C_TypeDef* I2Cx, void(*remap_func)(void), uint8_t slave_addr) {
     remap_func();
 
+    // Reset I2C peripheral
     I2Cx->CR1 |=  (1 << I2C_CR1_SWRST);
     I2Cx->CR1 &= ~(1 << I2C_CR1_SWRST);
 
-    switch(mode) {
-        case I2C_STANDARD_MODE:
-            I2Cx->CR2 |= (16 << 0);         // FREQ = 16 MHz
-            I2Cx->CCR |= (80 << 0);         // CCR for 100 kHz
-            I2Cx->TRISE = 17;               // TRISE for 100 kHz
-            break;
-
-        case I2C_FAST_MODE:
-            // Not used in this implementation
-            break;
-    }
-
-    I2Cx->OAR1 |= (slave_addr << 1);        // Set slave address
-    I2Cx->OAR1 |= (1 << 14);                // Required bit for 7-bit addressing
-    I2Cx->CR1 |= (1 << I2C_CR1_PE);         // Peripheral enable
-	I2Cx->CR1 |= (1 << I2C_CR1_ACK);        // Enable ACK
-}
-
-void I2C_Slave_Listen(I2C_TypeDef* I2Cx) {
-    // Enable Acknowledge
+    // Configure clock (16 MHz)
+    I2Cx->CR2 |= (16 << 0);
+    
+    // Set slave address (7-bit format)
+    I2Cx->OAR1 = (slave_addr << 1);
+    I2Cx->OAR1 |= (1 << 14); // Must be kept at 1 by software
+    
+    // Enable ACK generation
     I2Cx->CR1 |= (1 << I2C_CR1_ACK);
+    
+    // Enable I2C peripheral
+    I2Cx->CR1 |= (1 << I2C_CR1_PE);
 }
 
+uint8_t I2C_Slave_Listen(I2C_TypeDef* I2Cx) {
+    // Wait until address matched
+    while(!(I2Cx->SR1 & (1 << I2C_SR1_ADDR)));
+    
+    // Clear ADDR flag by reading SR1 then SR2
+    volatile uint32_t _dummy = I2C1->SR1 | I2C1->SR2; // Clear ADDR flag
+    (void)_dummy;
+    
+    // Check if master wants to write (send data to slave)
+    if(!(I2Cx->SR2 & (1 << I2C_SR2_TRA))) {
+        // Wait for data reception
+        while(!(I2Cx->SR1 & (1 << I2C_SR1_RXNE)));
+        return I2Cx->DR;
+    }
+    return 0; // Return 0 for read requests
+}
 
-uint8_t I2C_ReadByte(I2C_TypeDef* I2Cx) {
-    while (!(I2Cx->SR1 & (1 << I2C_SR1_RXNE)));  // Wait for data reception
-    return I2Cx->DR;                             // Read and return the data
+/* ============================ Main Application ============================ */
+#define SLAVE_ADDR 0x50
+
+int main(void) {
+    // Initialize I2C as slave
+    I2C_Init_Slave(I2C1, I2C1_USE_GPIOB6_7, SLAVE_ADDR);
+    
+    while(1) {
+        uint8_t data = I2C_Slave_Listen(I2C1);
+        // Process received data here
+        // Example: if(data != 0) { /* handle received byte */ }
+    }
 }

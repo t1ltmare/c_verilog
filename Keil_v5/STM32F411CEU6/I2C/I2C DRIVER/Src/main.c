@@ -79,6 +79,7 @@ typedef struct {
 #define I2C_CR1_SWRST         15
 #define I2C_CR1_START         8
 #define I2C_CR1_STOP          9
+#define I2C_CR1_ACK	         	10
 
 #define I2C_SR1_SB            0
 #define I2C_SR1_ADDR          1
@@ -162,6 +163,7 @@ void I2C_Init(I2C_TypeDef* I2Cx, void(*remap_func)(void), uint8_t mode) {
 }
 
 void I2C_Start(I2C_TypeDef* I2Cx) {
+		I2Cx->CR1 |= (1 << I2C_CR1_ACK);
     I2Cx->CR1 |= (1 << I2C_CR1_START);
     while(!(I2Cx->SR1 & (1 << I2C_SR1_SB)));
 }
@@ -177,7 +179,7 @@ void I2C_BeginAt(I2C_TypeDef* I2Cx, uint8_t addr, uint8_t op) {
     (void)_dummy;
 }
 
-static inline void I2C_Write(I2C_TypeDef* I2Cx, uint8_t data) {
+void I2C_Write(I2C_TypeDef* I2Cx, uint8_t data) {
     while(!(I2Cx->SR1 & (1 << I2C_SR1_TXE)));
     I2Cx->DR = data;
     while(!(I2Cx->SR1 & (1 << I2C_SR1_BTF)));

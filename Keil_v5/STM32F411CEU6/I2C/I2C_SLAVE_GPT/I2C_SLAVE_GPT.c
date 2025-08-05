@@ -162,9 +162,9 @@ void I2C_Init(I2C_TypeDef* I2Cx, void(*remap_func)(void), uint8_t mode, uint8_t 
 
     switch(mode) {
         case I2C_STANDARD_MODE:
-            I2Cx->CR2 |= (16 << 0);         // FREQ = 16 MHz
-            I2Cx->CCR |= (80 << 0);         // CCR for 100 kHz
-            I2Cx->TRISE = 17;               // TRISE for 100 kHz
+            I2Cx->CR2 |= (16 << 0);      // FREQ = 16 MHz
+            I2Cx->CCR |= (80 << 0);       // CCR for 100 kHz
+            I2Cx->TRISE = 17;             // TRISE for 100 kHz
             break;
 
         case I2C_FAST_MODE:
@@ -172,10 +172,10 @@ void I2C_Init(I2C_TypeDef* I2Cx, void(*remap_func)(void), uint8_t mode, uint8_t 
             break;
     }
 
-    I2Cx->OAR1 |= (slave_addr << 1);        // Set slave address
-    I2Cx->OAR1 |= (1 << 14);                // Required bit for 7-bit addressing
-    I2Cx->CR1 |= (1 << I2C_CR1_PE);         // Peripheral enable
-	I2Cx->CR1 |= (1 << I2C_CR1_ACK);        // Enable ACK
+    I2Cx->OAR1 |= (slave_addr << 1);   // Set slave address
+    I2Cx->OAR1 |= (1 << 14);          // Required bit for 7-bit addressing
+    I2Cx->CR1 |= (1 << I2C_CR1_PE);      // Peripheral enable
+	I2Cx->CR1 |= (1 << I2C_CR1_ACK);  // Enable ACK
 }
 
 void I2C_Slave_Listen(I2C_TypeDef* I2Cx) {
