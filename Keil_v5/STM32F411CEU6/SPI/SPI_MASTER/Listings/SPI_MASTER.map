@@ -146,7 +146,7 @@ Removing Unused input sections from the image.
     Removing main.o(.ARM.exidx.text.SPI2_Tx), (8 bytes).
     Removing main.o(.text.Blink_LED), (84 bytes).
     Removing main.o(.ARM.exidx.text.Blink_LED), (8 bytes).
-    Removing main.o(.text.Delay), (36 bytes).
+    Removing main.o(.text.Delay), (28 bytes).
     Removing main.o(.ARM.exidx.text.Delay), (8 bytes).
     Removing main.o(.ARM.use_no_argv), (4 bytes).
     Removing system_stm32f4xx.o(.text), (0 bytes).
@@ -157,7 +157,7 @@ Removing Unused input sections from the image.
     Removing system_stm32f4xx.o(.rodata.AHBPrescTable), (16 bytes).
     Removing system_stm32f4xx.o(.rodata.APBPrescTable), (8 bytes).
 
-20 unused section(s) (total 526 bytes) removed from the image.
+20 unused section(s) (total 518 bytes) removed from the image.
 
 ==============================================================================
 

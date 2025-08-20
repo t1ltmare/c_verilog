@@ -84,5 +84,5 @@ void Blink_LED(void) {
 }
 
 void Delay(void) {
-    for (volatile uint32_t i = 0; i < 250000; i++);
+    for (volatile uint32_t i = 0; i < 150; i++);
 }
