@@ -32,24 +32,14 @@
 
 /* Private define ------------------------------------------------------------*/
 /* USER CODE BEGIN PD */
-#define EPD_CS_Pin       	GPIO_PIN_4
-#define EPD_CS_GPIO_Port 	GPIOA
-#define EPD_DC_Pin       	GPIO_PIN_1
-#define EPD_DC_GPIO_Port 	GPIOA
-#define EPD_RST_Pin      	GPIO_PIN_2
-#define EPD_RST_GPIO_Port 	GPIOA
-#define EPD_BUSY_Pin     	GPIO_PIN_0
-#define EPD_BUSY_GPIO_Port 	GPIOA
-
-// LeftThenUp = 0,   /**< X decrements then Y decrements. Starts from bottom-right corner and goes left. */
-// RightThenUp,      /**< X increments then Y decrements. Starts from bottom-left corner and goes right. */
-// LeftThenDown,     /**< X decrements then Y increments. Starts from top-right corner and goes left. */
-// RightThenDown,    /**< X increments then Y increments. Starts from top-left corner and goes right. */
-// UpThenLeft,       /**< Y decrements then X decrements. Starts from bottom-right corner and goes up. */
-// UpThenRight,      /**< Y decrements then X increments. Starts from bottom-left corner and goes up. */
-// DownThenLeft,     /**< Y increments then X decrements. Starts from top-right corner and goes down. */
-// DownThenRight     /**< Y increments then X increments. Starts from top-left corner and goes gown. */
-
+#define DISP_CS_Pin       	GPIO_PIN_15
+#define DISP_CS_GPIO_Port 	GPIOA
+#define EDP_D_C_Pin       	GPIO_PIN_1
+#define EDP_D_C_GPIO_Port 	GPIOA
+#define DISP_RST_Pin      	GPIO_PIN_2
+#define DISP_RST_GPIO_Port 	GPIOA
+#define DISP_BUSY_Pin     	GPIO_PIN_0
+#define DISP_BUSY_GPIO_Port GPIOA
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -108,54 +98,28 @@ int main(void)
   MX_GPIO_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
-  // Заполнение параметров дисплея
-    hepd.SPI_Handle = &hspi1;  // Ваш SPI-хендл
-    hepd.SPI_Timeout = 1000;
-    hepd.CS_Port = EPD_CS_GPIO_Port;
-    hepd.CS_Pin = EPD_CS_Pin;
-    hepd.DC_Port = EPD_DC_GPIO_Port;
-    hepd.DC_Pin = EPD_DC_Pin;
-    hepd.RESET_Port = EPD_RST_GPIO_Port;
-    hepd.RESET_Pin = EPD_RST_Pin;
-    hepd.BUSY_Port = EPD_BUSY_GPIO_Port;
-    hepd.BUSY_Pin = EPD_BUSY_Pin;
-    hepd.Color_Depth = 2;      // Два цвета (черный + красный)
-    hepd.Scan_Mode = NarrowScan; // Режим сканирования
-    hepd.Resolution_X = 128;   // Ширина дисплея
-    hepd.Resolution_Y = 256;   // Высота дисплея
+  HAL_Delay(100);
 
-    // Инициализация дисплея
-    SSD1680_Init(&hepd);
-    SSD1680_Border(&hepd, ColorWhite);
-    SSD1680_Clear(&hepd, ColorWhite);
+  MX_SSD1680_Init();
 
-    uint8_t red_line[16 * 2] = {0}; // 122 пикселей = 16 байт на строку
-    for(int i = 0; i < sizeof(red_line); i++) {
-        red_line[i] = 0xFF;
-    };
+  // Очистка экрана
+  SSD1680_Clear(&hepd, ColorWhite);
+  SSD1680_StartAddress(hepd, 0, 0);
 
+  // Вывод текста
+  SSD1680_Text(&hepd, 0, 10, "Hello World!", &cp866_8x8);
+  SSD1680_Text(&hepd, 0, 30, "SSD1680 E-Paper", &cp866_8x8);
+  SSD1680_Text(&hepd, 0, 50, "2.13\" 250x122", &cp866_8x8);
 
-    uint8_t scale[128 / 8 * 4 ] = {
-       0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55,
-       0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F,
-       0x7F, 0xFF, 0x7F, 0xFF, 0x7F, 0xFF, 0xFF, 0xFF, 0x7F, 0xFF, 0xFF, 0xFF, 0x7F, 0xFF, 0xFF, 0xFF,
-       0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-     };
+  // Красная линия (правильный расчет размера буфера)
+  uint8_t red_line[16 * 2] = {0}; // 122 пикселей = 16 байт на строку
+  for(int i = 0; i < sizeof(red_line); i++) {
+      red_line[i] = 0xFF;
+  }
+  SSD1680_SetRegion(&hepd, 0, 70, 122, 2, NULL, red_line);
 
-     SSD1680_SetRegion(&hepd, 0, 110, hepd.Resolution_X, 2, scale, NULL);
-     SSD1680_SetRegion(&hepd, 0, 120, hepd.Resolution_X, 2, NULL, red_line);
-
-    // Вывод текста черным цветом
-    SSD1680_Text(&hepd, 0, 16, "Font 8x8", &cp866_8x8);
-    SSD1680_Text(&hepd, 0, 24, "Font 8x14", &cp866_8x14);
-    SSD1680_Text(&hepd, 0, 38, "Font 8x16", &cp866_8x16);
-
-    SSD1680_Text(&hepd, 0, 60, "Font 8x8", &cp866_8x8);
-    SSD1680_Text(&hepd, 0, 68, "Font 8x14", &cp866_8x14);
-    SSD1680_Text(&hepd, 0, 82, "Font 8x16", &cp866_8x16);
-
-    // Обновление дисплея
-    SSD1680_Refresh(&hepd, FullRefresh);
+  // Обновление дисплея
+  SSD1680_Refresh(&hepd, FullRefresh);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -285,7 +249,72 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+static void MX_SSD1680_Init(void) {
+    hepd.SPI_Handle = &hspi1;
+    hepd.SPI_Timeout = 1000;
+    hepd.CS_Port = EPD_CS_GPIO_Port;
+    hepd.CS_Pin = EPD_CS_Pin;
+    hepd.DC_Port = EDP_D_C_GPIO_Port;
+    hepd.DC_Pin = EDP_D_C_Pin;
+    hepd.RESET_Port = EPD_RESET_GPIO_Port;
+    hepd.RESET_Pin = EPD_RESET_Pin;
+    hepd.BUSY_Port = EDP_BUSY_GPIO_Port;
+    hepd.BUSY_Pin = EDP_BUSY_Pin;
+    hepd.Color_Depth = 1;
+    hepd.Scan_Mode = NarrowScan;
+    hepd.Resolution_X = 122;
+    hepd.Resolution_Y = 250;
 
+    // 1. Аппаратный сброс
+    SSD1680_Reset(&hepd);
+
+    // 2. Программный сброс (команда 0x12)
+    SSD1680_Send(&hepd, SSD1680_SW_RESET, NULL, 0);
+    HAL_Delay(10);
+    SSD1680_Wait(&hepd);
+
+    // 3. Установка режима данных (команда 0x11)
+    uint8_t data_mode = 0x03; // RightThenDown
+    SSD1680_Send(&hepd, SSD1680_DATA_ENTRY_MODE, &data_mode, DownThenLeft);
+
+    // 4. Установка размеров RAM (команды 0x44, 0x45)
+    uint8_t ram_x_range[] = {0, 0, (250-1) & 0xFF, (250-1) >> 8}; // 250 строк
+    SSD1680_Send(&hepd, SSD1680_RAM_X_RANGE, ram_x_range, sizeof(ram_x_range));
+
+    uint8_t ram_y_range[] = {0, (122-1)/8}; // 122 пикселей = 15.25 байт → 16 байт
+    SSD1680_Send(&hepd, SSD1680_RAM_Y_RANGE, ram_y_range, sizeof(ram_y_range));
+
+    // 5. Настройка напряжений
+    uint8_t gate_voltage = 0x17; // VGH=20V, VGL=-20V
+    SSD1680_Send(&hepd, SSD1680_GATE_VOLTAGE, &gate_voltage, 1);
+
+    uint8_t source_voltage[] = {0x41, 0x00, 0x32}; // VSH=15V, VSL=-15V
+    SSD1680_Send(&hepd, SSD1680_SOURCE_VOLTAGE, source_voltage, sizeof(source_voltage));
+
+    uint8_t vcom_voltage = 0x36; // VCOM= -1.5V
+    SSD1680_Send(&hepd, SSD1680_VCOM_VOLTAGE, &vcom_voltage, 1);
+
+    // 6. Мягкий старт (команда 0x0C)
+    uint8_t softstart[] = {0x80, 0x90, 0x90, 0x00};
+    SSD1680_Send(&hepd, SSD1680_BOOSTER_SOFT_START, softstart, sizeof(softstart));
+
+    // 7. Граница (команда 0x3C)
+    uint8_t border = 0x01; // Черная граница
+    SSD1680_Send(&hepd, SSD1680_BORDER, &border, 1);
+
+    // 8. Загрузка LUT
+    uint8_t temp_sensor = 0x80; // Внутренний датчик температуры
+    SSD1680_Send(&hepd, SSD1680_SELECT_TEMP_SENSOR, &temp_sensor, 1);
+
+    uint8_t temp_value = 0x64; // Значение температуры
+    SSD1680_Send(&hepd, SSD1680_WRITE_TEMP, &temp_value, 1);
+
+    uint8_t lut_load = 0x91; // Загрузка LUT
+    SSD1680_Send(&hepd, SSD1680_UPDATE_CONTROL_2, &lut_load, 1);
+    SSD1680_Send(&hepd, SSD1680_MASTER_ACTIVATION, NULL, 0);
+    SSD1680_Wait(&hepd);
+
+}
 /* USER CODE END 4 */
 
 /**
