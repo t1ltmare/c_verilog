@@ -232,6 +232,17 @@ void SSD1680_Init(SSD1680_HandleTypeDef *hepd) {
   /***** #4 *****/
   SSD1680_DataEntryMode(hepd, RightThenDown);
 
+//	LeftThenUp = 0,   /**< X decrements then Y decrements. Starts from bottom-right corner and goes left. */
+//	RightThenUp,      /**< X increments then Y decrements. Starts from bottom-left corner and goes right. */
+//	LeftThenDown,     /**< X decrements then Y increments. Starts from top-right corner and goes left. */
+//	RightThenDown,    /**< X increments then Y increments. Starts from top-left corner and goes right. */
+//	UpThenLeft,       /**< Y decrements then X decrements. Starts from bottom-right corner and goes up. */
+//	UpThenRight,      /**< Y decrements then X increments. Starts from bottom-left corner and goes up. */
+//	DownThenLeft,     /**< Y increments then X decrements. Starts from top-right corner and goes down. */
+//	DownThenRight     /**< Y increments then X increments. Starts from top-left corner and goes gown. */
+
+
+
   /***** #5 *****/
   /* Use SD1680 internal temperature sensor */
 /*
@@ -613,7 +624,7 @@ HAL_StatusTypeDef SSD1680_Text(SSD1680_HandleTypeDef *hepd, const uint8_t left, 
           buffer[j] = ~buffer[j];
         if ((status = SSD1680_SetRegion(hepd, left + font->width * pos_x, top + font->height * pos_y, font->width, font->height, buffer, NULL)))
           return status;
-        ++pos_x;
+        ++pos_x;	// Куда движется следующий символ
       }
     }
   }
@@ -668,7 +679,7 @@ HAL_StatusTypeDef SSD1680_VerticalText(SSD1680_HandleTypeDef *hepd, const uint8_
           buffer[j] = ~buffer[j];
         if ((status = SSD1680_SetRegion(hepd, left + font->width * pos_x, top + font->height * pos_y, font->width, font->height, buffer, NULL)))
           return status;
-        ++pos_y;
+        ++pos_y;	// Куда движется следующий символ
       }
     }
   }
