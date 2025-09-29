@@ -23,6 +23,7 @@
 /* USER CODE BEGIN Includes */
 #include "stm32f4xx_hal.h"
 #include "SSD1680.h"
+#include "bme280.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -61,9 +62,7 @@
 
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
-
 SPI_HandleTypeDef hspi1;
-
 /* USER CODE BEGIN PV */
 SSD1680_HandleTypeDef hepd;
 /* USER CODE END PV */
@@ -74,7 +73,7 @@ static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
-static void MX_SSD1680_Init(void);
+//static void MX_SSD1680_Init(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -114,6 +113,9 @@ int main(void)
   MX_SPI1_Init();
   MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
+
+  bme280_init(&hi2c1, BME280_OVERSAMPLE_X1, BME280_OVERSAMPLE_X1, BME280_OVERSAMPLE_X1, BME280_NORMAL_MODE, BME280_STANDBY_0_5MS, BME280_FILTER_COEFF_16);
+
   // Заполнение параметров дисплея
 	hepd.SPI_Handle = &hspi1;  		// Ваш SPI-хендл
 	hepd.SPI_Timeout = 1000;
@@ -130,32 +132,48 @@ int main(void)
 	hepd.Resolution_X = 128;   		// Ширина дисплея
 	hepd.Resolution_Y = 256;   		// Высота дисплея
 
-	// �?нициализация дисплея
+	// �?нициализация дисплея
 	SSD1680_Init(&hepd);
 	SSD1680_Border(&hepd, ColorWhite);
-	SSD1680_Clear(&hepd, ColorWhite);
 
-	Bar_16(1, 20, 100, 8, 148);
-	Bar_16(0, 40, 100, 32, 148);
-	Bar_8(1, 60, 100, 56, 148);
-	Bar_8(0, 80, 100, 80, 148);
-
-    SSD1680_VerticalText(&hepd, 80, 100, "TEMP", &cp866_8x8_r);
-    SSD1680_VerticalText(&hepd, 56, 100, "HUMID", &cp866_8x8_r);
-    SSD1680_VerticalText(&hepd, 32, 100, "PRESS", &cp866_8x16_r);
-    SSD1680_VerticalText(&hepd, 8, 100, "CO2", &cp866_8x16_r);
 
     //SSD1680_SetRegion(&hepd, 32, 148, 16, 100, red_line, NULL);
 
     // Обновление дисплея
-    SSD1680_Refresh(&hepd, FullRefresh);
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  HAL_Delay(1000);
+	  float temp = bme280_get_temperature();
+	  float pressure = bme280_get_pressure() / 133.32;
+	  float h = bme280_get_humidity();
+
+	  char temp_str[20];
+	  char pressure_str[20];
+	  char h_str[20];
+
+	  snprintf(temp_str, sizeof(temp_str), "TEMP %.1f\xF8" "C", temp);
+	  snprintf(h_str, sizeof(h_str), "HUMID %.1f%%", h);
+	  snprintf(pressure_str, sizeof(pressure_str), "PRESS %.1f", pressure);
+
+	  SSD1680_Clear(&hepd, ColorWhite);
+
+	  Bar_16(1, 20, 100, 8, 148);
+	  Bar_16(0, 40, 100, 32, 148);
+	  Bar_8(1, 60, 100, 56, 148);
+	  Bar_8(0, 80, 100, 80, 148);
+
+	  SSD1680_VerticalText(&hepd, 80, 10, temp_str, &cp866_8x8_r);
+	  SSD1680_VerticalText(&hepd, 56, 10, h_str, &cp866_8x8_r);
+	  SSD1680_VerticalText(&hepd, 32, 10, pressure_str, &cp866_8x16_r);
+	  SSD1680_VerticalText(&hepd, 8, 10, "CO2", &cp866_8x16_r);
+
+	  SSD1680_Refresh(&hepd, FullRefresh);
+	  SSD1680_Wait(&hepd);
+	  HAL_Delay(60000);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
