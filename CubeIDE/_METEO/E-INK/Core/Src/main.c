@@ -41,6 +41,8 @@
 #define EPD_BUSY_Pin     	GPIO_PIN_0
 #define EPD_BUSY_GPIO_Port 	GPIOA
 
+#define TEMP 75
+
 // LeftThenUp = 0,   /**< X decrements then Y decrements. Starts from bottom-right corner and goes left. */
 // RightThenUp,      /**< X increments then Y decrements. Starts from bottom-left corner and goes right. */
 // LeftThenDown,     /**< X decrements then Y increments. Starts from top-right corner and goes left. */
@@ -58,6 +60,8 @@
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
+I2C_HandleTypeDef hi2c1;
+
 SPI_HandleTypeDef hspi1;
 
 /* USER CODE BEGIN PV */
@@ -68,6 +72,7 @@ SSD1680_HandleTypeDef hepd;
 void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
+static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 static void MX_SSD1680_Init(void);
 /* USER CODE END PFP */
@@ -107,6 +112,7 @@ int main(void)
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
   MX_SPI1_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
   // Заполнение параметров дисплея
 	hepd.SPI_Handle = &hspi1;  		// Ваш SPI-хендл
@@ -124,40 +130,22 @@ int main(void)
 	hepd.Resolution_X = 128;   		// Ширина дисплея
 	hepd.Resolution_Y = 256;   		// Высота дисплея
 
-	// Инициализация дисплея
+	// �?нициализация дисплея
 	SSD1680_Init(&hepd);
 	SSD1680_Border(&hepd, ColorWhite);
 	SSD1680_Clear(&hepd, ColorWhite);
-	/*
-	uint8_t red_line[16 * 2] = {0}; // 122 пикселей = 16 байт на строку
-	for(int i = 0; i < sizeof(red_line); i++) {
-	red_line[i] = 0xFF;
-	};
-	*/
-	uint8_t red_line[128 / 8 * 16] = {
-		0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-		0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-		0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-		0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-		0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-		0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-		0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF,
-		0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-	};
 
-	uint8_t scale[128 / 8 * 4 ] = {
-		0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55, 0x55,
-		0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F, 0x7F,
-		0x7F, 0xFF, 0x7F, 0xFF, 0x7F, 0xFF, 0xFF, 0xFF, 0x7F, 0xFF, 0xFF, 0xFF, 0x7F, 0xFF, 0xFF, 0xFF,
-		0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
-	};
+	Bar_16(1, 20, 100, 8, 148);
+	Bar_16(0, 40, 100, 32, 148);
+	Bar_8(1, 60, 100, 56, 148);
+	Bar_8(0, 80, 100, 80, 148);
 
-	SSD1680_SetRegion(&hepd, 0, 110, hepd.Resolution_X, 4, scale, NULL);
-	SSD1680_SetRegion(&hepd, 0, 200, hepd.Resolution_X, 16, NULL , red_line);
+    SSD1680_VerticalText(&hepd, 80, 100, "TEMP", &cp866_8x8_r);
+    SSD1680_VerticalText(&hepd, 56, 100, "HUMID", &cp866_8x8_r);
+    SSD1680_VerticalText(&hepd, 32, 100, "PRESS", &cp866_8x16_r);
+    SSD1680_VerticalText(&hepd, 8, 100, "CO2", &cp866_8x16_r);
 
-    // Вывод текста черным цветом
-    SSD1680_VerticalText(&hepd, 16, 0, "Font 8x8", &cp866_8x8_r);
-    SSD1680_VerticalText(&hepd, 0, 0, "Font 8x16", &cp866_8x16_r);
+    //SSD1680_SetRegion(&hepd, 32, 148, 16, 100, red_line, NULL);
 
     // Обновление дисплея
     SSD1680_Refresh(&hepd, FullRefresh);
@@ -217,6 +205,40 @@ void SystemClock_Config(void)
 }
 
 /**
+  * @brief I2C1 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_I2C1_Init(void)
+{
+
+  /* USER CODE BEGIN I2C1_Init 0 */
+
+  /* USER CODE END I2C1_Init 0 */
+
+  /* USER CODE BEGIN I2C1_Init 1 */
+
+  /* USER CODE END I2C1_Init 1 */
+  hi2c1.Instance = I2C1;
+  hi2c1.Init.ClockSpeed = 100000;
+  hi2c1.Init.DutyCycle = I2C_DUTYCYCLE_2;
+  hi2c1.Init.OwnAddress1 = 0;
+  hi2c1.Init.AddressingMode = I2C_ADDRESSINGMODE_7BIT;
+  hi2c1.Init.DualAddressMode = I2C_DUALADDRESS_DISABLE;
+  hi2c1.Init.OwnAddress2 = 0;
+  hi2c1.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
+  hi2c1.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
+  if (HAL_I2C_Init(&hi2c1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN I2C1_Init 2 */
+
+  /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
   * @brief SPI1 Initialization Function
   * @param None
   * @retval None
@@ -268,6 +290,7 @@ static void MX_GPIO_Init(void)
   /* GPIO Ports Clock Enable */
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
+  __HAL_RCC_GPIOB_CLK_ENABLE();
 
   /*Configure GPIO pin Output Level */
   HAL_GPIO_WritePin(GPIOA, EDP_D_C_Pin|EPD_RESET_Pin|EPD_CS_Pin|GPIO_PIN_15, GPIO_PIN_RESET);
@@ -290,7 +313,73 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void Bar_16(uint8_t color, uint8_t num, uint8_t length, uint8_t x, uint8_t y) {
+    uint8_t elements = length * 2;
+    uint8_t line[elements];
+    uint8_t numx = num*2;
 
+    // Определяем паттерны для разных цветов
+    const uint8_t patterns[2][3] = {
+        {0x00, 0xFE, 0x7F}, // Black: fill, odd, even
+        {0xFF, 0x01, 0x80}  // Red:   fill, odd, even
+    };
+
+    uint8_t fill = patterns[color][0];
+    uint8_t odd_pattern = patterns[color][1];
+    uint8_t even_pattern = patterns[color][2];
+
+    uint8_t end_index = (numx % 2) ? elements - 2 : elements;
+    uint8_t condition = (numx % 2) ? 1 : 0;
+
+    for(int i = 2; i < end_index; i++) {
+        if(condition ? (i <= numx) : (i < numx)) {
+            line[i] = fill;
+        } else {
+            line[i] = (i % 2) ? odd_pattern : even_pattern;
+        }
+    }
+
+    line[0] = line[1] = fill;
+    line[elements-2] = line[elements-1] = fill;
+
+    // Передаем данные в драйвер
+    if(color) {
+        SSD1680_SetRegion(&hepd, x, y, 16, length, NULL, line);
+    } else {
+        SSD1680_SetRegion(&hepd, x, y, 16, length, line, NULL);
+    }
+}
+
+void Bar_8(uint8_t color, uint8_t num, uint8_t length, uint8_t x, uint8_t y) {
+    uint8_t line[length];
+
+    // Определяем паттерны для разных цветов
+    const uint8_t patterns[2][2] = {
+        {0x00, 0x7E}, // Black: fill, pattern
+        {0xFF, 0x81}  // Red:   fill, pattern
+    };
+
+    uint8_t fill = patterns[color][0];
+    uint8_t pattern = patterns[color][1];
+
+    for(int i = 1; i < length; i++) {
+        if(i <= num) {
+            line[i] = fill;
+        } else {
+            line[i] = pattern;
+        }
+    }
+
+    line[0] = fill;
+    line[length-1] = fill;
+
+    // Передаем данные в драйвер
+    if(color) {
+        SSD1680_SetRegion(&hepd, x, y, 8, length, NULL, line);
+    } else {
+        SSD1680_SetRegion(&hepd, x, y, 8, length, line, NULL);
+    }
+}
 /* USER CODE END 4 */
 
 /**
