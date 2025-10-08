@@ -24,6 +24,8 @@
 #include "stm32f4xx_hal.h"
 #include "SSD1680.h"
 #include "bme280.h"
+#include "bme68x.h"
+#include "bme68x_defs.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -44,15 +46,6 @@
 
 #define TEMP 75
 
-// LeftThenUp = 0,   /**< X decrements then Y decrements. Starts from bottom-right corner and goes left. */
-// RightThenUp,      /**< X increments then Y decrements. Starts from bottom-left corner and goes right. */
-// LeftThenDown,     /**< X decrements then Y increments. Starts from top-right corner and goes left. */
-// RightThenDown,    /**< X increments then Y increments. Starts from top-left corner and goes right. */
-// UpThenLeft,       /**< Y decrements then X decrements. Starts from bottom-right corner and goes up. */
-// UpThenRight,      /**< Y decrements then X increments. Starts from bottom-left corner and goes up. */
-// DownThenLeft,     /**< Y increments then X decrements. Starts from top-right corner and goes down. */
-// DownThenRight     /**< Y increments then X increments. Starts from top-left corner and goes gown. */
-
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -70,6 +63,18 @@ uint8_t scd41_addr = 0x62 << 1; //7 bit address shifted left
 uint16_t co2 = 0; //co2 in ppm
 float tempscd; // temp in F
 float rh; //rh in %
+
+// BME688 variables
+struct bme68x_dev sensor0;
+struct bme68x_dev sensor1;
+uint8_t sensor0I2cAddress = BME68X_I2C_ADDR_LOW;
+uint8_t sensor1I2cAddress = BME68X_I2C_ADDR_HIGH;
+
+// BME688 configuration
+struct bme68x_conf config0;
+struct bme68x_heatr_conf heaterConfig0;
+struct bme68x_data data;
+uint16_t sample_count = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -80,6 +85,12 @@ static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
 void scd41_start(void);
 uint8_t scd41_read(uint16_t *co2, float *temp, float *rh);
+
+// BME688 functions
+BME68X_INTF_RET_TYPE bme68x_i2c_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t len, void *intf_ptr);
+BME68X_INTF_RET_TYPE bme68x_i2c_write(uint8_t reg_addr, const uint8_t *reg_data, uint32_t len, void *intf_ptr);
+void bme68x_delay_us(uint32_t period, void *intf_ptr);
+void bme68x_check_rslt(const char api_name[], int8_t rslt);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -121,6 +132,48 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   bme280_init(&hi2c1, BME280_OVERSAMPLE_X1, BME280_OVERSAMPLE_X1, BME280_OVERSAMPLE_X1, BME280_NORMAL_MODE, BME280_STANDBY_0_5MS, BME280_FILTER_COEFF_16);
+
+  // Initialize BME688 sensors
+    memset(&sensor0, 0, sizeof(sensor0));
+    sensor0.intf = BME68X_I2C_INTF;
+    sensor0.read = bme68x_i2c_read;
+    sensor0.write = bme68x_i2c_write;
+    sensor0.delay_us = bme68x_delay_us;
+    sensor0.intf_ptr = &sensor0I2cAddress;
+    sensor0.amb_temp = 25;
+
+    memset(&sensor1, 0, sizeof(sensor1));
+    sensor1.intf = BME68X_I2C_INTF;
+    sensor1.read = bme68x_i2c_read;
+    sensor1.write = bme68x_i2c_write;
+    sensor1.delay_us = bme68x_delay_us;
+    sensor1.intf_ptr = &sensor1I2cAddress;
+    sensor1.amb_temp = 25;
+
+    // Initialize BME688 sensors
+    int8_t initResult;
+    initResult = bme68x_init(&sensor0);
+    bme68x_check_rslt("bme68x_init sensor0", initResult);
+
+    initResult = bme68x_init(&sensor1);
+    bme68x_check_rslt("bme68x_init sensor1", initResult);
+
+    // Configure BME688
+    config0.filter = BME68X_FILTER_OFF;
+    config0.odr = BME68X_ODR_NONE;
+    config0.os_hum = BME68X_OS_16X;
+    config0.os_pres = BME68X_OS_1X;
+    config0.os_temp = BME68X_OS_2X;
+
+    initResult = bme68x_set_conf(&config0, &sensor0);
+    bme68x_check_rslt("bme68x_set_conf", initResult);
+
+    heaterConfig0.enable = BME68X_ENABLE;
+    heaterConfig0.heatr_temp = 300;
+    heaterConfig0.heatr_dur = 100;
+
+    initResult = bme68x_set_heatr_conf(BME68X_FORCED_MODE, &heaterConfig0, &sensor0);
+    bme68x_check_rslt("bme68x_set_heatr_conf", initResult);
 
   // Заполнение параметров дисплея
 	hepd.SPI_Handle = &hspi1;  		// Ваш SPI-хендл
@@ -166,14 +219,43 @@ int main(void)
 		char temp_scd41[20];
 		char h_scd41[20];
 		char co2_scd41[20];
+		char bme688_temp[20];
+		char bme688_hum[20];
+		char bme688_pres[20];
+		char bme688_gas[20];
 
 		scd41_read(&co2, &tempscd, &rh);
+
+		// Read BME688 data
+		int8_t setModeResult = bme68x_set_op_mode(BME68X_FORCED_MODE, &sensor0);
+		uint32_t del_period = bme68x_get_meas_dur(BME68X_FORCED_MODE, &config0, &sensor0) + (heaterConfig0.heatr_dur * 1000);
+		sensor0.delay_us(del_period, sensor0.intf_ptr);
+
+		uint8_t n_fields;
+		int8_t getDataResult = bme68x_get_data(BME68X_FORCED_MODE, &data, &n_fields, &sensor0);
+
 		snprintf(temp_str, sizeof(temp_str), "TEMP %.1f\xF8" "C", temp);
 		snprintf(h_str, sizeof(h_str), "HUMID %.1f%%", h);
 		snprintf(pressure_str, sizeof(pressure_str), "PRESS %.1f", pressure);
 		snprintf(temp_scd41, sizeof(temp_scd41), "TEMP41 %.1f\xF8" "C", tempscd);
 		snprintf(h_scd41, sizeof(h_scd41), "HUM41 %.1f%%", rh);
 		snprintf(co2_scd41, sizeof(co2_scd41), "CO2 %.1d", co2);
+
+		if (n_fields) {
+		  snprintf(bme688_temp, sizeof(bme688_temp), "B0T: %d.%02dC",
+				   (int)data.temperature, (int)((data.temperature - (int)data.temperature) * 100));
+		  snprintf(bme688_hum, sizeof(bme688_hum), "B0H: %d.%01d%%",
+				   (int)data.humidity, (int)((data.humidity - (int)data.humidity) * 10));
+		  snprintf(bme688_pres, sizeof(bme688_pres), "B0P: %dhPa",
+				   (int)(data.pressure / 100.0F));
+		  snprintf(bme688_gas, sizeof(bme688_gas), "B0G: %lu",
+				   (long unsigned int)data.gas_resistance);
+		} else {
+		  strcpy(bme688_temp, "B0T: ---");
+		  strcpy(bme688_hum, "B0H: ---");
+		  strcpy(bme688_pres, "B0P: ---");
+		  strcpy(bme688_gas, "B0G: ---");
+		}
 
 		SSD1680_Clear(&hepd, ColorWhite);
 
@@ -189,9 +271,16 @@ int main(void)
 		SSD1680_VerticalText(&hepd, 88, 10, temp_scd41, &cp866_8x8_r);
 		SSD1680_VerticalText(&hepd, 64, 10, h_scd41, &cp866_8x8_r);
 
+	    // Display BME688 data
+	    SSD1680_VerticalText(&hepd, 48, 10, bme688_temp, &cp866_8x8_r);
+	    SSD1680_VerticalText(&hepd, 40, 10, bme688_hum, &cp866_8x8_r);
+	    SSD1680_VerticalText(&hepd, 32, 10, bme688_pres, &cp866_8x8_r);
+	    SSD1680_VerticalText(&hepd, 24, 10, bme688_gas, &cp866_8x8_r);
+
 		SSD1680_Refresh(&hepd, FullRefresh);
 		SSD1680_Wait(&hepd);
 
+		sample_count++;
 		HAL_Delay(60000);
 		/* USER CODE END WHILE */
 
