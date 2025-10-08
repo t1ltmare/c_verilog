@@ -65,6 +65,11 @@ I2C_HandleTypeDef hi2c1;
 SPI_HandleTypeDef hspi1;
 /* USER CODE BEGIN PV */
 SSD1680_HandleTypeDef hepd;
+
+uint8_t scd41_addr = 0x62 << 1; //7 bit address shifted left
+uint16_t co2 = 0; //co2 in ppm
+float tempscd; // temp in F
+float rh; //rh in %
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -73,7 +78,8 @@ static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_I2C1_Init(void);
 /* USER CODE BEGIN PFP */
-//static void MX_SSD1680_Init(void);
+void scd41_start(void);
+uint8_t scd41_read(uint16_t *co2, float *temp, float *rh);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -145,39 +151,52 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  while (1)
-  {
-	  float temp = bme280_get_temperature();
-	  float pressure = bme280_get_pressure() / 133.32;
-	  float h = bme280_get_humidity();
+	scd41_start();
+	HAL_Delay(5000);  // warm-up delay
 
-	  char temp_str[20];
-	  char pressure_str[20];
-	  char h_str[20];
+	while (1)
+	{
+		float temp = bme280_get_temperature();
+		float pressure = bme280_get_pressure() / 133.32;
+		float h = bme280_get_humidity();
 
-	  snprintf(temp_str, sizeof(temp_str), "TEMP %.1f\xF8" "C", temp);
-	  snprintf(h_str, sizeof(h_str), "HUMID %.1f%%", h);
-	  snprintf(pressure_str, sizeof(pressure_str), "PRESS %.1f", pressure);
+		char temp_str[20];
+		char pressure_str[20];
+		char h_str[20];
+		char temp_scd41[20];
+		char h_scd41[20];
+		char co2_scd41[20];
 
-	  SSD1680_Clear(&hepd, ColorWhite);
+		scd41_read(&co2, &tempscd, &rh);
+		snprintf(temp_str, sizeof(temp_str), "TEMP %.1f\xF8" "C", temp);
+		snprintf(h_str, sizeof(h_str), "HUMID %.1f%%", h);
+		snprintf(pressure_str, sizeof(pressure_str), "PRESS %.1f", pressure);
+		snprintf(temp_scd41, sizeof(temp_scd41), "TEMP41 %.1f\xF8" "C", tempscd);
+		snprintf(h_scd41, sizeof(h_scd41), "HUM41 %.1f%%", rh);
+		snprintf(co2_scd41, sizeof(co2_scd41), "CO2 %.1d", co2);
 
-	  Bar_16(1, 20, 100, 8, 148);
-	  Bar_16(0, 40, 100, 32, 148);
-	  Bar_8(1, 60, 100, 56, 148);
-	  Bar_8(0, 80, 100, 80, 148);
+		SSD1680_Clear(&hepd, ColorWhite);
 
-	  SSD1680_VerticalText(&hepd, 80, 10, temp_str, &cp866_8x8_r);
-	  SSD1680_VerticalText(&hepd, 56, 10, h_str, &cp866_8x8_r);
-	  SSD1680_VerticalText(&hepd, 32, 10, pressure_str, &cp866_8x16_r);
-	  SSD1680_VerticalText(&hepd, 8, 10, "CO2", &cp866_8x16_r);
+		Bar_8(1, 20, 100, 8, 148);
+		Bar_8(0, 40, 100, 32, 148);
+		Bar_8(1, 60, 100, 56, 148);
+		Bar_8(0, 80, 100, 80, 148);
 
-	  SSD1680_Refresh(&hepd, FullRefresh);
-	  SSD1680_Wait(&hepd);
-	  HAL_Delay(60000);
-    /* USER CODE END WHILE */
+		SSD1680_VerticalText(&hepd, 88, 148, temp_str, &cp866_8x8_r);
+		SSD1680_VerticalText(&hepd, 64, 148, h_str, &cp866_8x8_r);
+		SSD1680_VerticalText(&hepd, 40, 148, pressure_str, &cp866_8x8_r);
+		SSD1680_VerticalText(&hepd, 16, 148, co2_scd41, &cp866_8x8_r);
+		SSD1680_VerticalText(&hepd, 88, 10, temp_scd41, &cp866_8x8_r);
+		SSD1680_VerticalText(&hepd, 64, 10, h_scd41, &cp866_8x8_r);
 
-    /* USER CODE BEGIN 3 */
-  }
+		SSD1680_Refresh(&hepd, FullRefresh);
+		SSD1680_Wait(&hepd);
+
+		HAL_Delay(60000);
+		/* USER CODE END WHILE */
+
+		/* USER CODE BEGIN 3 */
+	}
   /* USER CODE END 3 */
 }
 
@@ -331,6 +350,35 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+//start periodic measurement (command 0x21B1)
+void scd41_start(void){
+  uint8_t cmd[2] = {0x21, 0xB1}; //split command into 2 bytes
+  HAL_I2C_Master_Transmit(&hi2c1, scd41_addr, cmd, 2, HAL_MAX_DELAY);
+}
+
+//read measurement (command 0xEC05)
+uint8_t scd41_read(uint16_t *co2, float *temp, float *rh){
+  uint8_t cmd[2] = {0xEC, 0x05};
+  uint8_t rx[9];
+
+  HAL_I2C_Master_Transmit(&hi2c1, scd41_addr, cmd, 2, HAL_MAX_DELAY);
+  HAL_Delay(1);
+
+  if (HAL_I2C_Master_Receive(&hi2c1, scd41_addr, rx, 9, HAL_MAX_DELAY) != HAL_OK)
+    return 0;
+
+  *co2 = (rx[0] << 8) | rx[1];
+  uint16_t temp_raw = (rx[3] << 8) | rx[4];
+  float temp_c = -45.0f + 175.0f * ((float)temp_raw / 65535.0f);
+  *temp = temp_c;// * 9.0f / 5.0f + 32.0f;
+
+  uint16_t rh_raw = (rx[6] << 8) | rx[7];
+  *rh = 100.0f * ((float)rh_raw / 65535.0f);
+
+  return 1;
+}
+
 void Bar_16(uint8_t color, uint8_t num, uint8_t length, uint8_t x, uint8_t y) {
     uint8_t elements = length * 2;
     uint8_t line[elements];
