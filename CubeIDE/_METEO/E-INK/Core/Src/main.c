@@ -25,7 +25,6 @@
 #include "SSD1680.h"
 #include "bme280.h"
 #include "bme68x.h"
-#include "bme68x_defs.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -46,6 +45,8 @@
 
 #define TEMP 75
 
+// Адрес BME688 (SDO подключен к VCC для адреса 0x77)
+#define BME688_ADDR    BME68X_I2C_ADDR_HIGH  // 0x77
 /* USER CODE END PD */
 
 /* Private macro -------------------------------------------------------------*/
@@ -65,10 +66,9 @@ float tempscd; // temp in F
 float rh; //rh in %
 
 // BME688 variables
-struct bme68x_dev sensor0;
-struct bme68x_dev sensor1;
-uint8_t sensor0I2cAddress = BME68X_I2C_ADDR_LOW;
-uint8_t sensor1I2cAddress = BME68X_I2C_ADDR_HIGH;
+struct bme68x_dev bme688_sensor;
+uint8_t bme688_addr = BME688_ADDR;
+uint8_t bme688_sensorI2cAddress = BME688_ADDR; 
 
 // BME688 configuration
 struct bme68x_conf config0;
@@ -82,15 +82,12 @@ void SystemClock_Config(void);
 static void MX_GPIO_Init(void);
 static void MX_SPI1_Init(void);
 static void MX_I2C1_Init(void);
+
 /* USER CODE BEGIN PFP */
+
 void scd41_start(void);
 uint8_t scd41_read(uint16_t *co2, float *temp, float *rh);
 
-// BME688 functions
-BME68X_INTF_RET_TYPE bme68x_i2c_read(uint8_t reg_addr, uint8_t *reg_data, uint32_t len, void *intf_ptr);
-BME68X_INTF_RET_TYPE bme68x_i2c_write(uint8_t reg_addr, const uint8_t *reg_data, uint32_t len, void *intf_ptr);
-void bme68x_delay_us(uint32_t period, void *intf_ptr);
-void bme68x_check_rslt(const char api_name[], int8_t rslt);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -134,46 +131,43 @@ int main(void)
   bme280_init(&hi2c1, BME280_OVERSAMPLE_X1, BME280_OVERSAMPLE_X1, BME280_OVERSAMPLE_X1, BME280_NORMAL_MODE, BME280_STANDBY_0_5MS, BME280_FILTER_COEFF_16);
 
   // Initialize BME688 sensors
-    memset(&sensor0, 0, sizeof(sensor0));
-    sensor0.intf = BME68X_I2C_INTF;
-    sensor0.read = bme68x_i2c_read;
-    sensor0.write = bme68x_i2c_write;
-    sensor0.delay_us = bme68x_delay_us;
-    sensor0.intf_ptr = &sensor0I2cAddress;
-    sensor0.amb_temp = 25;
+  memset(&bme688_sensor, 0, sizeof(bme688_sensor));
+  bme688_sensor.intf = BME68X_I2C_INTF;
+  bme688_sensor.read = bme68x_i2c_read;
+  bme688_sensor.write = bme68x_i2c_write;
+  bme688_sensor.delay_us = bme68x_delay_us;
+  bme688_sensor.intf_ptr = &bme688_sensorI2cAddress;
+  bme688_sensor.amb_temp = 25;
 
-    memset(&sensor1, 0, sizeof(sensor1));
-    sensor1.intf = BME68X_I2C_INTF;
-    sensor1.read = bme68x_i2c_read;
-    sensor1.write = bme68x_i2c_write;
-    sensor1.delay_us = bme68x_delay_us;
-    sensor1.intf_ptr = &sensor1I2cAddress;
-    sensor1.amb_temp = 25;
+  // Initialize BME688 sensors
+  int8_t initResult = bme68x_interface_init(&bme688_sensor, BME68X_I2C_INTF);
+  bme68x_check_rslt("bme68x_interface_init", initResult);
 
-    // Initialize BME688 sensors
-    int8_t initResult;
-    initResult = bme68x_init(&sensor0);
-    bme68x_check_rslt("bme68x_init sensor0", initResult);
+  if (initResult == BME68X_OK) {
+      initResult = bme68x_init(&bme688_sensor);
+      bme68x_check_rslt("bme68x_init", initResult);
+  }
 
-    initResult = bme68x_init(&sensor1);
-    bme68x_check_rslt("bme68x_init sensor1", initResult);
+  // Configure BME688
+  if (initResult == BME68X_OK) {
+      config0.filter = BME68X_FILTER_OFF;
+      config0.odr = BME68X_ODR_NONE;
+      config0.os_hum = BME68X_OS_16X;
+      config0.os_pres = BME68X_OS_1X;
+      config0.os_temp = BME68X_OS_2X;
 
-    // Configure BME688
-    config0.filter = BME68X_FILTER_OFF;
-    config0.odr = BME68X_ODR_NONE;
-    config0.os_hum = BME68X_OS_16X;
-    config0.os_pres = BME68X_OS_1X;
-    config0.os_temp = BME68X_OS_2X;
+      initResult = bme68x_set_conf(&config0, &bme688_sensor); // Исправлено
+      bme68x_check_rslt("bme68x_set_conf", initResult);
+  }
 
-    initResult = bme68x_set_conf(&config0, &sensor0);
-    bme68x_check_rslt("bme68x_set_conf", initResult);
+  if (initResult == BME68X_OK) {
+      heaterConfig0.enable = BME68X_ENABLE;
+      heaterConfig0.heatr_temp = 300;
+      heaterConfig0.heatr_dur = 100;
 
-    heaterConfig0.enable = BME68X_ENABLE;
-    heaterConfig0.heatr_temp = 300;
-    heaterConfig0.heatr_dur = 100;
-
-    initResult = bme68x_set_heatr_conf(BME68X_FORCED_MODE, &heaterConfig0, &sensor0);
-    bme68x_check_rslt("bme68x_set_heatr_conf", initResult);
+      initResult = bme68x_set_heatr_conf(BME68X_FORCED_MODE, &heaterConfig0, &bme688_sensor); // Исправлено
+      bme68x_check_rslt("bme68x_set_heatr_conf", initResult);
+  }
 
   // Заполнение параметров дисплея
 	hepd.SPI_Handle = &hspi1;  		// Ваш SPI-хендл
@@ -191,14 +185,9 @@ int main(void)
 	hepd.Resolution_X = 128;   		// Ширина дисплея
 	hepd.Resolution_Y = 256;   		// Высота дисплея
 
-	// �?нициализация дисплея
+	// Инициализация дисплея
 	SSD1680_Init(&hepd);
 	SSD1680_Border(&hepd, ColorWhite);
-
-
-    //SSD1680_SetRegion(&hepd, 32, 148, 16, 100, red_line, NULL);
-
-    // Обновление дисплея
 
   /* USER CODE END 2 */
 
@@ -227,19 +216,28 @@ int main(void)
 		scd41_read(&co2, &tempscd, &rh);
 
 		// Read BME688 data
-		int8_t setModeResult = bme68x_set_op_mode(BME68X_FORCED_MODE, &sensor0);
-		uint32_t del_period = bme68x_get_meas_dur(BME68X_FORCED_MODE, &config0, &sensor0) + (heaterConfig0.heatr_dur * 1000);
-		sensor0.delay_us(del_period, sensor0.intf_ptr);
+    int8_t setModeResult = bme68x_set_op_mode(BME68X_FORCED_MODE, &bme688_sensor);
 
-		uint8_t n_fields;
-		int8_t getDataResult = bme68x_get_data(BME68X_FORCED_MODE, &data, &n_fields, &sensor0);
+    if (setModeResult == BME68X_OK) {
+      uint32_t del_period = bme68x_get_meas_dur(BME68X_FORCED_MODE, &config0, &bme688_sensor) + (heaterConfig0.heatr_dur * 1000);
+      bme688_sensor.delay_us(del_period, bme688_sensor.intf_ptr);
 
-		snprintf(temp_str, sizeof(temp_str), "TEMP %.1f\xF8" "C", temp);
-		snprintf(h_str, sizeof(h_str), "HUMID %.1f%%", h);
-		snprintf(pressure_str, sizeof(pressure_str), "PRESS %.1f", pressure);
-		snprintf(temp_scd41, sizeof(temp_scd41), "TEMP41 %.1f\xF8" "C", tempscd);
-		snprintf(h_scd41, sizeof(h_scd41), "HUM41 %.1f%%", rh);
-		snprintf(co2_scd41, sizeof(co2_scd41), "CO2 %.1d", co2);
+      uint8_t n_fields;
+      int8_t getDataResult = bme68x_get_data(BME68X_FORCED_MODE, &data, &n_fields, &bme688_sensor);
+      
+      if (getDataResult == BME68X_OK) {
+        snprintf(temp_str, sizeof(temp_str), "TEMP %.1f\xF8" "C", temp);
+        snprintf(h_str, sizeof(h_str), "HUMID %.1f%%", h);
+        snprintf(pressure_str, sizeof(pressure_str), "PRESS %.1f", pressure);
+        snprintf(temp_scd41, sizeof(temp_scd41), "TEMP41 %.1f\xF8" "C", tempscd);
+        snprintf(h_scd41, sizeof(h_scd41), "HUM41 %.1f%%", rh);
+        snprintf(co2_scd41, sizeof(co2_scd41), "CO2 %.1d", co2);
+      } else {
+        bme68x_check_rslt("bme68x_get_data", getDataResult);
+      }
+    } else {
+        bme68x_check_rslt("bme68x_set_op_mode", setModeResult);
+    }
 
 		if (n_fields) {
 		  snprintf(bme688_temp, sizeof(bme688_temp), "B0T: %d.%02dC",
@@ -271,11 +269,11 @@ int main(void)
 		SSD1680_VerticalText(&hepd, 88, 10, temp_scd41, &cp866_8x8_r);
 		SSD1680_VerticalText(&hepd, 64, 10, h_scd41, &cp866_8x8_r);
 
-	    // Display BME688 data
-	    SSD1680_VerticalText(&hepd, 48, 10, bme688_temp, &cp866_8x8_r);
-	    SSD1680_VerticalText(&hepd, 40, 10, bme688_hum, &cp866_8x8_r);
-	    SSD1680_VerticalText(&hepd, 32, 10, bme688_pres, &cp866_8x8_r);
-	    SSD1680_VerticalText(&hepd, 24, 10, bme688_gas, &cp866_8x8_r);
+    // Display BME688 data
+    SSD1680_VerticalText(&hepd, 48, 10, bme688_temp, &cp866_8x8_r);
+    SSD1680_VerticalText(&hepd, 40, 10, bme688_hum, &cp866_8x8_r);
+    SSD1680_VerticalText(&hepd, 32, 10, bme688_pres, &cp866_8x8_r);
+    SSD1680_VerticalText(&hepd, 24, 10, bme688_gas, &cp866_8x8_r);
 
 		SSD1680_Refresh(&hepd, FullRefresh);
 		SSD1680_Wait(&hepd);
