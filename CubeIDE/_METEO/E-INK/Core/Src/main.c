@@ -141,7 +141,6 @@ int main(void)
 
   // Initialize BME688 sensors
   int8_t initResult = bme68x_interface_init(&bme688_sensor, BME68X_I2C_INTF);
-  bme68x_check_rslt("bme68x_interface_init", initResult);
 
   if (initResult == BME68X_OK) {
       initResult = bme68x_init(&bme688_sensor);
@@ -215,45 +214,47 @@ int main(void)
 
 		scd41_read(&co2, &tempscd, &rh);
 
+    snprintf(temp_str, sizeof(temp_str), "TEMP %.1f\xF8" "C", temp);
+    snprintf(h_str, sizeof(h_str), "HUMID %.1f%%", h);
+    snprintf(pressure_str, sizeof(pressure_str), "PRESS %.1f", pressure);
+    snprintf(temp_scd41, sizeof(temp_scd41), "TEMP41 %.1f\xF8" "C", tempscd);
+    snprintf(h_scd41, sizeof(h_scd41), "HUM41 %.1f%%", rh);
+    snprintf(co2_scd41, sizeof(co2_scd41), "CO2 %.1d", co2);
+
 		// Read BME688 data
     int8_t setModeResult = bme68x_set_op_mode(BME68X_FORCED_MODE, &bme688_sensor);
+    uint8_t n_fields = 0;  // Объявляем здесь, чтобы была доступна после блока
 
     if (setModeResult == BME68X_OK) {
       uint32_t del_period = bme68x_get_meas_dur(BME68X_FORCED_MODE, &config0, &bme688_sensor) + (heaterConfig0.heatr_dur * 1000);
       bme688_sensor.delay_us(del_period, bme688_sensor.intf_ptr);
 
-      uint8_t n_fields;
       int8_t getDataResult = bme68x_get_data(BME68X_FORCED_MODE, &data, &n_fields, &bme688_sensor);
       
-      if (getDataResult == BME68X_OK) {
-        snprintf(temp_str, sizeof(temp_str), "TEMP %.1f\xF8" "C", temp);
-        snprintf(h_str, sizeof(h_str), "HUMID %.1f%%", h);
-        snprintf(pressure_str, sizeof(pressure_str), "PRESS %.1f", pressure);
-        snprintf(temp_scd41, sizeof(temp_scd41), "TEMP41 %.1f\xF8" "C", tempscd);
-        snprintf(h_scd41, sizeof(h_scd41), "HUM41 %.1f%%", rh);
-        snprintf(co2_scd41, sizeof(co2_scd41), "CO2 %.1d", co2);
+      if (getDataResult == BME68X_OK && n_fields > 0) {
+          // Форматирование данных BME688 с плавающей точкой
+          snprintf(bme688_temp, sizeof(bme688_temp), "B0T: %.1fC", data.temperature);
+          snprintf(bme688_hum, sizeof(bme688_hum), "B0H: %.1f%%", data.humidity);
+          snprintf(bme688_pres, sizeof(bme688_pres), "B0P: %.0fhPa", data.pressure / 100.0f);
+          snprintf(bme688_gas, sizeof(bme688_gas), "B0G: %.0f", data.gas_resistance);
       } else {
-        bme68x_check_rslt("bme68x_get_data", getDataResult);
+          // Обработка ошибки получения данных
+          strcpy(bme688_temp, "B0T: ERR");
+          strcpy(bme688_hum, "B0H: ERR");
+          strcpy(bme688_pres, "B0P: ERR");
+          strcpy(bme688_gas, "B0G: ERR");
+          if (getDataResult != BME68X_OK) {
+              bme68x_check_rslt("bme68x_get_data", getDataResult);
+          }
       }
     } else {
-        bme68x_check_rslt("bme68x_set_op_mode", setModeResult);
+      bme68x_check_rslt("bme68x_set_op_mode", setModeResult);
+      // Обработка ошибки установки режима
+      strcpy(bme688_temp, "B0T: ---");
+      strcpy(bme688_hum, "B0H: ---");
+      strcpy(bme688_pres, "B0P: ---");
+      strcpy(bme688_gas, "B0G: ---");
     }
-
-		if (n_fields) {
-		  snprintf(bme688_temp, sizeof(bme688_temp), "B0T: %d.%02dC",
-				   (int)data.temperature, (int)((data.temperature - (int)data.temperature) * 100));
-		  snprintf(bme688_hum, sizeof(bme688_hum), "B0H: %d.%01d%%",
-				   (int)data.humidity, (int)((data.humidity - (int)data.humidity) * 10));
-		  snprintf(bme688_pres, sizeof(bme688_pres), "B0P: %dhPa",
-				   (int)(data.pressure / 100.0F));
-		  snprintf(bme688_gas, sizeof(bme688_gas), "B0G: %lu",
-				   (long unsigned int)data.gas_resistance);
-		} else {
-		  strcpy(bme688_temp, "B0T: ---");
-		  strcpy(bme688_hum, "B0H: ---");
-		  strcpy(bme688_pres, "B0P: ---");
-		  strcpy(bme688_gas, "B0G: ---");
-		}
 
 		SSD1680_Clear(&hepd, ColorWhite);
 
