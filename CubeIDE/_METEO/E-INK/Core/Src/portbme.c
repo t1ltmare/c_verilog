@@ -43,7 +43,12 @@ BME68X_INTF_RET_TYPE bme68x_i2c_write(uint8_t reg_addr, const  uint8_t *reg_data
 void bme68x_delay_us(uint32_t period, void *intf_ptr)
 {
     (void)intf_ptr;
-    HAL_Delay(period);
+    // Преобразуем микросекунды в миллисекунды
+    uint32_t delay_ms = (period + 999) / 1000;  // Округляем вверх
+    if (delay_ms == 0) {
+        delay_ms = 1;  // Минимальная задержка 1 мс
+    }
+    HAL_Delay(delay_ms);
 }
 
 void bme68x_check_rslt(const char api_name[], int8_t rslt)

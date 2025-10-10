@@ -25,6 +25,9 @@
 #include "SSD1680.h"
 #include "bme280.h"
 #include "bme68x.h"
+#include "stdio.h"
+#include "string.h"
+#include "portbme.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -151,7 +154,7 @@ int main(void)
   if (initResult == BME68X_OK) {
       config0.filter = BME68X_FILTER_OFF;
       config0.odr = BME68X_ODR_NONE;
-      config0.os_hum = BME68X_OS_16X;
+      config0.os_hum = BME68X_OS_2X;
       config0.os_pres = BME68X_OS_1X;
       config0.os_temp = BME68X_OS_2X;
 
@@ -216,7 +219,7 @@ int main(void)
 
     snprintf(temp_str, sizeof(temp_str), "TEMP %.1f\xF8" "C", temp);
     snprintf(h_str, sizeof(h_str), "HUMID %.1f%%", h);
-    snprintf(pressure_str, sizeof(pressure_str), "PRESS %.1f", pressure);
+    snprintf(pressure_str, sizeof(pressure_str), "PRESS %.0f", pressure);
     snprintf(temp_scd41, sizeof(temp_scd41), "TEMP41 %.1f\xF8" "C", tempscd);
     snprintf(h_scd41, sizeof(h_scd41), "HUM41 %.1f%%", rh);
     snprintf(co2_scd41, sizeof(co2_scd41), "CO2 %.1d", co2);
@@ -235,7 +238,7 @@ int main(void)
           // Форматирование данных BME688 с плавающей точкой
           snprintf(bme688_temp, sizeof(bme688_temp), "B0T: %.1fC", data.temperature);
           snprintf(bme688_hum, sizeof(bme688_hum), "B0H: %.1f%%", data.humidity);
-          snprintf(bme688_pres, sizeof(bme688_pres), "B0P: %.0fhPa", data.pressure / 100.0f);
+          snprintf(bme688_pres, sizeof(bme688_pres), "B0P: %.0f", data.pressure / 100.0f * 0.75f);
           snprintf(bme688_gas, sizeof(bme688_gas), "B0G: %.0f", data.gas_resistance);
       } else {
           // Обработка ошибки получения данных
