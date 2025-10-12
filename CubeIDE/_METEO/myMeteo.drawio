@@ -1,6 +1,6 @@
 <mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.1.2 Chrome/138.0.7204.243 Electron/37.4.0 Safari/537.36" version="28.1.2">
   <diagram name="Страница — 1" id="j_RHyD6DvrdJ3D1T_Lya">
-    <mxGraphModel dx="690" dy="593" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1821" dy="1153" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -134,10 +134,10 @@
           <mxGeometry x="410" y="200" width="30" height="40" as="geometry" />
         </mxCell>
         <mxCell id="_VFWr0atdIIAaDjNC9iZ-31" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;LDO&lt;/h1&gt;&lt;p&gt;XC6206P332MR&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="160" y="300" width="100" height="180" as="geometry" />
+          <mxGeometry x="160" y="300" width="100" height="70" as="geometry" />
         </mxCell>
         <mxCell id="_VFWr0atdIIAaDjNC9iZ-32" value="&lt;h1 style=&quot;margin-top: 0px;&quot;&gt;LiPo&lt;/h1&gt;&lt;p&gt;503030&lt;/p&gt;" style="text;html=1;whiteSpace=wrap;overflow=hidden;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="270" y="300" width="60" height="180" as="geometry" />
+          <mxGeometry x="270" y="300" width="60" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
