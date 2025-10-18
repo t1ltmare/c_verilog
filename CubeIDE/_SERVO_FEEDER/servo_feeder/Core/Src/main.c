@@ -47,11 +47,17 @@ I2C_HandleTypeDef hi2c1;
 
 RTC_HandleTypeDef hrtc;
 
+TIM_HandleTypeDef htim2;
 TIM_HandleTypeDef htim11;
 
 /* USER CODE BEGIN PV */
 char timeData[15];
 char dateData[15];
+char buff[15];
+uint32_t enc_total = 0;
+uint16_t enc_last = 0;
+
+uint8_t prevCounter = 0;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -60,6 +66,7 @@ static void MX_GPIO_Init(void);
 static void MX_TIM11_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_RTC_Init(void);
+static void MX_TIM2_Init(void);
 /* USER CODE BEGIN PFP */
 void set_servo_angle(uint16_t angle);
 void set_time (uint8_t hr, uint8_t min, uint8_t sec);
@@ -67,6 +74,7 @@ void set_date (uint8_t year, uint8_t month, uint8_t date, uint8_t day);
 void set_alarm (uint8_t hr, uint8_t min, uint8_t sec, uint8_t date);
 void get_time_date(char *time, char *date);
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc);
+void get_enc(char *buff);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -107,8 +115,11 @@ int main(void)
   MX_TIM11_Init();
   MX_I2C1_Init();
   MX_RTC_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
   HAL_TIM_PWM_Start_IT(&htim11, TIM_CHANNEL_1);
+  __HAL_TIM_SET_COUNTER(&htim2, 0);
+  HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
 
   ssd1306_Init();
   uint8_t y = 0;
@@ -141,11 +152,18 @@ int main(void)
   while (1)
   {
 	  get_time_date(timeData, dateData);
+	  get_enc(buff);
 	  ssd1306_Fill(Black);
 	  ssd1306_SetCursor(2, 0);
-	  ssd1306_WriteString(timeData, Font_7x10, White);
+	  ssd1306_WriteString("Feeding time", Font_7x10, White);
+	  ssd1306_SetCursor(2, 10);
+	  ssd1306_WriteString(buff, Font_11x18, White);
+	  ssd1306_SetCursor(2, 32);
+	  ssd1306_WriteString("Current time", Font_7x10, White);
+	  ssd1306_SetCursor(2, 42);
+	  ssd1306_WriteString(timeData, Font_11x18, White);
 	  ssd1306_UpdateScreen();
-	  HAL_Delay(100);
+	  HAL_Delay(10);
 	  //ssd1306_TestAll();
 
 	  /*
@@ -318,6 +336,55 @@ static void MX_RTC_Init(void)
 }
 
 /**
+  * @brief TIM2 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM2_Init(void)
+{
+
+  /* USER CODE BEGIN TIM2_Init 0 */
+
+  /* USER CODE END TIM2_Init 0 */
+
+  TIM_Encoder_InitTypeDef sConfig = {0};
+  TIM_MasterConfigTypeDef sMasterConfig = {0};
+
+  /* USER CODE BEGIN TIM2_Init 1 */
+
+  /* USER CODE END TIM2_Init 1 */
+  htim2.Instance = TIM2;
+  htim2.Init.Prescaler = 0;
+  htim2.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim2.Init.Period = 65535;
+  htim2.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim2.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  sConfig.EncoderMode = TIM_ENCODERMODE_TI1;
+  sConfig.IC1Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC1Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC1Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC1Filter = 0;
+  sConfig.IC2Polarity = TIM_ICPOLARITY_RISING;
+  sConfig.IC2Selection = TIM_ICSELECTION_DIRECTTI;
+  sConfig.IC2Prescaler = TIM_ICPSC_DIV1;
+  sConfig.IC2Filter = 0;
+  if (HAL_TIM_Encoder_Init(&htim2, &sConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sMasterConfig.MasterOutputTrigger = TIM_TRGO_RESET;
+  sMasterConfig.MasterSlaveMode = TIM_MASTERSLAVEMODE_DISABLE;
+  if (HAL_TIMEx_MasterConfigSynchronization(&htim2, &sMasterConfig) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM2_Init 2 */
+
+  /* USER CODE END TIM2_Init 2 */
+
+}
+
+/**
   * @brief TIM11 Initialization Function
   * @param None
   * @retval None
@@ -384,6 +451,22 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
+void get_enc(char *buff) {
+    uint16_t curr_counter = __HAL_TIM_GET_COUNTER(&htim2);
+
+    // Вычисляем разницу с учетом переполнения
+    int16_t diff = (int16_t)(enc_last - curr_counter);
+    enc_total += diff;
+    enc_last = curr_counter;
+
+    // Ограничиваем значение диапазоном 0-999999
+    if(enc_total < 0) enc_total = 0;
+    if(enc_total > 999999) enc_total = 999999;
+
+    // Форматируем строку
+    snprintf(buff, 15, "%06ld", enc_total);
+}
+
 void set_time (uint8_t hr, uint8_t min, uint8_t sec)
 {
 	RTC_TimeTypeDef sTime = {0};
