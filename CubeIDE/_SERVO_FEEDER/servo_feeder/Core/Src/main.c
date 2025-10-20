@@ -53,11 +53,15 @@ TIM_HandleTypeDef htim11;
 /* USER CODE BEGIN PV */
 char timeData[15];
 char dateData[15];
-char buff[15];
-uint32_t enc_total = 0;
-uint16_t enc_last = 0;
+char feedTime[15];
 
-uint8_t prevCounter = 0;
+uint16_t encval = 0;
+int16_t enc_total = 0;
+int16_t enc_last = 0;
+int16_t diff;
+int16_t curr_counter;
+int16_t prevCounter = 0;
+uint8_t hours, minutes;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -74,7 +78,8 @@ void set_date (uint8_t year, uint8_t month, uint8_t date, uint8_t day);
 void set_alarm (uint8_t hr, uint8_t min, uint8_t sec, uint8_t date);
 void get_time_date(char *time, char *date);
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc);
-void get_enc(char *buff);
+void get_enc(char *feedTime, uint8_t hours, uint8_t minutes);
+//void encoder_to_time(uint16_t encval, uint16_t hours, uint16_t minutes);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
@@ -152,12 +157,14 @@ int main(void)
   while (1)
   {
 	  get_time_date(timeData, dateData);
-	  get_enc(buff);
+
+	  get_enc(feedTime, hours, minutes);
+
 	  ssd1306_Fill(Black);
 	  ssd1306_SetCursor(2, 0);
 	  ssd1306_WriteString("Feeding time", Font_7x10, White);
 	  ssd1306_SetCursor(2, 10);
-	  ssd1306_WriteString(buff, Font_11x18, White);
+	  ssd1306_WriteString(feedTime, Font_11x18, White);
 	  ssd1306_SetCursor(2, 32);
 	  ssd1306_WriteString("Current time", Font_7x10, White);
 	  ssd1306_SetCursor(2, 42);
@@ -451,20 +458,32 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-void get_enc(char *buff) {
-    uint16_t curr_counter = __HAL_TIM_GET_COUNTER(&htim2);
+/*
+void encoder_to_time(uint16_t encval, uint16_t hours, uint16_t minutes) {
+    uint16_t total_minutes = encval * 5;
+    hours = (total_minutes / 60) % 12;
+    minutes = total_minutes % 60;
+}
+*/
+void get_enc(char *feedTime, uint8_t hours, uint8_t minutes) {
+    curr_counter = __HAL_TIM_GET_COUNTER(&htim2);
 
     // Вычисляем разницу с учетом переполнения
-    int16_t diff = (int16_t)(enc_last - curr_counter);
-    enc_total += diff;
-    enc_last = curr_counter;
+    diff = (int16_t)(curr_counter - enc_last);
+    if (!(diff % 2)){
+    	enc_total += diff/2;
+      	if (enc_total > 95) {
+      	    enc_total = 0;
+      	} else if (enc_total < 0) {
+      		enc_total = 95;
+      	}
 
-    // Ограничиваем значение диапазоном 0-999999
-    if(enc_total < 0) enc_total = 0;
-    if(enc_total > 999999) enc_total = 999999;
-
-    // Форматируем строку
-    snprintf(buff, 15, "%06ld", enc_total);
+    	enc_last = curr_counter;
+    }
+    uint16_t total_minutes = enc_total * 15;
+    hours = (total_minutes / 60) % 24;
+    minutes = total_minutes % 60;
+	sprintf((char*)feedTime, "%02d:%02d:00", hours, minutes);
 }
 
 void set_time (uint8_t hr, uint8_t min, uint8_t sec)
