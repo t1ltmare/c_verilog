@@ -79,6 +79,8 @@ void set_alarm (uint8_t hr, uint8_t min, uint8_t sec, uint8_t date);
 void get_time_date(char *time, char *date);
 void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc);
 void get_enc(char *feedTime, uint8_t hours, uint8_t minutes);
+void get_hours(char *lastNum, uint8_t *currNum);
+void get_minutes(char *lastNum, uint8_t *currNum);
 //void encoder_to_time(uint16_t encval, uint16_t hours, uint16_t minutes);
 /* USER CODE END PFP */
 
@@ -122,14 +124,68 @@ int main(void)
   MX_RTC_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_PWM_Start_IT(&htim11, TIM_CHANNEL_1);
-  __HAL_TIM_SET_COUNTER(&htim2, 0);
-  HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
-
+  // Инициализация дисплея
   ssd1306_Init();
   uint8_t y = 0;
   ssd1306_Fill(Black);
 
+  // Инициализация ШИМ, энкодера
+  HAL_TIM_PWM_Start_IT(&htim11, TIM_CHANNEL_1);
+  __HAL_TIM_SET_COUNTER(&htim2, 0);
+  HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
+
+  // Инициализация времени и даты
+  get_time_date(timeData, dateData);
+
+  // Настройка времени
+  RTC_TimeTypeDef gTime;
+  HAL_RTC_GetTime(&hrtc, &gTime, RTC_FORMAT_BIN);
+  uint8_t currNum;
+  char hoursT[15];
+  char minutesT[15];
+  uint8_t hoursTime;
+  uint8_t minutesTime;
+
+  ssd1306_Fill(Black);
+  ssd1306_UpdateScreen();
+
+  while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) == GPIO_PIN_SET) {
+	  get_hours(hoursT, &currNum);
+
+	  ssd1306_SetCursor(2, 0);
+	  ssd1306_WriteString("Set hours:", Font_7x10, White);
+	  ssd1306_SetCursor(2, 15);
+	  ssd1306_WriteString(hoursT, Font_16x26, White);
+	  ssd1306_UpdateScreen();
+
+	  hoursTime = currNum;
+	  HAL_Delay(10);
+  }
+
+  HAL_Delay(500);
+  enc_total = 0;
+  enc_last = __HAL_TIM_GET_COUNTER(&htim2);
+
+  while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) == GPIO_PIN_SET) {
+	  get_minutes(minutesT, &currNum);
+
+	  ssd1306_SetCursor(2, 0);
+	  ssd1306_WriteString("Set minutes:", Font_7x10, White);
+	  ssd1306_SetCursor(2, 15);
+	  ssd1306_WriteString(minutesT, Font_16x26, White);
+	  ssd1306_UpdateScreen();
+
+	  minutesTime = currNum;
+	  HAL_Delay(10);
+  }
+/*
+  while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) == GPIO_PIN_SET) {
+ 	  get_hours(lastNum, currNum);
+ 	  ssd1306_SetCursor(2, 0);
+ 	  ssd1306_WriteString(lastNum, Font_16x26, White);
+ 	  ssd1306_UpdateScreen();
+   }
+*/
   ssd1306_SetCursor(2, y);
   ssd1306_WriteString("Font 16x26", Font_16x26, White);
   y += 26;
@@ -148,7 +204,7 @@ int main(void)
   ssd1306_UpdateScreen();
   HAL_Delay(1000);
 
-  set_time(0, 0, 0);
+  set_time(hoursTime, minutesTime, 0);
 
   /* USER CODE END 2 */
 
@@ -484,6 +540,45 @@ void get_enc(char *feedTime, uint8_t hours, uint8_t minutes) {
     hours = (total_minutes / 60) % 24;
     minutes = total_minutes % 60;
 	sprintf((char*)feedTime, "%02d:%02d:00", hours, minutes);
+}
+
+void get_hours(char *lastNum, uint8_t *currNum) {
+    curr_counter = __HAL_TIM_GET_COUNTER(&htim2);
+
+    // Вычисляем разницу с учетом переполнения
+    diff = (int16_t)(curr_counter - enc_last);
+    if (!(diff % 2)){
+    	enc_total += diff/2;
+      	if (enc_total > 23) {
+      	    enc_total = 0;
+      	} else if (enc_total < 0) {
+      		enc_total = 23;
+      	}
+
+    	enc_last = curr_counter;
+    }
+    *currNum = enc_total;
+	sprintf((char*)lastNum, "%02d", *currNum);
+}
+
+void get_minutes(char *lastNum, uint8_t *currNum) {
+    curr_counter = __HAL_TIM_GET_COUNTER(&htim2);
+
+    // Вычисляем разницу с учетом переполнения
+    diff = (int16_t)(curr_counter - enc_last);
+    if (!(diff % 2)){
+        enc_total += diff/2;
+        if (enc_total > 59) {  // Ограничение 0-59 для минут
+            enc_total = 0;
+        } else if (enc_total < 0) {
+            enc_total = 59;
+        }
+
+        enc_last = curr_counter;
+    }
+
+    *currNum = enc_total;  // Разыменовываем указатель
+    sprintf((char*)lastNum, "%02d", *currNum);
 }
 
 void set_time (uint8_t hr, uint8_t min, uint8_t sec)
