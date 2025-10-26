@@ -25,6 +25,7 @@
 #include "ssd1306.h"
 #include "ssd1306_tests.h"
 #include "ssd1306_fonts.h"
+#include "string.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -54,6 +55,16 @@ TIM_HandleTypeDef htim11;
 char timeData[15];
 char dateData[15];
 char feedTime[15];
+
+typedef enum {
+    STATE_IDLE,
+    STATE_FEEDING,
+    STATE_PAUSE
+} feeding_state_t;
+
+feeding_state_t feeding_state = STATE_IDLE;
+uint32_t feeding_start_time = 0;
+uint8_t feeding_step = 0;
 
 uint16_t encval = 0;
 int16_t enc_total = 0;
@@ -227,6 +238,89 @@ int main(void)
 	  ssd1306_WriteString(timeData, Font_11x18, White);
 	  ssd1306_UpdateScreen();
 	  HAL_Delay(10);
+
+	  switch (feeding_state) {
+	          case STATE_IDLE:
+	              if (!strcmp(feedTime, timeData)) {
+	                  feeding_state = STATE_FEEDING;
+	                  feeding_step = 0;
+	                  feeding_start_time = HAL_GetTick();
+	                  set_servo_angle(0);  // Начало кормления
+	              }
+	              break;
+
+	          case STATE_FEEDING:
+	              if (HAL_GetTick() - feeding_start_time >= 5000) {
+	                  set_servo_angle(180);
+	                  feeding_state = STATE_PAUSE;
+	                  feeding_start_time = HAL_GetTick();
+	                  feeding_step = 1;
+	              }
+	              break;
+
+	          case STATE_PAUSE:
+	              switch (feeding_step) {
+	                  case 1:  // Пауза 1 секунда
+	                      if (HAL_GetTick() - feeding_start_time >= 1000) {
+	                          set_servo_angle(165);
+	                          feeding_start_time = HAL_GetTick();
+	                          feeding_step = 2;
+	                      }
+	                      break;
+
+	                  case 2:  // Пауза 100мс
+	                      if (HAL_GetTick() - feeding_start_time >= 100) {
+	                          set_servo_angle(180);
+	                          feeding_start_time = HAL_GetTick();
+	                          feeding_step = 3;
+	                      }
+	                      break;
+
+	                  case 3:  // Пауза 100мс
+	                      if (HAL_GetTick() - feeding_start_time >= 100) {
+	                          set_servo_angle(165);
+	                          feeding_start_time = HAL_GetTick();
+	                          feeding_step = 4;
+	                      }
+	                      break;
+
+	                  case 4:  // Пауза 100мс
+	                      if (HAL_GetTick() - feeding_start_time >= 100) {
+	                          set_servo_angle(180);
+	                          feeding_start_time = HAL_GetTick();
+	                          feeding_step = 5;
+	                      }
+	                      break;
+
+	                  case 5:  // Пауза 100мс
+	                      if (HAL_GetTick() - feeding_start_time >= 100) {
+	                          set_servo_angle(165);
+	                          feeding_start_time = HAL_GetTick();
+	                          feeding_step = 6;
+	                      }
+	                      break;
+
+	                  case 6:  // Пауза 100мс
+	                      if (HAL_GetTick() - feeding_start_time >= 100) {
+	                          set_servo_angle(180);
+	                          feeding_start_time = HAL_GetTick();
+	                          feeding_step = 7;
+	                      }
+	                      break;
+
+	                  case 7:  // Финальная пауза 5 секунд
+	                      if (HAL_GetTick() - feeding_start_time >= 5000) {
+							  feeding_state = STATE_IDLE;
+	                          set_servo_angle(0);
+	                          feeding_start_time = HAL_GetTick();
+	                      }
+	                      break;
+	              }
+	              break;
+	  	  }
+
+	  	  HAL_Delay(10);  // Короткая задержка для стабильности
+
 	  //ssd1306_TestAll();
 
 	  /*
