@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Module name="top_module" T_Register="195(0)" T_Alu="44(0)" T_Lut="116(0)">
+ <SubModule name="i2s_gen" Register="22" Alu="11" Lut="26" T_Register="22(22)" T_Alu="11(11)" T_Lut="26(26)"/>
+ <SubModule name="i2s_mux" Register="71" Alu="4" Lut="38" T_Register="71(71)" T_Alu="4(4)" T_Lut="38(38)"/>
+ <SubModule name="i2s_demux" Register="71" Alu="4" Lut="36" T_Register="71(71)" T_Alu="4(4)" T_Lut="36(36)"/>
+ <SubModule name="rgb_blink" Register="31" Alu="25" Lut="16" T_Register="31(31)" T_Alu="25(25)" T_Lut="16(16)"/>
+</Module>

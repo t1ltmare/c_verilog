@@ -1,0 +1,10 @@
+[
+ {
+  "InstFile" : "C:/GIT/FPGA/i2c_TPT29555-TS5R/Gowin/GW1N-UV9LQ100_I2C_DRV/src/i2c_master.v",
+  "InstLine" : 1,
+  "InstName" : "i2c_master",
+  "ModuleFile" : "C:/GIT/FPGA/i2c_TPT29555-TS5R/Gowin/GW1N-UV9LQ100_I2C_DRV/src/i2c_master.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "i2c_master"
+ }
+]
