@@ -1,0 +1,33 @@
+{
+ "Device" : "GW1NS-4C",
+ "Files" : [
+  {
+   "Path" : "C:/GIT/FPGA/DECT/src/I2Sdemux.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/GIT/FPGA/DECT/src/I2Smux.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/GIT/FPGA/DECT/src/LED.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/GIT/FPGA/DECT/src/test_signal_generator.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/GIT/FPGA/DECT/src/top_module.v",
+   "Type" : "verilog"
+  }
+ ],
+ "IncludePath" : [
+
+ ],
+ "LoopLimit" : 2000,
+ "ResultFile" : "C:/GIT/FPGA/DECT/impl/temp/rtl_parser.result",
+ "Top" : "",
+ "VerilogStd" : "verilog_2001",
+ "VhdlStd" : "vhdl_93"
+}

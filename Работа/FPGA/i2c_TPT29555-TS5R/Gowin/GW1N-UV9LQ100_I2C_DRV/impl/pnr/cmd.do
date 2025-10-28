@@ -1,0 +1,14 @@
+-d C:\GIT\FPGA\i2c_TPT29555-TS5R\Gowin\GW1N-UV9LQ100_I2C_DRV\impl\gwsynthesis\GW1N-UV9LQ100_I2C_DRV.vg
+-p GW1N-9C-LQFP100-6
+-pn GW1N-UV9LQ100C6/I5
+-cst C:\GIT\FPGA\i2c_TPT29555-TS5R\Gowin\GW1N-UV9LQ100_I2C_DRV\src\GW1N-UV9LQ100_I2C_DRV.cst
+-cfg C:\GIT\FPGA\i2c_TPT29555-TS5R\Gowin\GW1N-UV9LQ100_I2C_DRV\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-convert_sdp32_36_to_sdp16_18
+-correct_hold 1
+-route_maxfan 23
+-global_freq 50.000

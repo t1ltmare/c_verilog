@@ -1,0 +1,14 @@
+-d C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\impl\gwsynthesis\I2Smultiplex.vg
+-p GW1NS-4C-QFN48-7
+-pn GW1NS-LV4CQN48C7/I6
+-cst C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\src\I2Smultiplex.cst
+-cfg C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\impl\pnr\device.cfg
+-bit
+-tr
+-ph
+-timing
+-cst_error
+-convert_sdp32_36_to_sdp16_18
+-correct_hold 1
+-route_maxfan 23
+-global_freq 50.000

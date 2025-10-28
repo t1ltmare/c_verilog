@@ -1,0 +1,32 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\src\I2Sdemux.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\src\I2Smux.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\src\test_signal_generator.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\src\top_module.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\src\LED.v'
+Compiling module 'top_module'("C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\src\top_module.v":1)
+Compiling module 'i2s_generator'("C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\src\test_signal_generator.v":5)
+Compiling module 'i2s_to_pcm'("C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\src\I2Smux.v":1)
+Compiling module 'pcm_to_i2s'("C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\src\I2Sdemux.v":1)
+Compiling module 'rgb_blink'("C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\src\LED.v":1)
+NOTE  (EX0101) : Current top module is "top_module"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+[95%] Generate netlist file "C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\impl\gwsynthesis\I2Smultiplex.vg" completed
+[100%] Generate report file "C:\Gowin\Gowin_V1.9.10.03_x64\IDE\bin\Documents\I2Smultiplex_test\impl\gwsynthesis\I2Smultiplex_syn.rpt.html" completed
+GowinSynthesis finish

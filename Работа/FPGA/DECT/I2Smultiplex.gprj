@@ -1,0 +1,16 @@
+<?xml version="1" encoding="UTF-8"?>
+<!DOCTYPE gowin-fpga-project>
+<Project>
+    <Template>FPGA</Template>
+    <Version>5</Version>
+    <Device name="GW1NS-4C" pn="GW1NS-LV4CQN48C7/I6">gw1ns4c-007</Device>
+    <FileList>
+        <File path="src/I2Sdemux.v" type="file.verilog" enable="1"/>
+        <File path="src/I2Smux.v" type="file.verilog" enable="1"/>
+        <File path="src/LED.v" type="file.verilog" enable="1"/>
+        <File path="src/test_signal_generator.v" type="file.verilog" enable="1"/>
+        <File path="src/testbench_i2s_pcm.v" type="file.verilog" enable="0"/>
+        <File path="src/top_module.v" type="file.verilog" enable="1"/>
+        <File path="src/I2Smultiplex.cst" type="file.cst" enable="1"/>
+    </FileList>
+</Project>
