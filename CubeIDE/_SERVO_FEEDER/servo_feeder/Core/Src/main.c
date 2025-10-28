@@ -46,9 +46,12 @@
 /* Private variables ---------------------------------------------------------*/
 I2C_HandleTypeDef hi2c1;
 
+IWDG_HandleTypeDef hiwdg;
+
 RTC_HandleTypeDef hrtc;
 
 TIM_HandleTypeDef htim2;
+TIM_HandleTypeDef htim9;
 TIM_HandleTypeDef htim11;
 
 /* USER CODE BEGIN PV */
@@ -65,6 +68,7 @@ typedef enum {
 feeding_state_t feeding_state = STATE_IDLE;
 uint32_t feeding_start_time = 0;
 uint8_t feeding_step = 0;
+uint8_t current_servo_id = 0;
 
 uint16_t encval = 0;
 int16_t enc_total = 0;
@@ -73,6 +77,8 @@ int16_t diff;
 int16_t curr_counter;
 int16_t prevCounter = 0;
 uint8_t hours, minutes;
+uint8_t frame = 0;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -82,8 +88,11 @@ static void MX_TIM11_Init(void);
 static void MX_I2C1_Init(void);
 static void MX_RTC_Init(void);
 static void MX_TIM2_Init(void);
+static void MX_IWDG_Init(void);
+static void MX_TIM9_Init(void);
 /* USER CODE BEGIN PFP */
-void set_servo_angle(uint16_t angle);
+uint8_t get_current_servo_id(void);
+void set_servo_angle(uint8_t servo_id, uint16_t angle);
 void set_time (uint8_t hr, uint8_t min, uint8_t sec);
 void set_date (uint8_t year, uint8_t month, uint8_t date, uint8_t day);
 void set_alarm (uint8_t hr, uint8_t min, uint8_t sec, uint8_t date);
@@ -92,6 +101,7 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc);
 void get_enc(char *feedTime, uint8_t hours, uint8_t minutes);
 void get_hours(char *lastNum, uint8_t *currNum);
 void get_minutes(char *lastNum, uint8_t *currNum);
+void ssd1306_TestDrawBitmap(uint8_t frame);
 //void encoder_to_time(uint16_t encval, uint16_t hours, uint16_t minutes);
 /* USER CODE END PFP */
 
@@ -134,18 +144,23 @@ int main(void)
   MX_I2C1_Init();
   MX_RTC_Init();
   MX_TIM2_Init();
+  MX_IWDG_Init();
+  MX_TIM9_Init();
   /* USER CODE BEGIN 2 */
-  // Инициализация дисплея
+  // �?нициализация дисплея
   ssd1306_Init();
   uint8_t y = 0;
   ssd1306_Fill(Black);
 
-  // Инициализация ШИМ, энкодера
+  // �?нициализация Ш�?М, энкодера
   HAL_TIM_PWM_Start_IT(&htim11, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start_IT(&htim9, TIM_CHANNEL_1);
+  HAL_TIM_PWM_Start_IT(&htim9, TIM_CHANNEL_2);
+
   __HAL_TIM_SET_COUNTER(&htim2, 0);
   HAL_TIM_Encoder_Start(&htim2, TIM_CHANNEL_ALL);
 
-  // Инициализация времени и даты
+  // �?нициализация времени и даты
   get_time_date(timeData, dateData);
 
   // Настройка времени
@@ -157,12 +172,21 @@ int main(void)
   uint8_t hoursTime;
   uint8_t minutesTime;
 
+  uint32_t timeout_start = HAL_GetTick();
   ssd1306_Fill(Black);
   ssd1306_UpdateScreen();
 
-  while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) == GPIO_PIN_SET) {
+  while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_4) == GPIO_PIN_SET) {
+	  HAL_IWDG_Refresh(&hiwdg);
+
+	  if (HAL_GetTick() - timeout_start > 30000) {
+		  hoursTime = 0;  // Автоматически выставляем 0 часов
+		  break;
+	  }
+
 	  get_hours(hoursT, &currNum);
 
+	  ssd1306_Fill(Black);
 	  ssd1306_SetCursor(2, 0);
 	  ssd1306_WriteString("Set hours:", Font_7x10, White);
 	  ssd1306_SetCursor(2, 15);
@@ -176,10 +200,19 @@ int main(void)
   HAL_Delay(500);
   enc_total = 0;
   enc_last = __HAL_TIM_GET_COUNTER(&htim2);
+  timeout_start = HAL_GetTick();
 
-  while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_2) == GPIO_PIN_SET) {
+  while (HAL_GPIO_ReadPin(GPIOA, GPIO_PIN_4) == GPIO_PIN_SET) {
+	  HAL_IWDG_Refresh(&hiwdg);
+
+	  if (HAL_GetTick() - timeout_start > 30000) {
+		  hoursTime = 0;  // Автоматически выставляем 0 часов
+		  break;
+	  }
+
 	  get_minutes(minutesT, &currNum);
 
+	  ssd1306_Fill(Black);
 	  ssd1306_SetCursor(2, 0);
 	  ssd1306_WriteString("Set minutes:", Font_7x10, White);
 	  ssd1306_SetCursor(2, 15);
@@ -217,27 +250,35 @@ int main(void)
 
   set_time(hoursTime, minutesTime, 0);
 
+  enc_total = 0;
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-	  get_time_date(timeData, dateData);
+	  HAL_IWDG_Refresh(&hiwdg);
 
+	  get_time_date(timeData, dateData);
 	  get_enc(feedTime, hours, minutes);
 
-	  ssd1306_Fill(Black);
-	  ssd1306_SetCursor(2, 0);
-	  ssd1306_WriteString("Feeding time", Font_7x10, White);
-	  ssd1306_SetCursor(2, 10);
-	  ssd1306_WriteString(feedTime, Font_11x18, White);
-	  ssd1306_SetCursor(2, 32);
-	  ssd1306_WriteString("Current time", Font_7x10, White);
-	  ssd1306_SetCursor(2, 42);
-	  ssd1306_WriteString(timeData, Font_11x18, White);
-	  ssd1306_UpdateScreen();
-	  HAL_Delay(10);
+	  if (feeding_state != STATE_PAUSE) {
+		  ssd1306_Fill(Black);
+		  ssd1306_SetCursor(2, 0);
+		  ssd1306_WriteString("Feeding time", Font_7x10, White);
+		  ssd1306_SetCursor(2, 10);
+		  ssd1306_WriteString(feedTime, Font_11x18, White);
+		  ssd1306_SetCursor(2, 32);
+		  ssd1306_WriteString("Current time", Font_7x10, White);
+		  ssd1306_SetCursor(2, 42);
+		  ssd1306_WriteString(timeData, Font_11x18, White);
+		  ssd1306_UpdateScreen();
+		  HAL_Delay(10);
+	  } else {
+		  ssd1306_TestDrawBitmap(frame);
+		  frame++;
+		  frame = (frame > 5) ? 0 : frame;
+	  }
 
 	  switch (feeding_state) {
 	          case STATE_IDLE:
@@ -245,13 +286,14 @@ int main(void)
 	                  feeding_state = STATE_FEEDING;
 	                  feeding_step = 0;
 	                  feeding_start_time = HAL_GetTick();
-	                  set_servo_angle(0);  // Начало кормления
+	                  current_servo_id = get_current_servo_id();
+	                  set_servo_angle(current_servo_id, 0);
 	              }
 	              break;
 
 	          case STATE_FEEDING:
-	              if (HAL_GetTick() - feeding_start_time >= 5000) {
-	                  set_servo_angle(180);
+	              if (HAL_GetTick() - feeding_start_time >= 0) {
+	            	  set_servo_angle(current_servo_id, 180);
 	                  feeding_state = STATE_PAUSE;
 	                  feeding_start_time = HAL_GetTick();
 	                  feeding_step = 1;
@@ -259,64 +301,23 @@ int main(void)
 	              break;
 
 	          case STATE_PAUSE:
-	              switch (feeding_step) {
-	                  case 1:  // Пауза 1 секунда
-	                      if (HAL_GetTick() - feeding_start_time >= 1000) {
-	                          set_servo_angle(165);
-	                          feeding_start_time = HAL_GetTick();
-	                          feeding_step = 2;
-	                      }
-	                      break;
 
-	                  case 2:  // Пауза 100мс
-	                      if (HAL_GetTick() - feeding_start_time >= 100) {
-	                          set_servo_angle(180);
-	                          feeding_start_time = HAL_GetTick();
-	                          feeding_step = 3;
-	                      }
-	                      break;
+				  static const uint32_t pause_durations[] = {1000, 100, 100, 100, 100, 100, 5000};
+				  static const uint16_t servo_angles[] = {165, 180, 165, 180, 165, 180, 0};
 
-	                  case 3:  // Пауза 100мс
-	                      if (HAL_GetTick() - feeding_start_time >= 100) {
-	                          set_servo_angle(165);
-	                          feeding_start_time = HAL_GetTick();
-	                          feeding_step = 4;
-	                      }
-	                      break;
+				  if (feeding_step >= 1 && feeding_step <= 7) {
+					  if (HAL_GetTick() - feeding_start_time >= pause_durations[feeding_step - 1]) {
+						  set_servo_angle(current_servo_id, servo_angles[feeding_step - 1]);
+						  feeding_start_time = HAL_GetTick();
+						  feeding_step++;
 
-	                  case 4:  // Пауза 100мс
-	                      if (HAL_GetTick() - feeding_start_time >= 100) {
-	                          set_servo_angle(180);
-	                          feeding_start_time = HAL_GetTick();
-	                          feeding_step = 5;
-	                      }
-	                      break;
-
-	                  case 5:  // Пауза 100мс
-	                      if (HAL_GetTick() - feeding_start_time >= 100) {
-	                          set_servo_angle(165);
-	                          feeding_start_time = HAL_GetTick();
-	                          feeding_step = 6;
-	                      }
-	                      break;
-
-	                  case 6:  // Пауза 100мс
-	                      if (HAL_GetTick() - feeding_start_time >= 100) {
-	                          set_servo_angle(180);
-	                          feeding_start_time = HAL_GetTick();
-	                          feeding_step = 7;
-	                      }
-	                      break;
-
-	                  case 7:  // Финальная пауза 5 секунд
-	                      if (HAL_GetTick() - feeding_start_time >= 5000) {
+						  if (feeding_step > 7) {
 							  feeding_state = STATE_IDLE;
-	                          set_servo_angle(0);
-	                          feeding_start_time = HAL_GetTick();
-	                      }
-	                      break;
-	              }
-	              break;
+							  set_servo_angle(current_servo_id, 0);  // Возврат в исходное положение
+						  }
+					  }
+				  }
+				  break;
 	  	  }
 
 	  	  HAL_Delay(10);  // Короткая задержка для стабильности
@@ -365,10 +366,12 @@ void SystemClock_Config(void)
   /** Initializes the RCC Oscillators according to the specified parameters
   * in the RCC_OscInitTypeDef structure.
   */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSE;
+  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI|RCC_OSCILLATORTYPE_LSI
+                              |RCC_OSCILLATORTYPE_LSE;
   RCC_OscInitStruct.LSEState = RCC_LSE_ON;
   RCC_OscInitStruct.HSIState = RCC_HSI_ON;
   RCC_OscInitStruct.HSICalibrationValue = RCC_HSICALIBRATION_DEFAULT;
+  RCC_OscInitStruct.LSIState = RCC_LSI_ON;
   RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
   RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_HSI;
   RCC_OscInitStruct.PLL.PLLM = 8;
@@ -426,6 +429,34 @@ static void MX_I2C1_Init(void)
   /* USER CODE BEGIN I2C1_Init 2 */
 
   /* USER CODE END I2C1_Init 2 */
+
+}
+
+/**
+  * @brief IWDG Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_IWDG_Init(void)
+{
+
+  /* USER CODE BEGIN IWDG_Init 0 */
+
+  /* USER CODE END IWDG_Init 0 */
+
+  /* USER CODE BEGIN IWDG_Init 1 */
+
+  /* USER CODE END IWDG_Init 1 */
+  hiwdg.Instance = IWDG;
+  hiwdg.Init.Prescaler = IWDG_PRESCALER_32;
+  hiwdg.Init.Reload = 4095;
+  if (HAL_IWDG_Init(&hiwdg) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN IWDG_Init 2 */
+
+  /* USER CODE END IWDG_Init 2 */
 
 }
 
@@ -542,6 +573,52 @@ static void MX_TIM2_Init(void)
 }
 
 /**
+  * @brief TIM9 Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_TIM9_Init(void)
+{
+
+  /* USER CODE BEGIN TIM9_Init 0 */
+
+  /* USER CODE END TIM9_Init 0 */
+
+  TIM_OC_InitTypeDef sConfigOC = {0};
+
+  /* USER CODE BEGIN TIM9_Init 1 */
+
+  /* USER CODE END TIM9_Init 1 */
+  htim9.Instance = TIM9;
+  htim9.Init.Prescaler = 71;
+  htim9.Init.CounterMode = TIM_COUNTERMODE_UP;
+  htim9.Init.Period = 19999;
+  htim9.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
+  htim9.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
+  if (HAL_TIM_PWM_Init(&htim9) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  sConfigOC.OCMode = TIM_OCMODE_PWM1;
+  sConfigOC.Pulse = 0;
+  sConfigOC.OCPolarity = TIM_OCPOLARITY_HIGH;
+  sConfigOC.OCFastMode = TIM_OCFAST_DISABLE;
+  if (HAL_TIM_PWM_ConfigChannel(&htim9, &sConfigOC, TIM_CHANNEL_1) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  if (HAL_TIM_PWM_ConfigChannel(&htim9, &sConfigOC, TIM_CHANNEL_2) != HAL_OK)
+  {
+    Error_Handler();
+  }
+  /* USER CODE BEGIN TIM9_Init 2 */
+
+  /* USER CODE END TIM9_Init 2 */
+  HAL_TIM_MspPostInit(&htim9);
+
+}
+
+/**
   * @brief TIM11 Initialization Function
   * @param None
   * @retval None
@@ -594,6 +671,7 @@ static void MX_TIM11_Init(void)
   */
 static void MX_GPIO_Init(void)
 {
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
 /* USER CODE BEGIN MX_GPIO_Init_1 */
 /* USER CODE END MX_GPIO_Init_1 */
 
@@ -602,6 +680,12 @@ static void MX_GPIO_Init(void)
   __HAL_RCC_GPIOH_CLK_ENABLE();
   __HAL_RCC_GPIOA_CLK_ENABLE();
   __HAL_RCC_GPIOB_CLK_ENABLE();
+
+  /*Configure GPIO pin : PA4 */
+  GPIO_InitStruct.Pin = GPIO_PIN_4;
+  GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
 /* USER CODE BEGIN MX_GPIO_Init_2 */
 /* USER CODE END MX_GPIO_Init_2 */
@@ -748,11 +832,29 @@ void HAL_RTC_AlarmAEventCallback(RTC_HandleTypeDef *hrtc)
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, 1);  // turn the LED ON
 }
 
-void set_servo_angle(uint16_t angle) {
+uint8_t get_current_servo_id(void) {
+    RTC_DateTypeDef gDate;
+    HAL_RTC_GetDate(&hrtc, &gDate, RTC_FORMAT_BIN);
+    return gDate.Date % 3;  // 0, 1 или 2 в зависимости от даты
+}
+
+void set_servo_angle(uint8_t servo_id, uint16_t angle) {
     if(angle > 180) angle = 180;
     uint16_t pulse_width = 500 + (angle * 2000 / 180);
-    __HAL_TIM_SET_COMPARE(&htim11, TIM_CHANNEL_1, pulse_width);
+
+    switch(servo_id) {
+		case 0:  // Первый сервопривод - TIM11 CH1
+			__HAL_TIM_SET_COMPARE(&htim11, TIM_CHANNEL_1, pulse_width);
+			break;
+		case 1:  // Второй сервопривод - TIM9 CH1
+			__HAL_TIM_SET_COMPARE(&htim9, TIM_CHANNEL_1, pulse_width);
+			break;
+		case 2:  // Третий сервопривод - TIM9 CH2
+			__HAL_TIM_SET_COMPARE(&htim9, TIM_CHANNEL_2, pulse_width);
+			break;
+	}
 }
+
 /* USER CODE END 4 */
 
 /**

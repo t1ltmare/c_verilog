@@ -17,7 +17,7 @@ void ssd1306_TestRectangleInvert(void);
 void ssd1306_TestCircle(void);
 void ssd1306_TestArc(void);
 void ssd1306_TestPolyline(void);
-void ssd1306_TestDrawBitmap(void);
+void ssd1306_TestDrawBitmap(uint8_t frame);
 
 _END_STD_C
 
