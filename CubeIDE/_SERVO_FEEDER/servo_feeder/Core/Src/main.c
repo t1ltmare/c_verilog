@@ -102,6 +102,7 @@ void get_enc(char *feedTime, uint8_t hours, uint8_t minutes);
 void get_hours(char *lastNum, uint8_t *currNum);
 void get_minutes(char *lastNum, uint8_t *currNum);
 void ssd1306_TestDrawBitmap(uint8_t frame);
+void ssd1306_DrawLoading(void);
 //void encoder_to_time(uint16_t encval, uint16_t hours, uint16_t minutes);
 /* USER CODE END PFP */
 
@@ -149,7 +150,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
   // �?нициализация дисплея
   ssd1306_Init();
-  uint8_t y = 0;
   ssd1306_Fill(Black);
 
   // �?нициализация Ш�?М, энкодера
@@ -230,23 +230,7 @@ int main(void)
  	  ssd1306_UpdateScreen();
    }
 */
-  ssd1306_SetCursor(2, y);
-  ssd1306_WriteString("Font 16x26", Font_16x26, White);
-  y += 26;
-
-  ssd1306_SetCursor(2, y);
-  ssd1306_WriteString("Font 11x18", Font_11x18, White);
-  y += 18;
-
-  ssd1306_SetCursor(2, y);
-  ssd1306_WriteString("Font 7x10", Font_7x10, White);
-  y += 10;
-
-  ssd1306_SetCursor(2, y);
-  ssd1306_WriteString("Font 6x8", Font_6x8, White);
-
-  ssd1306_UpdateScreen();
-  HAL_Delay(1000);
+  ssd1306_DrawLoading();
 
   set_time(hoursTime, minutesTime, 0);
 
