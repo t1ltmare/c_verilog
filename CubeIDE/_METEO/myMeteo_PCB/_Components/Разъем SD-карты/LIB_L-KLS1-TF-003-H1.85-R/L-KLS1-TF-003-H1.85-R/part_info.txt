@@ -1,0 +1,9 @@
+Manufacturer=KLS Electronic
+PartNumber=L-KLS1-TF-003-H1.85-R
+PartCategory=Connector
+PackageCategory=Other
+PinCount=13
+Version=1.1
+Released=2017-11-30 17:29:34
+Downloaded=2025-11-02 16:18:59
+3D=Y

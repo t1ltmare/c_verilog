@@ -1,0 +1,9 @@
+Manufacturer=BOSCH
+PartNumber=BME688
+PartCategory=Integrated Circuit
+PackageCategory=Other
+PinCount=8
+Version=1.5
+Released=2023-09-01 15:24:36
+Downloaded=2025-10-31 19:32:07
+3D=Y

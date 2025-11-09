@@ -1,0 +1,10 @@
+(unit MM)
+
+(package "L-KLS1-TF-003-H1_85-R"
+    (type UNDEF)
+    (uver 2)
+    (mountForm default
+        (footprintRef "L-KLS1-TF-003-H1_85-R")
+        (spec "default")
+    )
+)

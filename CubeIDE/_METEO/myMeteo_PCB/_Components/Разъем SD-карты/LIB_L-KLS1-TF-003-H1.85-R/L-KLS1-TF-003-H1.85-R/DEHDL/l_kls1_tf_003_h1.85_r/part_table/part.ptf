@@ -1,0 +1,11 @@
+FILE_TYPE = MULTI_PHYS_TABLE;
+
+PART 'L_KLS1_TF_003_H1.85_R'
+CLASS = IO
+{========================================================================================}
+:"MANUFACTURER_NAME", "MANUFACTURER_PART_NUMBER"= "PART_NUMBER", "JEDEC_TYPE", "PACK_TYPE", "MOUSER_PART_NUMBER", "MOUSER_PRICE/STOCK", "ARROW_PART_NUMBER", "ARROW_PRICE/STOCK", "DESCRIPTION", "DATASHEET";
+{========================================================================================}
+ "KLS Electronic", "L-KLS1-TF-003-H1.85-R" (!) = "", "L-KLS1-TF-003-H1.85-R", "Other", "", "", "", "", "Micro SD Card Connector", "https://img.ozdisan.com/ETicaret_Dosya/476392_7149645.pdf"
+END_PART
+
+END.

@@ -1,0 +1,31 @@
+Removed Pin From Net: NetName=EPD_BUSY Pin=XS3-1
+Removed Pin From Net: NetName=EPD_RESET Pin=XS3-2
+Removed Pin From Net: NetName=EPD_DC Pin=XS3-3
+Removed Pin From Net: NetName=EPD_CS Pin=XS3-4
+Removed Pin From Net: NetName=SPI1_CLK Pin=XS3-5
+Removed Pin From Net: NetName=SPI1_MOSI Pin=XS3-6
+Removed Pin From Net: NetName=GNDB Pin=XS3-7
+Removed Pin From Net: NetName=+3V3 Pin=XS3-8
+Change Component Footprint: Designator=XS3 Old Footprint=FFC_8_1.25 New Footprint=PBD-8
+Change Component Comment : Designator=XS3 Old Comment=HEADER-8x1-F New Comment=HEADER-4x2-F
+Change component parameters: Designator = "XS3" ("XS3"); Footprint = "FFC_8_1.25"; UniqueID = "\EXBBZQLC" ("\EXBBZQLC")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Connfly"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "DS1023-2x4S21"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "PBD-8"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Type"; Value = "HEADER"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Replace"; Value = "PBD-8"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "DS1023-2x4"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GNDB Pin=XS3-1
+Added Pin To Net: NetName=+3V3 Pin=XS3-2
+Added Pin To Net: NetName=SPI1_CLK Pin=XS3-3
+Added Pin To Net: NetName=SPI1_MOSI Pin=XS3-4
+Added Pin To Net: NetName=EPD_DC Pin=XS3-5
+Added Pin To Net: NetName=EPD_CS Pin=XS3-6
+Added Pin To Net: NetName=EPD_BUSY Pin=XS3-7
+Added Pin To Net: NetName=EPD_RESET Pin=XS3-8
+Added Rule: Name=Schematic Supply Nets
+Added Rule: Name=Schematic Supply Nets_1
+Added Rule: Name=Schematic Supply Nets_2
+Added Rule: Name=Schematic Supply Nets_3
+Added Rule: Name=Schematic Supply Nets_4
+Added Rule: Name=Schematic Supply Nets_5

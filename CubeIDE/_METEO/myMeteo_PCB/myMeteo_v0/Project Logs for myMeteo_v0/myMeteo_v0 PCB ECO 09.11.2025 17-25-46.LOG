@@ -1,0 +1,85 @@
+Added Component: Designator=DD?(UFQFPN48)
+Add component (AddParameter): Name = "Arrow Part Number"; Value = "STM32F411CEU6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Arrow Price/Stock"; Value = "https://www.arrow.com/en/products/stm32f411ceu6/stmicroelectronics?utm_currency=USD&region=nac"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Datasheet Link"; Value = "http://www.st.com/content/ccc/resource/technical/document/datasheet/b3/a5/46/3b/b4/e5/4c/85/DM00115249.pdf/files/DM00115249.pdf/jcr:content/translations/en.DM00115249.pdf"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Geometry.Height"; Value = "0.6mm"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "STMicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "STM32F411CEU6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Name"; Value = "STMicroelectronics"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer_Part_Number"; Value = "STM32F411CEU6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Part Number"; Value = "511-STM32F411CEU6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Mouser Price/Stock"; Value = "https://www.mouser.co.uk/ProductDetail/STMicroelectronics/STM32F411CEU6?qs=pjMTYa9MTGV3ou31YBFa3g%3D%3D"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "STM32F411CEU6"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "MCU"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "UFQFPN48"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "STM32F411CEU6"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+3V3 Pin=DD?-1
+Added Pin To Net: NetName=NRST Pin=DD?-7
+Added Pin To Net: NetName=GNDB Pin=DD?-8
+Added Pin To Net: NetName=+3V3 Pin=DD?-9
+Added Pin To Net: NetName=NetC16_1 Pin=DD?-22
+Added Pin To Net: NetName=GNDB Pin=DD?-23
+Added Pin To Net: NetName=+3V3 Pin=DD?-24
+Added Pin To Net: NetName=GNDB Pin=DD?-35
+Added Pin To Net: NetName=+3V3 Pin=DD?-36
+Added Pin To Net: NetName=I2C1_SCL Pin=DD?-42
+Added Pin To Net: NetName=I2C1_SDA Pin=DD?-43
+Added Pin To Net: NetName=GNDB Pin=DD?-47
+Added Pin To Net: NetName=+3V3 Pin=DD?-48
+Added Pin To Net: NetName=GNDB Pin=DD?-49
+Added Pin To Net: NetName=NetDD?_10 Pin=DD?-10
+Added Pin To Net: NetName=NetDD?_10 Pin=R16-2
+Added Net: Name=NetDD?_10
+Added Pin To Net: NetName=NetDD?_11 Pin=DD?-11
+Added Pin To Net: NetName=NetDD?_11 Pin=R17-2
+Added Net: Name=NetDD?_11
+Added Pin To Net: NetName=NetDD?_12 Pin=DD?-12
+Added Pin To Net: NetName=NetDD?_12 Pin=R18-2
+Added Net: Name=NetDD?_12
+Added Pin To Net: NetName=NetDD?_13 Pin=DD?-13
+Added Pin To Net: NetName=NetDD?_13 Pin=R19-2
+Added Net: Name=NetDD?_13
+Added Pin To Net: NetName=NetDD?_14 Pin=DD?-14
+Added Pin To Net: NetName=NetDD?_14 Pin=R20-2
+Added Net: Name=NetDD?_14
+Added Pin To Net: NetName=NetDD?_15 Pin=DD?-15
+Added Pin To Net: NetName=NetDD?_15 Pin=R21-2
+Added Net: Name=NetDD?_15
+Added Pin To Net: NetName=NetDD?_16 Pin=DD?-16
+Added Pin To Net: NetName=NetDD?_16 Pin=R22-2
+Added Net: Name=NetDD?_16
+Added Pin To Net: NetName=NetDD?_17 Pin=DD?-17
+Added Pin To Net: NetName=NetDD?_17 Pin=R23-2
+Added Net: Name=NetDD?_17
+Added Pin To Net: NetName=NetDD?_20 Pin=DD?-20
+Added Pin To Net: NetName=NetDD?_20 Pin=R32-1
+Added Net: Name=NetDD?_20
+Added Pin To Net: NetName=NetDD?_29 Pin=DD?-29
+Added Pin To Net: NetName=NetDD?_29 Pin=R24-2
+Added Net: Name=NetDD?_29
+Added Pin To Net: NetName=NetDD?_30 Pin=DD?-30
+Added Pin To Net: NetName=NetDD?_30 Pin=R25-2
+Added Net: Name=NetDD?_30
+Added Pin To Net: NetName=NetDD?_32 Pin=DD?-32
+Added Pin To Net: NetName=NetDD?_32 Pin=R26-2
+Added Net: Name=NetDD?_32
+Added Pin To Net: NetName=NetDD?_33 Pin=DD?-33
+Added Pin To Net: NetName=NetDD?_33 Pin=R27-2
+Added Net: Name=NetDD?_33
+Added Pin To Net: NetName=NetDD?_34 Pin=DD?-34
+Added Pin To Net: NetName=NetDD?_34 Pin=R28-2
+Added Net: Name=NetDD?_34
+Added Pin To Net: NetName=NetDD?_37 Pin=DD?-37
+Added Pin To Net: NetName=NetDD?_37 Pin=R29-2
+Added Net: Name=NetDD?_37
+Added Pin To Net: NetName=NetDD?_38 Pin=DD?-38
+Added Pin To Net: NetName=NetDD?_38 Pin=R30-2
+Added Net: Name=NetDD?_38
+Added Pin To Net: NetName=NetDD?_39 Pin=DD?-39
+Added Pin To Net: NetName=NetDD?_39 Pin=R31-1
+Added Net: Name=NetDD?_39
+Added Pin To Net: NetName=NetDD?_44 Pin=DD?-44
+Added Pin To Net: NetName=NetDD?_44 Pin=R33-1
+Added Pin To Net: NetName=NetDD?_44 Pin=R34-1
+Added Net: Name=NetDD?_44
+Added Member To Class: ClassName=MCU Member=Component DD? STM32F411CEU6

@@ -1,0 +1,151 @@
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found ESOP-8
+Add Component: Footprint Not Found SOT-23-6L_1
+Add Component: Footprint Not Found UFQFPN48
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found LED_0603_R
+Add Component: Footprint Not Found LED_0603_G
+Add Component: Footprint Not Found LED_0603_G
+Add Component: Footprint Not Found USB3.1TYPE-C 16PF-26
+Add Pin To Net: Unknown Pin: Pin C3-1
+Add Pin To Net: Unknown Pin: Pin C3-2
+Add Pin To Net: Unknown Pin: Pin C4-1
+Add Pin To Net: Unknown Pin: Pin C4-2
+Add Pin To Net: Unknown Pin: Pin C5-1
+Add Pin To Net: Unknown Pin: Pin C5-2
+Add Pin To Net: Unknown Pin: Pin C6-1
+Add Pin To Net: Unknown Pin: Pin C6-2
+Add Pin To Net: Unknown Pin: Pin C7-1
+Add Pin To Net: Unknown Pin: Pin C7-2
+Add Pin To Net: Unknown Pin: Pin C8-1
+Add Pin To Net: Unknown Pin: Pin C8-2
+Add Pin To Net: Unknown Pin: Pin C9-1
+Add Pin To Net: Unknown Pin: Pin C9-2
+Add Pin To Net: Unknown Pin: Pin C10-1
+Add Pin To Net: Unknown Pin: Pin C10-2
+Add Pin To Net: Unknown Pin: Pin C11-1
+Add Pin To Net: Unknown Pin: Pin C11-2
+Add Pin To Net: Unknown Pin: Pin C12-1
+Add Pin To Net: Unknown Pin: Pin C12-2
+Add Pin To Net: Unknown Pin: Pin C13-1
+Add Pin To Net: Unknown Pin: Pin C13-2
+Add Pin To Net: Unknown Pin: Pin C14-1
+Add Pin To Net: Unknown Pin: Pin C14-2
+Add Pin To Net: Unknown Pin: Pin C15-1
+Add Pin To Net: Unknown Pin: Pin C15-2
+Add Pin To Net: Unknown Pin: Pin D2-0
+Add Pin To Net: Unknown Pin: Pin D2-1
+Add Pin To Net: Unknown Pin: Pin D2-2
+Add Pin To Net: Unknown Pin: Pin D2-3
+Add Pin To Net: Unknown Pin: Pin D2-4
+Add Pin To Net: Unknown Pin: Pin D2-5
+Add Pin To Net: Unknown Pin: Pin D2-6
+Add Pin To Net: Unknown Pin: Pin D2-7
+Add Pin To Net: Unknown Pin: Pin D2-8
+Add Pin To Net: Unknown Pin: Pin D9-1
+Add Pin To Net: Unknown Pin: Pin D9-2
+Add Pin To Net: Unknown Pin: Pin D9-3
+Add Pin To Net: Unknown Pin: Pin D9-4
+Add Pin To Net: Unknown Pin: Pin D9-5
+Add Pin To Net: Unknown Pin: Pin D9-6
+Add Pin To Net: Unknown Pin: Pin DD1-1
+Add Pin To Net: Unknown Pin: Pin DD1-7
+Add Pin To Net: Unknown Pin: Pin DD1-8
+Add Pin To Net: Unknown Pin: Pin DD1-9
+Add Pin To Net: Unknown Pin: Pin DD1-10
+Add Pin To Net: Unknown Pin: Pin DD1-11
+Add Pin To Net: Unknown Pin: Pin DD1-12
+Add Pin To Net: Unknown Pin: Pin DD1-14
+Add Pin To Net: Unknown Pin: Pin DD1-15
+Add Pin To Net: Unknown Pin: Pin DD1-17
+Add Pin To Net: Unknown Pin: Pin DD1-20
+Add Pin To Net: Unknown Pin: Pin DD1-22
+Add Pin To Net: Unknown Pin: Pin DD1-23
+Add Pin To Net: Unknown Pin: Pin DD1-24
+Add Pin To Net: Unknown Pin: Pin DD1-30
+Add Pin To Net: Unknown Pin: Pin DD1-32
+Add Pin To Net: Unknown Pin: Pin DD1-33
+Add Pin To Net: Unknown Pin: Pin DD1-34
+Add Pin To Net: Unknown Pin: Pin DD1-35
+Add Pin To Net: Unknown Pin: Pin DD1-36
+Add Pin To Net: Unknown Pin: Pin DD1-37
+Add Pin To Net: Unknown Pin: Pin DD1-38
+Add Pin To Net: Unknown Pin: Pin DD1-39
+Add Pin To Net: Unknown Pin: Pin DD1-42
+Add Pin To Net: Unknown Pin: Pin DD1-43
+Add Pin To Net: Unknown Pin: Pin DD1-44
+Add Pin To Net: Unknown Pin: Pin DD1-47
+Add Pin To Net: Unknown Pin: Pin DD1-48
+Add Pin To Net: Unknown Pin: Pin DD1-49
+Add Pin To Net: Unknown Pin: Pin R7-1
+Add Pin To Net: Unknown Pin: Pin R7-2
+Add Pin To Net: Unknown Pin: Pin R8-1
+Add Pin To Net: Unknown Pin: Pin R8-2
+Add Pin To Net: Unknown Pin: Pin R26-1
+Add Pin To Net: Unknown Pin: Pin R26-2
+Add Pin To Net: Unknown Pin: Pin R29-1
+Add Pin To Net: Unknown Pin: Pin R29-2
+Add Pin To Net: Unknown Pin: Pin R32-1
+Add Pin To Net: Unknown Pin: Pin R32-2
+Add Pin To Net: Unknown Pin: Pin R33-1
+Add Pin To Net: Unknown Pin: Pin R33-2
+Add Pin To Net: Unknown Pin: Pin VD2-A
+Add Pin To Net: Unknown Pin: Pin VD2-K
+Add Pin To Net: Unknown Pin: Pin VD3-A
+Add Pin To Net: Unknown Pin: Pin VD3-K
+Add Pin To Net: Unknown Pin: Pin VD5-A
+Add Pin To Net: Unknown Pin: Pin VD5-K
+Add Pin To Net: Unknown Pin: Pin XS1-A1
+Add Pin To Net: Unknown Pin: Pin XS1-A4
+Add Pin To Net: Unknown Pin: Pin XS1-A5
+Add Pin To Net: Unknown Pin: Pin XS1-A6
+Add Pin To Net: Unknown Pin: Pin XS1-A7
+Add Pin To Net: Unknown Pin: Pin XS1-A9
+Add Pin To Net: Unknown Pin: Pin XS1-A12
+Add Pin To Net: Unknown Pin: Pin XS1-B5
+Add Pin To Net: Unknown Pin: Pin XS1-B6
+Add Pin To Net: Unknown Pin: Pin XS1-B7
+Add Pin To Net: Unknown Pin: Pin XS1-S1
+Add Class Member: Failed to add class member : Component C3 CAPACITOR
+Add Class Member: Failed to add class member : Component C4 CAPACITOR
+Add Class Member: Failed to add class member : Component C5 CAPACITOR
+Add Class Member: Failed to add class member : Component C6 CAPACITOR
+Add Class Member: Failed to add class member : Component C7 CAPACITOR
+Add Class Member: Failed to add class member : Component C8 CAPACITOR
+Add Class Member: Failed to add class member : Component C9 CAPACITOR
+Add Class Member: Failed to add class member : Component C10 CAPACITOR
+Add Class Member: Failed to add class member : Component C11 CAPACITOR
+Add Class Member: Failed to add class member : Component C12 CAPACITOR
+Add Class Member: Failed to add class member : Component C13 CAPACITOR
+Add Class Member: Failed to add class member : Component C14 CAPACITOR
+Add Class Member: Failed to add class member : Component C15 CAPACITOR
+Add Class Member: Failed to add class member : Component D2 TP4056
+Add Class Member: Failed to add class member : Component D9 TTP223-BA6
+Add Class Member: Failed to add class member : Component DD1 STM32F411CEU6
+Add Class Member: Failed to add class member : Component R7 RESISTOR
+Add Class Member: Failed to add class member : Component R8 RESISTOR
+Add Class Member: Failed to add class member : Component R26 RESISTOR
+Add Class Member: Failed to add class member : Component R29 RESISTOR
+Add Class Member: Failed to add class member : Component R32 RESISTOR
+Add Class Member: Failed to add class member : Component R33 RESISTOR
+Add Class Member: Failed to add class member : Component VD2 LED
+Add Class Member: Failed to add class member : Component VD3 LED
+Add Class Member: Failed to add class member : Component VD5 LED
+Add Class Member: Failed to add class member : Component XS1 USB3.1TYPE-C 16PF-26

@@ -1,0 +1,146 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "BME688"
+   (description "Gas sensor measuring relative humidity, barometric pressure, ambient temperature and gas (VOC)")
+   (family "ANA")
+   (package "BME688")
+   (attribute "Datasheet Link" "https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bme688-ds000.pdf")
+   (attribute "Geometry.Height" "1mm")
+   (attribute "Manufacturer_Name" "BOSCH")
+   (attribute "Manufacturer_Part_Number" "BME688")
+   (attribute "Mouser Part Number" "262-BME688")
+   (attribute "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Bosch-Sensortec/BME688?qs=IS%252B4QmGtzzqQoVDscqwx3A%3D%3D")
+   (attribute "Arrow Part Number" "BME688")
+   (attribute "Arrow Price/Stock" "https://www.arrow.com/en/products/bme688/bosch-sensortec?utm_currency=USD&region=nac")
+   (gate
+    (symbol "BME688")
+    (pin "GND_1" 1 PS)
+    (pin "CSB" 2 PS)
+    (pin "SDI" 3 PS)
+    (pin "SCK" 4 PS)
+    (pin "SDO" 5 PS)
+    (pin "VDDIO" 6 PS)
+    (pin "GND_2" 7 PS)
+    (pin "VDD" 8 PS)
+   )
+  )
+  (symbol "BME688"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 1000 100) (pt 1000 -400) (pt 200 -400) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 1200 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -200) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 1200 -300) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -300) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -200) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "BME688"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -1.5 1.5)
+      (pt 1.5 1.5)
+      (pt 1.5 -1.5)
+      (pt -1.5 -1.5)
+      (pt -1.5 1.5))))
+   (layer OCCA
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt -2.5 2.5)
+      (pt 2.5 2.5)
+      (pt 2.5 -2.5)
+      (pt -2.5 -2.5)
+      (pt -2.5 2.5))))
+   (layer TSLK
+    (graphic
+     (stroke 0.1)
+     (path
+      (closed true)
+      (pt 2.1 1.2)
+      (arc (pt 2.100 1.200) (pt 2.000 1.150) (pt 2.100 1.250) (start 180.0) (sweep .0))
+      (pt 2 1.2)
+      (arc (pt 2.000 1.200) (pt 2.000 1.150) (pt 2.100 1.250) (start 180.0) (sweep 180.0))
+      (pt 2.1 1.2))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -0.6 1.5)
+      (pt 0.6 1.5))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -0.6 -1.5)
+      (pt 0.6 -1.5))))
+   (leg 1 (pt 1.200 1.200) (padstack 0))
+   (leg 2 (pt 1.200 0.400) (padstack 0))
+   (leg 3 (pt 1.200 -0.400) (padstack 0))
+   (leg 4 (pt 1.200 -1.200) (padstack 0))
+   (leg 5 (pt -1.200 -1.200) (padstack 0))
+   (leg 6 (pt -1.200 -0.400) (padstack 0))
+   (leg 7 (pt -1.200 0.400) (padstack 0))
+   (leg 8 (pt -1.200 1.200) (padstack 0))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (square 0.400))
+   )
+   (model "BME688.stp"
+    (euler 90 0 0)
+    (offset 0 0 0)
+   )
+  )
+ )
+)

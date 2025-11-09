@@ -1,0 +1,265 @@
+Removed Pin From Net: NetName=GND Pin=C2-1
+Removed Pin From Net: NetName=+5V Pin=C2-2
+Change component parameters: Designator = "C2" ("C2"); Footprint = "CAP_0603"; UniqueID = "\GHWTTNVW" ("\GHWTTNVW")
+Change component parameters (AddParameter): Name = "Dielectric"; Value = "X5R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX5R8BB106"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_106_25_10_X5R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Replace"; Value = "GRM188R61E106KA73D"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10,0uF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Component: Designator=C1(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX7R8BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_104_25_10_X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0,1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Component: Designator=C3(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX7R8BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_104_25_10_X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0,1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Component: Designator=C5(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX7R8BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_104_25_10_X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0,1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Component: Designator=C6(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX7R8BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_104_25_10_X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0,1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Component: Designator=C7(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX7R8BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_104_25_10_X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0,1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Component: Designator=C8(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX7R8BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_104_25_10_X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0,1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Component: Designator=C9(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX7R8BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_104_25_10_X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0,1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Component: Designator=C10(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX7R8BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_104_25_10_X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0,1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found CAP_0603
+Added Component: Designator=C12(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X5R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX5R8BB105"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_105_25_10_X5R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1,0uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Component: Designator=C13(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX7R8BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_104_25_10_X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0,1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Component: Designator=C14(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X5R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX5R8BB105"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_105_25_10_X5R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1,0uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found CAP_0603
+Add Component: Footprint Not Found ESOP-8
+Add Component: Footprint Not Found SOT-23-6L_1
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found RES_0603
+Add Component: Footprint Not Found LED_0603_R
+Add Component: Footprint Not Found LED_0603_G
+Add Component: Footprint Not Found LED_0603_G
+Add Component: Footprint Not Found USB3.1TYPE-C 16PF-26
+Added Pin To Net: NetName=+5V Pin=C1-1
+Added Pin To Net: NetName=GND Pin=C1-2
+Added Pin To Net: NetName=+5V Pin=C2-1
+Added Pin To Net: NetName=GND Pin=C2-2
+Added Pin To Net: NetName=+5V Pin=C3-1
+Added Pin To Net: NetName=GND Pin=C3-2
+Added Pin To Net: NetName=+3V3 Pin=C5-1
+Added Pin To Net: NetName=GNDB Pin=C5-2
+Added Pin To Net: NetName=+3V3 Pin=C6-1
+Added Pin To Net: NetName=GNDB Pin=C6-2
+Added Pin To Net: NetName=GNDB Pin=C7-2
+Added Pin To Net: NetName=+3V3 Pin=C8-1
+Added Pin To Net: NetName=GNDB Pin=C8-2
+Added Pin To Net: NetName=+3V3 Pin=C9-1
+Added Pin To Net: NetName=GNDB Pin=C9-2
+Added Pin To Net: NetName=+3V3 Pin=C10-1
+Added Pin To Net: NetName=GNDB Pin=C10-2
+Add Pin To Net: Unknown Pin: Pin C11-1
+Add Pin To Net: Unknown Pin: Pin C11-2
+Added Pin To Net: NetName=GNDB Pin=C12-1
+Added Pin To Net: NetName=+4V2_BAT Pin=C12-2
+Added Pin To Net: NetName=ADC_CHARGE_LVL Pin=C13-1
+Added Pin To Net: NetName=GNDB Pin=C13-2
+Added Pin To Net: NetName=GNDB Pin=C14-1
+Added Pin To Net: NetName=+3V3 Pin=C14-2
+Add Pin To Net: Unknown Pin: Pin C15-1
+Add Pin To Net: Unknown Pin: Pin C15-2
+Add Pin To Net: Unknown Pin: Pin C16-1
+Add Pin To Net: Unknown Pin: Pin C16-2
+Add Pin To Net: Unknown Pin: Pin C17-1
+Add Pin To Net: Unknown Pin: Pin C17-2
+Add Pin To Net: Unknown Pin: Pin C18-1
+Add Pin To Net: Unknown Pin: Pin C18-2
+Add Pin To Net: Unknown Pin: Pin C19-1
+Add Pin To Net: Unknown Pin: Pin C19-2
+Add Pin To Net: Unknown Pin: Pin C20-1
+Add Pin To Net: Unknown Pin: Pin C20-2
+Add Pin To Net: Unknown Pin: Pin C21-1
+Add Pin To Net: Unknown Pin: Pin C21-2
+Add Pin To Net: Unknown Pin: Pin C22-1
+Add Pin To Net: Unknown Pin: Pin C22-2
+Add Pin To Net: Unknown Pin: Pin D1-0
+Add Pin To Net: Unknown Pin: Pin D1-1
+Add Pin To Net: Unknown Pin: Pin D1-2
+Add Pin To Net: Unknown Pin: Pin D1-3
+Add Pin To Net: Unknown Pin: Pin D1-4
+Add Pin To Net: Unknown Pin: Pin D1-5
+Add Pin To Net: Unknown Pin: Pin D1-6
+Add Pin To Net: Unknown Pin: Pin D1-7
+Add Pin To Net: Unknown Pin: Pin D1-8
+Add Pin To Net: Unknown Pin: Pin D6-1
+Add Pin To Net: Unknown Pin: Pin D6-2
+Add Pin To Net: Unknown Pin: Pin D6-3
+Add Pin To Net: Unknown Pin: Pin D6-4
+Add Pin To Net: Unknown Pin: Pin D6-5
+Add Pin To Net: Unknown Pin: Pin D6-6
+Add Pin To Net: Unknown Pin: Pin R7-1
+Add Pin To Net: Unknown Pin: Pin R7-2
+Add Pin To Net: Unknown Pin: Pin R8-1
+Add Pin To Net: Unknown Pin: Pin R8-2
+Add Pin To Net: Unknown Pin: Pin R34-1
+Add Pin To Net: Unknown Pin: Pin R34-2
+Add Pin To Net: Unknown Pin: Pin R39-1
+Add Pin To Net: Unknown Pin: Pin R39-2
+Add Pin To Net: Unknown Pin: Pin R41-1
+Add Pin To Net: Unknown Pin: Pin R41-2
+Add Pin To Net: Unknown Pin: Pin R42-1
+Add Pin To Net: Unknown Pin: Pin R42-2
+Add Pin To Net: Unknown Pin: Pin VD3-A
+Add Pin To Net: Unknown Pin: Pin VD3-K
+Add Pin To Net: Unknown Pin: Pin VD4-A
+Add Pin To Net: Unknown Pin: Pin VD4-K
+Add Pin To Net: Unknown Pin: Pin VD5-A
+Add Pin To Net: Unknown Pin: Pin VD5-K
+Add Pin To Net: Unknown Pin: Pin XS1-A1
+Add Pin To Net: Unknown Pin: Pin XS1-A4
+Add Pin To Net: Unknown Pin: Pin XS1-A5
+Add Pin To Net: Unknown Pin: Pin XS1-A6
+Add Pin To Net: Unknown Pin: Pin XS1-A7
+Add Pin To Net: Unknown Pin: Pin XS1-A9
+Add Pin To Net: Unknown Pin: Pin XS1-A12
+Add Pin To Net: Unknown Pin: Pin XS1-B5
+Add Pin To Net: Unknown Pin: Pin XS1-B6
+Add Pin To Net: Unknown Pin: Pin XS1-B7
+Add Pin To Net: Unknown Pin: Pin XS1-S1
+Added Pin To Net: NetName=NetC7_1 Pin=C7-1
+Added Pin To Net: NetName=NetC7_1 Pin=D2-5
+Added Pin To Net: NetName=NetC7_1 Pin=R6-2
+Added Net: Name=NetC7_1
+Added Member To Class: ClassName=Power Member=Component C1 CAPACITOR
+Added Member To Class: ClassName=Power Member=Component C3 CAPACITOR
+Added Member To Class: ClassName=Power Member=Component C5 CAPACITOR
+Added Member To Class: ClassName=Power Member=Component C6 CAPACITOR
+Added Member To Class: ClassName=Power Member=Component C7 CAPACITOR
+Added Member To Class: ClassName=Power Member=Component C8 CAPACITOR
+Added Member To Class: ClassName=Power Member=Component C9 CAPACITOR
+Added Member To Class: ClassName=Power Member=Component C10 CAPACITOR
+Add Class Member: Failed to add class member : Component C11 CAPACITOR
+Added Member To Class: ClassName=Power Member=Component C12 CAPACITOR
+Added Member To Class: ClassName=Power Member=Component C13 CAPACITOR
+Added Member To Class: ClassName=Power Member=Component C14 CAPACITOR
+Add Class Member: Failed to add class member : Component C15 CAPACITOR
+Add Class Member: Failed to add class member : Component C16 CAPACITOR
+Add Class Member: Failed to add class member : Component C17 CAPACITOR
+Add Class Member: Failed to add class member : Component C18 CAPACITOR
+Add Class Member: Failed to add class member : Component C19 CAPACITOR
+Add Class Member: Failed to add class member : Component C20 CAPACITOR
+Add Class Member: Failed to add class member : Component C21 CAPACITOR
+Add Class Member: Failed to add class member : Component C22 CAPACITOR
+Add Class Member: Failed to add class member : Component D1 TP4056
+Add Class Member: Failed to add class member : Component D6 TTP223-BA6
+Add Class Member: Failed to add class member : Component R7 RESISTOR
+Add Class Member: Failed to add class member : Component R8 RESISTOR
+Add Class Member: Failed to add class member : Component R34 RESISTOR
+Add Class Member: Failed to add class member : Component R39 RESISTOR
+Add Class Member: Failed to add class member : Component R41 RESISTOR
+Add Class Member: Failed to add class member : Component R42 RESISTOR
+Add Class Member: Failed to add class member : Component VD3 LED
+Add Class Member: Failed to add class member : Component VD4 LED
+Add Class Member: Failed to add class member : Component VD5 LED
+Add Class Member: Failed to add class member : Component XS1 USB3.1TYPE-C 16PF-26

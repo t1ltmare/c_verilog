@@ -1,0 +1,223 @@
+;Proteus Design Interchange Format
+(PDIF
+ (vendor "SamacSys Limited")
+ (version 1 0)
+ (library
+  (part "L-KLS1-TF-003-H1.85-R"
+   (description "Micro SD Card Connector")
+   (family "CON")
+   (package "L-KLS1-TF-003-H1.85-R")
+   (attribute "Datasheet Link" "https://img.ozdisan.com/ETicaret_Dosya/476392_7149645.pdf")
+   (attribute "Manufacturer_Name" "KLS Electronic")
+   (attribute "Manufacturer_Part_Number" "L-KLS1-TF-003-H1.85-R")
+   (attribute "Mouser Part Number" "")
+   (attribute "Mouser Price/Stock" "")
+   (attribute "Arrow Part Number" "")
+   (attribute "Arrow Price/Stock" "")
+   (gate
+    (symbol "L-KLS1-TF-003-H1.85-R")
+    (pin "1" 1 PS)
+    (pin "2" 2 PS)
+    (pin "3" 3 PS)
+    (pin "4" 4 PS)
+    (pin "5" 5 PS)
+    (pin "6" 6 PS)
+    (pin "7" 7 PS)
+    (pin "8" 8 PS)
+    (pin "9" 9 PS)
+    (pin "G_1" 10 PS)
+    (pin "G_2" 11 PS)
+    (pin "G_3" 12 PS)
+    (pin "G_4" 13 PS)
+   )
+  )
+  (symbol "L-KLS1-TF-003-H1.85-R"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 200 100) (pt 700 100) (pt 700 -700) (pt 200 -700) (pt 200 100) (closed))
+   )
+   (terminal
+    (body (symbol "PIN") (pt 0 0) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -100) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -200) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -300) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -400) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -500) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 0 -600) (rot 0) (mir 0) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 0) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 -100) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 -200) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 -300) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 -400) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+   (terminal
+    (body (symbol "PIN") (pt 900 -500) (rot 0) (mir X) (visible true))
+    (name (pt 230 0) (rot 0) (just MIDDLE LEFT) (visible true))
+    (number (pt 140 20) (rot 0) (just BOTTOM RIGHT) (visible true)))
+  )
+  (symbol "PIN"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 200 0))))
+  (symbol "PINSHORT"
+   (units THOU)
+   (origin (pt 0 0))
+   (graphic
+    (stroke 10)
+    (path (pt 0 0) (pt 100 0))))
+  (package "L-KLS1-TF-003-H1.85-R"
+   (units MM)
+   (layer TASM
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed true)
+      (pt -7.375 10.431)
+      (pt 7.375 10.431)
+      (pt 7.375 -2.706)
+      (pt -7.375 -2.706)
+      (pt -7.375 10.431))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -7.375 8.95)
+      (pt -7.375 1.835))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -7.375 -2.706)
+      (pt 7.375 -2.706))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt 7.375 8.95)
+      (pt 7.375 1.835))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt 2.95 10.431)
+      (pt 5.698 10.431))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt -7.375 -2.706)
+      (pt -7.375 -1.104))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (path
+      (closed false)
+      (pt 7.375 -2.706)
+      (pt 7.375 -1.104))))
+   (layer TSLK
+    (graphic
+     (stroke 0.2)
+     (circle
+      (pt 2.27706 11.802) (pt 2.34494 11.802)
+     )
+    )
+   )
+   (leg 1 (pt 2.25 10.6) (padstack 0))
+   (leg 2 (pt 1.15 10.6) (padstack 0))
+   (leg 3 (pt 0.05 10.6) (padstack 0))
+   (leg 4 (pt -1.05 10.6) (padstack 0))
+   (leg 5 (pt -2.15 10.6) (padstack 0))
+   (leg 6 (pt -3.25 10.6) (padstack 0))
+   (leg 7 (pt -4.35 10.6) (padstack 0))
+   (leg 8 (pt -5.45 10.6) (padstack 0))
+   (leg 9 (pt -6.55 10.6) (padstack 0))
+   (leg 10 (pt -8 10) (padstack 10))
+   (leg 11 (pt -7.75 0.4) (padstack 11))
+   (leg 12 (pt 7.75 0.4) (padstack 12))
+   (leg 13 (pt 6.85 10) (padstack 13))
+   (leg 14 (pt 3.05 0) (padstack 14))
+   (leg 15 (pt -4.95 0) (padstack 15))
+   (padstack 0
+    (plated false)
+    (pad (layer TCOP) (rectf 0.7 1.4 0 0 90))
+   )
+   (padstack 10
+    (plated false)
+    (pad (layer TCOP) (rectf 1.4 1.6 0 0 0))
+   )
+   (padstack 11
+    (plated false)
+    (pad (layer TCOP) (rectf 1.2 2.2 0 0 90))
+   )
+   (padstack 12
+    (plated false)
+    (pad (layer TCOP) (rectf 1.2 2.2 0 0 90))
+   )
+   (padstack 13
+    (plated false)
+    (pad (layer TCOP) (rectf 1.4 1.6 0 0 0))
+   )
+   (padstack 15
+    (hole 0.9)
+    (plated true)
+    (pad (layer TCOP) (round 1.4))
+    (pad (layer INNER) (round 1.4))
+    (pad (layer BCOP) (round 1.4))
+   )
+   (padstack 14
+    (hole 0.9)
+    (plated true)
+    (pad (layer TCOP) (round 1.4))
+    (pad (layer INNER) (round 1.4))
+    (pad (layer BCOP) (round 1.4))
+   )
+   (model "L-KLS1-TF-003-H1.85-R.stp"
+    (euler 90 0 180)
+    (offset -0.8999999761581421 10.510000228881836 0)
+   )
+  )
+ )
+)
