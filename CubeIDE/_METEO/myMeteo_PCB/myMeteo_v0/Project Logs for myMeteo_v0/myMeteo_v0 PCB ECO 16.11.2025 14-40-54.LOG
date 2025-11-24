@@ -1,0 +1,16 @@
+Removed Pin From Net: NetName=USB_VBUS Pin=R16-2
+Removed Pin From Net: NetName=USB_DN Pin=R16-4
+Removed Pin From Net: NetName=NetDD1_32 Pin=R16-5
+Removed Pin From Net: NetName=NetDD1_30 Pin=R16-7
+Removed Pin From Net: NetName=USB_DP Pin=R17-1
+Removed Pin From Net: NetName=SWDIO Pin=R17-2
+Removed Pin From Net: NetName=NetDD1_34 Pin=R17-7
+Removed Pin From Net: NetName=NetDD1_33 Pin=R17-8
+Added Pin To Net: NetName=USB_VBUS Pin=R16-1
+Added Pin To Net: NetName=USB_DN Pin=R16-2
+Added Pin To Net: NetName=USB_DP Pin=R16-3
+Added Pin To Net: NetName=SWDIO Pin=R16-4
+Added Pin To Net: NetName=NetDD1_34 Pin=R16-5
+Added Pin To Net: NetName=NetDD1_33 Pin=R16-6
+Added Pin To Net: NetName=NetDD1_32 Pin=R16-7
+Added Pin To Net: NetName=NetDD1_30 Pin=R16-8

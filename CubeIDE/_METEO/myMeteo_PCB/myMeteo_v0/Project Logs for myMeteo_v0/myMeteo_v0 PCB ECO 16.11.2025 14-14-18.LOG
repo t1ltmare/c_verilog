@@ -1,0 +1,14 @@
+Added Pin To Net: NetName=NetR35_2 Pin=D7-9
+Added Pin To Net: NetName=NetR36_2 Pin=D7-10
+Added Pin To Net: NetName=NetR36_2 Pin=D8-3
+Added Pin To Net: NetName=NetR35_2 Pin=D8-4
+Added Pin To Net: NetName=NetR36_2 Pin=D9-3
+Added Pin To Net: NetName=NetR35_2 Pin=D9-4
+Change Net Name : Old Net Name=NetR35_2 New Net Name=I2C1_SCL
+Change Net Name : Old Net Name=NetR36_2 New Net Name=I2C1_SDA
+Added Pin To Net: NetName=M_I2C1_SCL Pin=DD1-42
+Added Pin To Net: NetName=M_I2C1_SCL Pin=R35-1
+Added Net: Name=M_I2C1_SCL
+Added Pin To Net: NetName=M_I2C1_SDA Pin=DD1-43
+Added Pin To Net: NetName=M_I2C1_SDA Pin=R36-1
+Added Net: Name=M_I2C1_SDA

@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=GND Pin=R39-1
+Removed Pin From Net: NetName=ISTOUCH Pin=VD5-A
+Added Pin To Net: NetName=ISTOUCH Pin=R39-2
+Added Pin To Net: NetName=GND Pin=VD5-K
+Added Pin To Net: NetName=NetR39_1 Pin=R39-1
+Added Pin To Net: NetName=NetR39_1 Pin=VD5-A
+Added Net: Name=NetR39_1

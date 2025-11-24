@@ -1,0 +1,14 @@
+Removed Pin From Net: NetName=ADC_CHARGE_LVL Pin=R19-1
+Removed Member From Class: ClassName=MCU Member=R19
+Change component parameters: Designator = "C19" ("C19"); Footprint = "CAP_0603"; UniqueID = "\WSZJZZZB" ("\WSZJZZZB")
+Change component parameters (AddParameter): Name = "Dielectric"; Value = "X5R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX5R8BB106"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_106_25_10_X5R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Replace"; Value = "GRM188R61E106KA73D"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "10,0uF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=ADC_CHARGE_LVL Pin=DD1-13

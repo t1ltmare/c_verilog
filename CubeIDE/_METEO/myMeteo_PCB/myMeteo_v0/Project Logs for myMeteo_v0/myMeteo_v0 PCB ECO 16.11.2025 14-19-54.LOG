@@ -1,0 +1,20 @@
+Change Component Footprint: Designator=R1 Old Footprint=RES_0402 New Footprint=RES_0603
+Change Component Footprint: Designator=R2 Old Footprint=RES_0402 New Footprint=RES_0603
+Change component parameters: Designator = "R1" ("R1"); Footprint = "RES_0402"; UniqueID = "\YOCQUOLD" ("\YOCQUOLD")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "RC0603JR-078K2L"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RES_SMD_0603_8K2_5%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power"; Value = "100mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "5%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "8,2K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R2" ("R2"); Footprint = "RES_0402"; UniqueID = "\TETLQAEA" ("\TETLQAEA")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "RC0603FR-0712KL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RES_SMD_0603_12K_1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power"; Value = "100mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "1%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "12K"; VariantName = "[No Variations]"

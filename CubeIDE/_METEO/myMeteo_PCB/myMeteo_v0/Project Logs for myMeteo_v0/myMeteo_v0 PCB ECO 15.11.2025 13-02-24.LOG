@@ -1,0 +1,13 @@
+Removed Pin From Net: NetName=GNDB Pin=C11-2
+Removed Pin From Net: NetName=GNDB Pin=TP4-1
+Added Component: Designator=XP1(PH2.0)
+Add component (AddParameter): Name = "Manufacturer"; Value = "China"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "PH2.0"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "PH2.0"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "HEADER"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "PH2.0"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=GND Pin=C11-2
+Added Pin To Net: NetName=GND Pin=TP4-1
+Added Pin To Net: NetName=+4V2_BAT Pin=XP1-1
+Added Pin To Net: NetName=GNDB Pin=XP1-2
+Added Member To Class: ClassName=Power Member=Component XP1 HEADER-2x1-M

@@ -1,0 +1,115 @@
+Removed Pin From Net: NetName=ADC_CHARGE_LVL Pin=DD1-13
+Removed Pin From Net: NetName=EPD_BUSY Pin=R16-1
+Removed Pin From Net: NetName=NetDD1_10 Pin=R16-2
+Removed Pin From Net: NetName=EPD_DC Pin=R17-1
+Removed Pin From Net: NetName=NetDD1_11 Pin=R17-2
+Removed Pin From Net: NetName=EPD_RESET Pin=R18-1
+Removed Pin From Net: NetName=NetDD1_12 Pin=R18-2
+Removed Pin From Net: NetName=EPD_CS Pin=R20-1
+Removed Pin From Net: NetName=NetDD1_14 Pin=R20-2
+Removed Pin From Net: NetName=SPI1_CLK Pin=R21-1
+Removed Pin From Net: NetName=NetDD1_15 Pin=R21-2
+Removed Pin From Net: NetName=SPI1_MISO Pin=R22-1
+Removed Pin From Net: NetName=NetDD1_16 Pin=R22-2
+Removed Pin From Net: NetName=SPI1_MOSI Pin=R23-1
+Removed Pin From Net: NetName=NetDD1_17 Pin=R23-2
+Removed Pin From Net: NetName=USB_VBUS Pin=R25-1
+Removed Pin From Net: NetName=NetDD1_30 Pin=R25-2
+Removed Pin From Net: NetName=USB_DN Pin=R26-1
+Removed Pin From Net: NetName=NetDD1_32 Pin=R26-2
+Removed Pin From Net: NetName=USB_DP Pin=R27-1
+Removed Pin From Net: NetName=NetDD1_33 Pin=R27-2
+Removed Pin From Net: NetName=SWDIO Pin=R28-1
+Removed Pin From Net: NetName=NetDD1_34 Pin=R28-2
+Removed Pin From Net: NetName=SWCLK Pin=R29-1
+Removed Pin From Net: NetName=NetDD1_37 Pin=R29-2
+Removed Pin From Net: NetName=SPI1_CS Pin=R30-1
+Removed Pin From Net: NetName=NetDD1_38 Pin=R30-2
+Removed Member From Class: ClassName=MCU Member=R18
+Removed Member From Class: ClassName=MCU Member=R20
+Removed Member From Class: ClassName=MCU Member=R21
+Removed Member From Class: ClassName=MCU Member=R22
+Removed Member From Class: ClassName=MCU Member=R23
+Removed Member From Class: ClassName=MCU Member=R25
+Removed Member From Class: ClassName=MCU Member=R26
+Removed Member From Class: ClassName=MCU Member=R27
+Removed Member From Class: ClassName=MCU Member=R28
+Removed Member From Class: ClassName=MCU Member=R29
+Removed Member From Class: ClassName=MCU Member=R30
+Removed Member From Class: ClassName=MCU Member=R?
+Change Component Footprint: Designator=R16 Old Footprint=RES_0603 New Footprint=RES_ARRAY_0804_CONVEX
+Change Component Footprint: Designator=R17 Old Footprint=RES_0603 New Footprint=RES_ARRAY_0804_CONVEX
+Change Component Comment : Designator=R16 Old Comment=RESISTOR New Comment=RESISTOR_ARRAY
+Change Component Comment : Designator=R17 Old Comment=RESISTOR New Comment=RESISTOR_ARRAY
+Change Component Designator: OldDesignator=R? NewDesignator=R5
+Change component parameters: Designator = "R1" ("R1"); Footprint = "RES_0603"; UniqueID = "\BTWHEZHO" ("\BTWHEZHO")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "RC0603JR-076K2L"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RES_SMD_0603_6K2_5%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power"; Value = "100mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "5%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "6,2K"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R16" ("R16"); Footprint = "RES_0603"; UniqueID = "\GDXEYIWW" ("\GDXEYIWW")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "YC124-JR-0733RL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RES_ARR_CAY10_33R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Type"; Value = "ARRAY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power"; Value = "31mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Replace"; Value = "CAY10-330J4LF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Size"; Value = "0804"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "5%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "33"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R17" ("R17"); Footprint = "RES_0603"; UniqueID = "\EPXVJLMO" ("\EPXVJLMO")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = "YC124-JR-0733RL"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Number"; Value = "RES_ARR_CAY10_33R"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Part Type"; Value = "ARRAY"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Power"; Value = "31mW"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Replace"; Value = "CAY10-330J4LF"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Size"; Value = "0804"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Tolerance"; Value = "5%"; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "33"; VariantName = "[No Variations]"
+Added Component: Designator=R12(RES_ARRAY_0804_CONVEX)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "YC124-JR-0733RL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "RES_ARR_CAY10_33R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "ARRAY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "31mW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Replace"; Value = "CAY10-330J4LF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0804"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "33"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=EPD_BUSY Pin=R5-1
+Added Pin To Net: NetName=EPD_DC Pin=R5-2
+Added Pin To Net: NetName=EPD_RESET Pin=R5-3
+Added Pin To Net: NetName=ADC_CHARGE_LVL Pin=R5-4
+Added Pin To Net: NetName=NetDD1_12 Pin=R5-6
+Added Pin To Net: NetName=NetDD1_11 Pin=R5-7
+Added Pin To Net: NetName=NetDD1_10 Pin=R5-8
+Added Pin To Net: NetName=EPD_CS Pin=R12-1
+Added Pin To Net: NetName=SPI1_CLK Pin=R12-2
+Added Pin To Net: NetName=SPI1_MISO Pin=R12-3
+Added Pin To Net: NetName=SPI1_MOSI Pin=R12-4
+Added Pin To Net: NetName=NetDD1_17 Pin=R12-5
+Added Pin To Net: NetName=NetDD1_16 Pin=R12-6
+Added Pin To Net: NetName=NetDD1_15 Pin=R12-7
+Added Pin To Net: NetName=NetDD1_14 Pin=R12-8
+Added Pin To Net: NetName=USB_VBUS Pin=R16-2
+Added Pin To Net: NetName=USB_DN Pin=R16-4
+Added Pin To Net: NetName=NetDD1_32 Pin=R16-5
+Added Pin To Net: NetName=NetDD1_30 Pin=R16-7
+Added Pin To Net: NetName=USB_DP Pin=R17-1
+Added Pin To Net: NetName=SWDIO Pin=R17-2
+Added Pin To Net: NetName=SWCLK Pin=R17-3
+Added Pin To Net: NetName=SPI1_CS Pin=R17-4
+Added Pin To Net: NetName=NetDD1_38 Pin=R17-5
+Added Pin To Net: NetName=NetDD1_37 Pin=R17-6
+Added Pin To Net: NetName=NetDD1_34 Pin=R17-7
+Added Pin To Net: NetName=NetDD1_33 Pin=R17-8
+Added Pin To Net: NetName=NetDD1_13 Pin=DD1-13
+Added Pin To Net: NetName=NetDD1_13 Pin=R5-5
+Added Net: Name=NetDD1_13
+Added Member To Class: ClassName=MCU Member=Component R5 RESISTOR_ARRAY
+Added Member To Class: ClassName=MCU Member=Component R12 RESISTOR_ARRAY

@@ -1,0 +1,13 @@
+Added Component: Designator=C11(CAP_0603)
+Add component (AddParameter): Name = "Dielectric"; Value = "X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "CC0603KRX7R8BB104"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "CAP_CER_0603_104_25_10_X7R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0603"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "10%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "0,1uF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Voltage"; Value = "25V"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=+4V2_BAT Pin=C11-1
+Added Pin To Net: NetName=GND Pin=C11-2
+Added Member To Class: ClassName=Power Member=Component C11 CAPACITOR

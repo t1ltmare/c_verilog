@@ -1,0 +1,24 @@
+Removed Pin From Net: NetName=NetDD1_39 Pin=R18-1
+Removed Pin From Net: NetName=NetDD1_42 Pin=R18-3
+Removed Pin From Net: NetName=NetDD1_43 Pin=R18-4
+Removed Pin From Net: NetName=I2C1_SDA Pin=R18-5
+Removed Pin From Net: NetName=I2C1_SCL Pin=R18-6
+Removed Pin From Net: NetName=ISTOUCH Pin=R18-8
+Removed Member From Class: ClassName=MCU Member=R18
+Added Component: Designator=R?(RES_ARRAY_0804_CONVEX)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "YC124-JR-0733RL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "RES_ARR_CAY10_33R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "ARRAY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "31mW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Replace"; Value = "CAY10-330J4LF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0804"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "33"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=NetDD1_43 Pin=R?-1
+Added Pin To Net: NetName=NetDD1_42 Pin=R?-2
+Added Pin To Net: NetName=NetDD1_39 Pin=R?-4
+Added Pin To Net: NetName=ISTOUCH Pin=R?-5
+Added Pin To Net: NetName=I2C1_SCL Pin=R?-7
+Added Pin To Net: NetName=I2C1_SDA Pin=R?-8
+Added Member To Class: ClassName=MCU Member=Component R? RESISTOR_ARRAY

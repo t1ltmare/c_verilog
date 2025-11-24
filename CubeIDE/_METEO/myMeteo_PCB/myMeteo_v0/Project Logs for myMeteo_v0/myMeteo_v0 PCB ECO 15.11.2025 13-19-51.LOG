@@ -1,0 +1,37 @@
+Removed Pin From Net: NetName=GNDB Pin=C7-2
+Removed Pin From Net: NetName=GNDB Pin=D2-6
+Removed Pin From Net: NetName=GNDB Pin=D3-2
+Removed Pin From Net: NetName=GNDB Pin=D3-3
+Removed Pin From Net: NetName=GNDB Pin=XP1-2
+Added Pin To Net: NetName=GNDB Pin=C1-2
+Added Pin To Net: NetName=GNDB Pin=C2-2
+Added Pin To Net: NetName=GNDB Pin=C3-2
+Added Pin To Net: NetName=GNDB Pin=C4-2
+Added Pin To Net: NetName=GNDB Pin=D1-0
+Added Pin To Net: NetName=GNDB Pin=D1-3
+Added Pin To Net: NetName=GNDB Pin=D3-6
+Added Pin To Net: NetName=GNDB Pin=D3-7
+Added Pin To Net: NetName=GNDB Pin=R2-1
+Added Pin To Net: NetName=GNDB Pin=R3-2
+Added Pin To Net: NetName=GNDB Pin=R4-2
+Added Pin To Net: NetName=GNDB Pin=R9-1
+Added Pin To Net: NetName=GNDB Pin=R10-2
+Added Pin To Net: NetName=GNDB Pin=R11-2
+Added Pin To Net: NetName=GNDB Pin=TP2-1
+Added Pin To Net: NetName=GNDB Pin=TP4-1
+Added Pin To Net: NetName=GNDB Pin=VD1-2
+Added Pin To Net: NetName=GNDB Pin=VD2-2
+Added Pin To Net: NetName=GNDB Pin=XS1-A1
+Added Pin To Net: NetName=GNDB Pin=XS1-A12
+Added Pin To Net: NetName=GNDB Pin=XS1-S1
+Added Pin To Net: NetName=GNDB Pin=XS1-S1
+Added Pin To Net: NetName=GNDB Pin=XS1-S1
+Added Pin To Net: NetName=GNDB Pin=XS1-S1
+Added Pin To Net: NetName=GNDB Pin=XS2-4
+Change Net Name : Old Net Name=GNDB New Net Name=GND
+Added Pin To Net: NetName=GNDB Pin=C7-2
+Added Pin To Net: NetName=GNDB Pin=D2-6
+Added Pin To Net: NetName=GNDB Pin=D3-2
+Added Pin To Net: NetName=GNDB Pin=D3-3
+Added Pin To Net: NetName=GNDB Pin=XP1-2
+Added Net: Name=GNDB

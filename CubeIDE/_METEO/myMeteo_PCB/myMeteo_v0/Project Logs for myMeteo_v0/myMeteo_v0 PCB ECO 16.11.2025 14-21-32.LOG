@@ -1,0 +1,32 @@
+Added Component: Designator=R?(RES_ARRAY_0804_CONVEX)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "YC124-JR-0733RL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "RES_ARR_CAY10_33R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "ARRAY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "31mW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Replace"; Value = "CAY10-330J4LF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "0804"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "33"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES_ARRAY_1206_CONVEX)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "YC164-JR-0733RL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "RES_ARR_CAY16_33R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "ARRAY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Power"; Value = "63mW"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Replace"; Value = "CAY16-330J4LF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "1206"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "33"; VariantName = "[No Variations]"
+Added Component: Designator=R?(RES_ARRAY_1206_CONCAVE)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Yageo"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "YT164-JR-0733RL"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Number"; Value = "RES_ARR_CAT16_33R"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Part Type"; Value = "ARRAY"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Replace"; Value = "CAT16-330J4LF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Size"; Value = "1206"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Tolerance"; Value = "5%"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "33"; VariantName = "[No Variations]"
+Added Member To Class: ClassName=MCU Member=Component R? RESISTOR_ARRAY
+Added Member To Class: ClassName=MCU Member=Component R? RESISTOR_ARRAY
+Added Member To Class: ClassName=MCU Member=Component R? RESISTOR_ARRAY
