@@ -1,0 +1,81 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "ModelSim I2CSlave Compile",
+            "type": "shell",
+            "command": "vsim",
+            "args": [
+                "-c",
+                "-do",
+                "compile_slave.do"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": false
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "ModelSim I2CSlave Simulate",
+            "type": "shell",
+            "command": "vsim",
+            "args": [
+                "-do",
+                "simulate_slave.do"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "ModelSim AudioRouter Compile",
+            "type": "shell",
+            "command": "vsim",
+            "args": [
+                "-c",
+                "-do",
+                "compile_audio_router.do"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "ModelSim AudioRouter Simulate",
+            "type": "shell",
+            "command": "vsim",
+            "args": [
+                "-do",
+                "simulate_audio_router_tb.do"
+            ],
+            "group": "build",
+            "presentation": {
+                "echo": true,
+                "reveal": "always",
+                "focus": false,
+                "panel": "shared"
+            },
+            "problemMatcher": []
+        }
+    ]
+}

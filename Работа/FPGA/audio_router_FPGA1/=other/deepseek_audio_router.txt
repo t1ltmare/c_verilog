@@ -1,0 +1,198 @@
+module audio_router (
+    input  logic         mclk,           // Основной тактовый сигнал
+    input  logic         lrck_48,        // LR clock 48 kHz
+    input  logic         sclk_3072,      // Serial clock 3.072 MHz
+    input  logic [47:0]  i2s_data_in,    // 48 входных линий I2S
+    input  logic [39:0]  register_file,  // Регистры от i2c_slave
+    output logic [3:0]   sdo_ff_bus,     // 4 выходные шины 192 kHz
+    output logic [3:0]   sdo_loopback    // 4 выхода на FPGA2 48 kHz
+);
+
+// Генерация тактовых сигналов
+logic sclk_12288;
+logic lrck_192;
+logic lrck_48_sync, lrck_192_sync;
+logic lrck_48_prev, lrck_192_prev;
+logic lrck_48_rise, lrck_48_fall;
+logic lrck_192_rise, lrck_192_fall;
+
+// Делитель частоты для sclk_12288
+always_ff @(posedge mclk) begin
+    sclk_12288 <= ~sclk_12288;
+end
+
+// Делитель частоты для lrck_192
+logic [6:0] lrck_counter;
+always_ff @(posedge mclk) begin
+    if (lrck_counter == 7'd127) begin
+        lrck_counter <= 7'd0;
+        lrck_192 <= ~lrck_192;
+    end else begin
+        lrck_counter <= lrck_counter + 7'd1;
+    end
+end
+
+// Синхронизация и детектирование фронтов
+always_ff @(posedge mclk) begin
+    lrck_48_sync <= lrck_48;
+    lrck_48_prev <= lrck_48_sync;
+    lrck_192_sync <= lrck_192;
+    lrck_192_prev <= lrck_192_sync;
+    
+    lrck_48_rise  <= ~lrck_48_prev && lrck_48_sync;
+    lrck_48_fall  <= lrck_48_prev && ~lrck_48_sync;
+    lrck_192_rise <= ~lrck_192_prev && lrck_192_sync;
+    lrck_192_fall <= lrck_192_prev && ~lrck_192_sync;
+end
+
+// Счетчики битов
+logic [5:0] sclk_3072_counter;
+logic [5:0] sclk_12288_counter;
+
+always_ff @(posedge sclk_3072) begin
+    if (lrck_48_rise || lrck_48_fall)
+        sclk_3072_counter <= 6'd0;
+    else
+        sclk_3072_counter <= sclk_3072_counter + 6'd1;
+end
+
+always_ff @(posedge sclk_12288) begin
+    if (lrck_192_rise || lrck_192_fall)
+        sclk_12288_counter <= 6'd0;
+    else
+        sclk_12288_counter <= sclk_12288_counter + 6'd1;
+end
+
+// Буферизация 96 каналов
+logic [23:0] channel_buffer [0:95]; // 96 каналов по 24 бита
+
+// Запись по спаду lrck_48 (нечетные/левые каналы)
+always_ff @(posedge sclk_3072) begin
+    if (lrck_48_fall) begin
+        for (int i = 0; i < 48; i++) begin
+            channel_buffer[2*i] <= i2s_data_in[i][23:0]; // 0L, 1L, 2L...
+        end
+    end
+end
+
+// Запись по фронту lrck_48 (четные/правые каналы)  
+always_ff @(posedge sclk_3072) begin
+    if (lrck_48_rise) begin
+        for (int i = 0; i < 48; i++) begin
+            channel_buffer[2*i + 1] <= i2s_data_in[i][23:0]; // 0R, 1R, 2R...
+        end
+    end
+end
+
+// Формирование выходных шин sdo_ff_bus
+logic [23:0] ff_channels [0:3][0:7]; // 4 шины по 8 каналов
+
+always_comb begin
+    // sdo_ff_bus[0] - первые 8 значений register_file
+    for (int i = 0; i < 8; i++) begin
+        ff_channels[0][i] = channel_buffer[register_file[i]];
+    end
+    
+    // sdo_ff_bus[1] - вторые 8 значений register_file
+    for (int i = 0; i < 8; i++) begin
+        ff_channels[1][i] = channel_buffer[register_file[8 + i]];
+    end
+    
+    // sdo_ff_bus[2] - третьи 8 значений register_file
+    for (int i = 0; i < 8; i++) begin
+        ff_channels[2][i] = channel_buffer[register_file[16 + i]];
+    end
+    
+    // sdo_ff_bus[3] - четвертые 8 значений register_file
+    for (int i = 0; i < 8; i++) begin
+        ff_channels[3][i] = channel_buffer[register_file[24 + i]];
+    end
+end
+
+// Последовательная передача для sdo_ff_bus
+logic [2:0] ff_channel_index [0:3];
+logic [4:0] ff_bit_index [0:3];
+
+generate
+for (genvar i = 0; i < 4; i++) begin : ff_bus_output
+    always_ff @(posedge sclk_12288) begin
+        if (lrck_192_rise) begin
+            ff_channel_index[i] <= 3'd0;
+            ff_bit_index[i] <= 5'd23;
+            sdo_ff_bus[i] <= ff_channels[i][0][23];
+        end else if (lrck_192_fall) begin
+            // Пауза между кадрами
+            sdo_ff_bus[i] <= 1'b0;
+        end else begin
+            if (ff_bit_index[i] == 5'd0) begin
+                // Переход к следующему каналу
+                ff_channel_index[i] <= ff_channel_index[i] + 3'd1;
+                ff_bit_index[i] <= 5'd23;
+                if (ff_channel_index[i] < 3'd7) begin
+                    sdo_ff_bus[i] <= ff_channels[i][ff_channel_index[i] + 3'd1][23];
+                end
+            end else begin
+                // Следующий бит
+                ff_bit_index[i] <= ff_bit_index[i] - 5'd1;
+                sdo_ff_bus[i] <= ff_channels[i][ff_channel_index[i]][ff_bit_index[i] - 5'd1];
+            end
+        end
+    end
+end
+endgenerate
+
+// LoopBack выходы
+logic [23:0] loopback_channels [0:3][0:1]; // 4 шины по 2 канала
+
+always_comb begin
+    // sdo_loopback[0] - каналы 32 и 33
+    loopback_channels[0][0] = channel_buffer[register_file[32]];
+    loopback_channels[0][1] = channel_buffer[register_file[33]];
+    
+    // sdo_loopback[1] - каналы 34 и 35
+    loopback_channels[1][0] = channel_buffer[register_file[34]];
+    loopback_channels[1][1] = channel_buffer[register_file[35]];
+    
+    // sdo_loopback[2] - каналы 36 и 37
+    loopback_channels[2][0] = channel_buffer[register_file[36]];
+    loopback_channels[2][1] = channel_buffer[register_file[37]];
+    
+    // sdo_loopback[3] - каналы 38 и 39
+    loopback_channels[3][0] = channel_buffer[register_file[38]];
+    loopback_channels[3][1] = channel_buffer[register_file[39]];
+end
+
+// Последовательная передача для sdo_loopback
+logic loopback_channel_sel [0:3];
+logic [4:0] loopback_bit_index [0:3];
+
+generate
+for (genvar i = 0; i < 4; i++) begin : loopback_output
+    always_ff @(posedge sclk_3072) begin
+        if (lrck_48_rise) begin
+            loopback_channel_sel[i] <= 1'b0;
+            loopback_bit_index[i] <= 5'd23;
+            sdo_loopback[i] <= loopback_channels[i][0][23];
+        end else if (lrck_48_fall) begin
+            loopback_channel_sel[i] <= 1'b1;
+            loopback_bit_index[i] <= 5'd23;
+            sdo_loopback[i] <= loopback_channels[i][1][23];
+        end else begin
+            if (loopback_bit_index[i] == 5'd0) begin
+                // 8 бит нулей после 24 бит данных
+                sdo_loopback[i] <= 1'b0;
+                loopback_bit_index[i] <= loopback_bit_index[i] - 5'd1;
+            end else if (loopback_bit_index[i] > 5'd0) begin
+                // Следующий бит данных
+                loopback_bit_index[i] <= loopback_bit_index[i] - 5'd1;
+                sdo_loopback[i] <= loopback_channels[i][loopback_channel_sel[i]][loopback_bit_index[i] - 5'd1];
+            end else begin
+                // Оставшиеся нули
+                sdo_loopback[i] <= 1'b0;
+            end
+        end
+    end
+end
+endgenerate
+
+endmodule
