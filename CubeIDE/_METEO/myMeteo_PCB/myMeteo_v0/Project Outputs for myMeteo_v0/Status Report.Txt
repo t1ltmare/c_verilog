@@ -1,0 +1,15 @@
+Output: Gerber Files
+Type  : Gerber
+From  : Variant [[No Variations]] of Project [myMeteo_v0.PrjPcb]
+   Generated File[myMeteo_v0.GTS]
+   Generated File[myMeteo_v0.GTL]
+   Generated File[myMeteo_v0.GBL]
+   Generated File[myMeteo_v0.GBS]
+   Generated File[myMeteo_v0.EXTREP]
+   Generated File[myMeteo_v0.REP]
+
+
+Files Generated   : 6
+Documents Printed : 0
+
+Finished Output Generation At 11:57:33 On 19.12.2025
